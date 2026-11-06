@@ -763,6 +763,10 @@
       "Very Negative": "特别差评",
       "Overwhelmingly Negative": "差评如潮",
       Joined: "加入于",
+      "Full precision, largest file": "完整精度，最大文件",
+      "Half precision, best balance (pruned)": "半精度，最佳平衡（已裁剪）",
+      "Download Selected": "下载所选",
+      "Generation License Fee": "生成许可费",
     },
 
     // ---- 图片列表 ----
@@ -897,6 +901,13 @@
       Other: "其他",
       "No Image": "无图片",
       "ch.": "章",
+      Browse: "浏览",
+      chapters: "章",
+      "Start Reading": "开始阅读",
+      Chapters: "章节",
+      page: "页",
+      pages: "页",
+      "New Chapter": "新章节",
     },
 
     // ---- Crucibles ----
@@ -2210,6 +2221,9 @@
 
   const REGEXPS = [
     // 相对时间：2 years ago / 3 days ago / a month ago
+    [/^yesterday$/i, "昨天"],
+    [/^today$/i, "今天"],
+    [/^just now$/i, "刚刚"],
     [
       /^(\d+)\s+(second|minute|hour|day|week|month|year)s?\s+ago$/,
       (m, n, unit) =>
@@ -2698,6 +2712,13 @@
     const dict = State.dict;
     // 精确词条不限制长度：长段落（折叠栏正文）也能命中
     if (Object.prototype.hasOwnProperty.call(dict, trimmed)) return dict[trimmed];
+
+    // 带「·」前缀的短文案：翻译后半段并保留前缀（如「· yesterday」）
+    const bulletMatch = trimmed.match(/^(·\s*)(.+)$/);
+    if (bulletMatch) {
+      const inner = transText(bulletMatch[2], el);
+      if (inner != null) return bulletMatch[1] + inner;
+    }
 
     // 小写别名：仅限导航/页脚等已知 UI 词
     const alias = CASE_ALIASES[trimmed.toLowerCase()];
