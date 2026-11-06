@@ -219,6 +219,11 @@
     "Recently Updated": "最近更新",
     "Close Ad": "关闭广告",
     "No results found": "未找到结果",
+    // 图片/模型卡片右键菜单（React 拆成 Save + image + to collection 三段）
+    "Save image to collection": "收藏图片到收藏集",
+    "Hide this image": "隐藏此图片",
+    "Hide content from this user": "隐藏此用户的内容",
+    "Comment notification settings": "评论通知设置",
     // 404 页面
     "The page you are looking for doesn't exist": "你访问的页面不存在",
     "Go back home": "返回首页",
@@ -293,6 +298,17 @@
     Discussion: "讨论",
     "You must": "你需要",
     "to add a comment": "才能添加评论",
+    "Be the first to leave a comment": "来抢沙发吧",
+    "Add a comment": "添加评论",
+    // 生成数据面板的元数据键（值保持原样）
+    duration: "时长",
+    seed: "种子",
+    steps: "步数",
+    ecosystem: "生态",
+    workflow: "工作流",
+    // 页内隐藏的 SEO 标题段（与 <title> 同文案）
+    "AI Image & Video Models, LoRAs & Checkpoints | Civitai":
+      "AI 图像与视频模型、LoRA 与 Checkpoint",
     Skip: "跳过",
     Next: "下一步",
     Standard: "标准",
@@ -2766,6 +2782,9 @@
     const raw = node.nodeValue;
     if (!raw || !raw.trim()) return;
 
+    // 记录首次见到的原文，供整段词组还原（只记一次，避免覆盖）
+    if (!originalText.has(node)) originalText.set(node, raw);
+
     // 拆开的比例连接词：<span>0</span> of <span>10</span> 只在前后都是数字时翻译
     const trimmedRaw = raw.trim();
     if (trimmedRaw === "of") {
@@ -2898,6 +2917,24 @@
    *  输入：根节点 / 输出：无
    * ---------------------------------------------------------------------- */
   const PHRASE_SELECTOR = "p, span, label, li, h1, h2, h3, h4, h5, h6";
+
+  // 文本节点翻译前的原文快照：React 把一句话拆成多个节点时，
+  // 整段词组还原需要原文，否则拿到的已经是译好的中文片段
+  const originalText = new WeakMap();
+
+  /* 取元素内所有文本节点的原文（优先用快照），等价于保留原文的 textContent */
+  function collectOriginalText(el) {
+    if (el.nodeType === 3) {
+      return originalText.has(el) ? originalText.get(el) : el.nodeValue;
+    }
+    let out = "";
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    let node;
+    while ((node = walker.nextNode())) {
+      out += originalText.has(node) ? originalText.get(node) : node.nodeValue;
+    }
+    return out;
+  }
   // 带这些子元素的句子不能整段替换（会破坏交互/媒体）
   const PHRASE_BLOCKERS = "button, img, svg, input, textarea, select, video, canvas, br";
 
@@ -2920,9 +2957,16 @@
     if (root.nodeType === 1 && root.matches && root.matches(PHRASE_SELECTOR)) els.push(root);
     els.push(...root.querySelectorAll(PHRASE_SELECTOR));
 
+    // 纯文本 div：Mantine 菜单项等把整句拆在多个文本节点里，容器是普通 div
+    for (const div of root.querySelectorAll("div")) {
+      if (div.childNodes.length > 0 && [...div.childNodes].every((n) => n.nodeType === 3)) {
+        els.push(div);
+      }
+    }
+
     let checked = 0;
     for (const el of els) {
-      if (checked++ > 3000) break;
+      if (checked++ > 5000) break;
       if (el.childNodes.length <= 1) continue;
       if (isIgnored(el) || el.querySelector(PHRASE_BLOCKERS)) continue;
 
@@ -2932,7 +2976,7 @@
         for (const child of [...el.childNodes]) {
           if (child.nodeType === 1 && child.tagName === "A") {
             if (run.length > 0) {
-              const text = run.map((n) => n.textContent).join("").trim();
+              const text = run.map((n) => collectOriginalText(n)).join("").trim();
               if (/[a-zA-Z]/.test(text) && text.length <= 200) replaceSegment(run, text);
             }
             run = [];
@@ -2943,13 +2987,13 @@
           }
         }
         if (run.length > 0) {
-          const text = run.map((n) => n.textContent).join("").trim();
+          const text = run.map((n) => collectOriginalText(n)).join("").trim();
           if (/[a-zA-Z]/.test(text) && text.length <= 200) replaceSegment(run, text);
         }
         continue;
       }
 
-      const raw = el.textContent;
+      const raw = collectOriginalText(el);
       if (!raw || !/[a-zA-Z]/.test(raw)) continue;
 
       const trimmed = normalizeText(raw);
