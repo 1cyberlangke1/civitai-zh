@@ -2,12 +2,13 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.5
+// @version      0.2.6
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
 // @match        https://civitai.red/*
 // @match        https://civitai.green/*
+// @match        https://creator-studio.civitai.com/*
 // @run-at       document-start
 // @grant        GM_addStyle
 // @grant        GM_registerMenuCommand
@@ -21,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.5";
+  const VERSION = "0.2.6";
 
   /* ========================================================================
    *  翻译边界
@@ -50,6 +51,9 @@
 
     // 需要翻译的属性
     attrNames: ["placeholder", "title", "aria-label"],
+    // 多义词按容器覆盖：同一英文在不同区域含义不同
+    // 例：Save 在内容卡片上是「收藏」，在表单弹窗里是「保存」
+    scopedDict: [{ selector: '[role="dialog"]', map: { Save: "保存" } }],
 
     // 兜底重扫间隔（毫秒）：React 水合后仍可能有漏网节点
     rescanInterval: 1500,
@@ -140,6 +144,52 @@
     "Load More Comments": "加载更多评论",
     "Show More": "显示更多",
     "Show more": "显示更多",
+    // ---- 顶栏图标 / 悬浮面板 ----
+    "Account menu": "账号菜单",
+    Chat: "聊天",
+    "Civitai home": "Civitai 首页",
+    "Dismiss Civitai turns 4.": "关闭 Civitai 四周年提示",
+    "Customize page and navigation": "自定义页面与导航",
+    "Collapse this event": "收起此活动",
+    "Watch the Hats On video": "观看 Hats On 视频",
+    "About this collection": "关于此收藏集",
+    "About this section": "关于此版块",
+    "Scroll right": "向右滚动",
+    announcements: "公告",
+    Milestones: "里程碑",
+    Others: "其他",
+    "Hide Read": "隐藏已读",
+    "All caught up! Nothing to see here": "全部看完了！这里没有新内容",
+    // ---- 自定义导航弹窗 ----
+    "Customize navigation": "自定义导航",
+    "Show labels": "显示标签",
+    "Turn off for an icon-only nav bar.": "关闭后导航栏只显示图标。",
+    "Keep profile tab labels": "保留个人主页标签文字",
+    "On narrow screens, scroll the profile tabs instead of shrinking them to icons.":
+      "在窄屏上滚动标签，而不是将其缩小为图标。",
+    "Primary menu": "主菜单",
+    "Shown as tabs, in this order.": "按此顺序显示为标签。",
+    "Always shown": "始终显示",
+    Posts: "帖子",
+    "Reset to default": "恢复默认",
+    // 自定义导航：各导航项开关的 aria-label
+    "Show models": "显示模型",
+    "Show images": "显示图片",
+    "Show videos": "显示视频",
+    "Show 3D Models": "显示 3D 模型",
+    "Show hubs": "显示中心",
+    "Show posts": "显示帖子",
+    "Show articles": "显示文章",
+    "Show comics": "显示漫画",
+    "Show crucibles": "显示擂台",
+    "Show updates": "显示更新",
+    "Show shop": "显示商店",
+    "Show storylines": "显示故事线",
+    "Show challenges": "显示挑战",
+    "Show leaderboard": "显示排行榜",
+    "Show auctions": "显示拍卖",
+    "Show vault": "显示保险库",
+    "Show collections": "显示收藏集",
     "Got it": "知道了",
     "Learn More": "了解更多",
     "Learn more": "了解更多",
@@ -196,6 +246,19 @@
     "Pick up a hat.": "领取一顶帽子。",
     "Four color teams, Nov 1 to Nov 30. Hat your best work and score for your team.":
       "四色队伍，11 月 1 日至 11 月 30 日。为你的最佳作品戴上帽子，为你的队伍得分。",
+    "You're on": "你所在的",
+    "Team Yellow": "黄队",
+    "Team Pink": "粉队",
+    "Team Green": "绿队",
+    "Team Blue": "蓝队",
+    "See the event": "查看活动",
+    Standings: "排名",
+    "Your hats": "你的帽子",
+    points: "积分",
+    "Place it": "放置",
+    "not on a post": "未用于帖子",
+    "Another hat": "再戴一顶帽子",
+    "+1 post scoring": "+1 帖子得分",
     Cap: "上限",
     Discussion: "讨论",
     "You must": "你需要",
@@ -848,6 +911,32 @@
       "our content policies": "我们的内容政策",
       "will result in the loss of your access to the image generator. Illegal or exploitative content will be removed and reported.":
         "将导致你失去图像生成器的访问权限。违法或剥削性内容将被删除并上报。",
+      "View presets": "查看预设",
+      "Save current values": "保存当前值",
+      "Manage presets": "管理预设",
+      Queue: "队列",
+      Feed: "信息流",
+      "No download needed": "无需下载",
+      "Type out what you'd like to generate in the prompt, add aspects you'd like to avoid in the negative prompt.":
+        "在提示词中输入你想生成的内容，在反向提示词中加入你想避免的元素。",
+      "Controls how closely the generation follows the text prompt.":
+        "控制生成结果与文本提示词的贴合程度。",
+      High: "高",
+      Highest: "最高",
+      Reactions: "反应",
+      Favorited: "已收藏",
+      Liked: "已喜欢",
+      Disliked: "不喜欢",
+      "Generation Type": "生成类型",
+      Audio: "音频",
+      Ecosystem: "生态",
+      Workflow: "工作流",
+      "Date Range": "日期范围",
+      From: "起",
+      "Start date": "开始日期",
+      To: "至",
+      "End date": "结束日期",
+      "Hide Failed": "隐藏失败",
     },
 
     // ---- 挑战 ----
@@ -1316,6 +1405,47 @@
       "Register your first OAuth application to enable third-party integrations.":
         "注册你的第一个 OAuth 应用以启用第三方集成。",
     },
+
+    // ---- 创作者工作室（creator-studio.civitai.com）----
+    "creator-studio": {
+      Dashboard: "仪表盘",
+      Monetization: "变现",
+      Sales: "销售",
+      Earnings: "收益",
+      Analytics: "分析",
+      "Base models": "基础模型",
+      Engagement: "互动",
+      Audience: "受众",
+      Storage: "存储",
+      Calendar: "日历",
+      Settings: "设置",
+      "Join Creator Program": "加入创作者计划",
+      "Toggle Sidebar": "切换侧边栏",
+      "Become a member": "成为会员",
+      "Your activity - last 30 days": "你的活动 - 最近 30 天",
+      "View analytics →": "查看分析 →",
+      Reactions: "反应",
+      "New followers": "新关注者",
+      "Images posted": "已发布图片",
+      "Posts published": "已发布帖子",
+      "Profile views": "主页浏览量",
+      "Yellow Buzz": "黄色 Buzz",
+      "Green Buzz": "绿色 Buzz",
+      "Blue Buzz": "蓝色 Buzz",
+      Withdrawable: "可提现",
+      "View earnings →": "查看收益 →",
+      "Buzz earned": "已赚 Buzz",
+      "Last 30 days": "最近 30 天",
+      "Top-earning model": "收益最高的模型",
+      "No model earnings yet": "暂无模型收益",
+      "View storage →": "查看存储 →",
+      "Counting your images and videos": "正在统计你的图片和视频",
+      "Set licensing fees, manage access, run sales.":
+        "设置许可费、管理访问权限、开展促销。",
+      "Your earnings broken down by source.": "按来源细分的收益。",
+      "Usage that drives your fees.": "影响你费用的使用情况。",
+      "Payout status, membership, defaults.": "提现状态、会员、默认设置。",
+    },
   };
 
   /* ========================================================================
@@ -1488,8 +1618,8 @@
     ],
     // 擂台战绩：0 of 0 won
     [/^(\d+)\s+of\s+(\d+)\s+won$/i, "$1 / $2 获胜"],
-    // 欢迎回来：Welcome back, cyberlangke!
-    [/^Welcome back,\s+(.+?)!$/, "欢迎回来，$1！"],
+    // 欢迎回来：Welcome back, cyberlangke! / Welcome back, cyberlangke.
+    [/^Welcome back,\s+(.+?)[!.]$/, "欢迎回来，$1！"],
     // 步骤计数：3 of 4
     [/^(\d+)\s+of\s+(\d+)$/, "$1 / $2"],
     // Tensors 1,131 VRAM min 1.4 GB rec 3.2 GB
@@ -1628,6 +1758,8 @@
    *  输出：PAGE_RULES 命中的 key，未命中返回 "other"
    * ---------------------------------------------------------------------- */
   function getPageKey(pathname) {
+    // 创作者工作室是独立子域，路径判断不适用
+    if (location.hostname.startsWith("creator-studio.")) return "creator-studio";
     const path = pathname || location.pathname;
     for (const [key, re] of PAGE_RULES) {
       if (re.test(path)) return key;
@@ -1691,11 +1823,19 @@
    *  输出：中文文本；无命中返回 null
    *  顺序：静态精确匹配 → 动态正则
    * ---------------------------------------------------------------------- */
-  function transText(text) {
+  function transText(text, el) {
     if (typeof text !== "string") return null;
     const trimmed = normalizeText(text);
     if (!trimmed) return null;
     if (!/[a-zA-Z]/.test(trimmed)) return null;
+
+    // 作用域覆盖优先：处理 Save（表单=保存 / 内容=收藏）这类多义词
+    if (el && el.closest && CONFIG.scopedDict) {
+      for (const rule of CONFIG.scopedDict) {
+        if (!el.closest(rule.selector)) continue;
+        if (Object.prototype.hasOwnProperty.call(rule.map, trimmed)) return rule.map[trimmed];
+      }
+    }
 
     const dict = State.dict;
     // 精确词条不限制长度：长段落（折叠栏正文）也能命中
@@ -1739,13 +1879,14 @@
     const raw = node.nodeValue;
     if (!raw || !raw.trim()) return;
 
-    const out = transText(raw);
+    const out = transText(raw, parent);
     if (out == null) return;
 
     const trimmed = raw.trim();
     // 只替换首尾去空白后的原文，避免破坏排版
     const next = raw.replace(trimmed, out);
-    if (next !== raw) node.nodeValue = next;  }
+    if (next !== raw) node.nodeValue = next;
+  }
 
   /* ------------------------------------------------------------------------
    *  transAttribute：翻译元素属性（placeholder/title/aria-label）
@@ -1809,6 +1950,25 @@
   }
 
   /* ------------------------------------------------------------------------
+   *  walkReadonlyValues：翻译只读输入框的显示值
+   *  Mantine Select 把当前选项放在 readonly input 的 value 里
+   *  输入：根节点 / 输出：无
+   * ---------------------------------------------------------------------- */
+  function walkReadonlyValues(root) {
+    if (!root || root.nodeType !== 1) return;
+    const nodes = [root];
+    if (root.querySelectorAll) nodes.push(...root.querySelectorAll('input[readonly]'));
+    for (const el of nodes) {
+      if (el.nodeType !== 1 || el.tagName !== "INPUT" || !el.readOnly) continue;
+      if (isIgnored(el)) continue;
+      const raw = el.value;
+      if (!raw) continue;
+      const out = transText(raw);
+      if (out != null && out !== raw) el.value = out;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
    *  transTitle：翻译页面标题
    *  输出：无 / 只改 document.title，不存在的键保持原样
    * ---------------------------------------------------------------------- */
@@ -1841,6 +2001,7 @@
     const root = document.body || document.documentElement;
     safe(() => walk(root), "walk");
     safe(() => walkAttributes(root), "walkAttributes");
+    safe(() => walkReadonlyValues(root), "readonly-values");
     safe(transTitle, "title");
   }
 
