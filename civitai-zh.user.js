@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.1
+// @version      0.2.2
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -19,6 +19,9 @@
 
 (function (window, document, undefined) {
   "use strict";
+
+  // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
+  const VERSION = "0.2.2";
 
   /* ========================================================================
    *  翻译边界
@@ -49,7 +52,7 @@
     attrNames: ["placeholder", "title", "aria-label"],
 
     // 兜底重扫间隔（毫秒）：React 水合后仍可能有漏网节点
-    rescanInterval: 3000,
+    rescanInterval: 1500,
 
     // 单个文本节点最大长度：超过视为正文，不翻
     maxTextLength: 120,
@@ -1255,6 +1258,10 @@
    *  输出：无 / 预期：DOM 就绪后翻译整页并开始监听
    * ---------------------------------------------------------------------- */
   function init() {
+    // 自检标记：控制台或元素面板可确认脚本是否真的注入
+    safe(() => document.documentElement.setAttribute("data-civitai-zh", VERSION), "marker");
+    safe(() => console.info(`[civitai-zh] 已加载 v${VERSION} · 页面类型：${getPageKey()}`), "log");
+
     State.pageKey = getPageKey();
     State.lastUrl = location.href;
     State.dict = buildDict(State.pageKey);
