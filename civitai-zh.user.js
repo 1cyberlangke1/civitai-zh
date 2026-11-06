@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.0
+// @version      0.2.1
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
