@@ -219,6 +219,15 @@
     "Recently Updated": "最近更新",
     "Close Ad": "关闭广告",
     "No results found": "未找到结果",
+    // 条款/隐私页（正文为法律长文，仅译页面部件）
+    "Last modified:": "最后修改：",
+    "Last Updated": "最后更新",
+    "Privacy Policy": "隐私政策",
+    // 已知问题
+    "Show closed": "显示已关闭",
+    "First seen": "首次发现",
+    "Updated": "更新时间",
+    "I'm experiencing this": "我也遇到了",
     // 图片/模型卡片右键菜单（React 拆成 Save + image + to collection 三段）
     "Save image to collection": "收藏图片到收藏集",
     "Hide this image": "隐藏此图片",
@@ -988,6 +997,7 @@
     // ---- Crucibles ----
     crucibles: {
       "Crucible Discovery": "擂台发现",
+      "More Hats": "更多帽子",
       "Welcome to the Crucible": "欢迎来到擂台",
       "Start Judging": "开始评审",
       "Create Crucible": "创建擂台",
@@ -1656,8 +1666,54 @@
         "请记住，这些准则旨在确保 Civitai 始终是创新、尊重且建设性的社区。有了你的配合与意见，我们能继续让这个社区成为负责任且富有创意地运用 AI 的典范。",
     },
 
+    // ---- 已知问题 ----
+    issues: {
+      Open: "未关闭",
+      Closed: "已关闭",
+      "Show details": "展开详情",
+      "Some LoRA trainings deliver under-trained epoch files": "部分 LoRA 训练会产出训练不足的 epoch 文件",
+      "Some trained Illustrious LoRAs don't work in Automatic1111 / Forge":
+        "部分已训练的 Illustrious LoRA 在 Automatic1111 / Forge 中无法使用",
+      "Some Illustrious LoRAs trained on Civitai load with almost no effect in Automatic1111, Forge and reForge, because most of the file is skipped. Most trainings are not affected.":
+        "部分在 Civitai 训练的 Illustrious LoRA 在 Automatic1111、Forge 和 reForge 中加载后几乎没有效果，因为文件中大部分内容被跳过了。大多数训练不受影响。",
+      "How to tell if your LoRA is affected:": "如何判断你的 LoRA 是否受影响：",
+      "when the LoRA loads, your console shows many lines like": "当 LoRA 加载时，控制台会显示许多类似的行",
+      ", followed by a line ending in": "，其后是一行以",
+      "Most trainings are not affected. This has been reported to our developers.":
+        "大多数训练不受影响。此问题已上报给我们的开发团队。",
+    },
+
     // ---- 创作者计划（含折叠栏正文）----
     "creator-program": {
+      "Highlights from last month's cycle": "上期亮点",
+      "# of Creators who Banked Buzz": "存入 Buzz 的创作者数",
+      "Total Banked Buzz": "存入 Buzz 总量",
+      "# of Creators who Extracted Buzz": "提取 Buzz 的创作者数",
+      "Total Buzz Extracted": "提取 Buzz 总量",
+      "Total Payout Buzz": "支付 Buzz 总量",
+      "# of Creators who cashed out": "提现的创作者数",
+      "Payout per 1,000 Buzz banked": "每存入 1,000 Buzz 的支付额",
+      "Highest payout": "最高支付额",
+      "Average payout": "平均支付额",
+      "Median payout": "中位支付额",
+      "You're at": "你当前处于",
+      ". Your next step is": "。你的下一步是",
+      ", which unlocks:": "，可解锁：",
+      "judge crucibles": "评审擂台",
+      "Bankable Buzz": "可存入 Buzz",
+      "Banked in earlier months, less what you extracted": "往月存入，扣除已提取的部分",
+      "Banked this month": "本月存入",
+      "Bankable Buzz left": "剩余可存入 Buzz",
+      Bankable: "可存入",
+      "Early Access and paid access": "抢先体验与付费访问",
+      "Tips from other users": "其他用户的小费",
+      "Donations, shop sales and bounties": "捐赠、商店销售与悬赏",
+      "App author fees": "应用作者费用",
+      "Sticker, remix and promotion fees": "贴纸、重混与推广费用",
+      "Not bankable": "不可存入",
+      "Buzz you bought": "你购买的 Buzz",
+      "Rewards and credits from Civitai": "来自 Civitai 的奖励与额度",
+      "Buzz matched by what you paid other users": "按你支付给其他用户的金额匹配的 Buzz",
       "Earn on Civitai": "在 Civitai 赚取收益",
       "Your models, LoRAs, and images power Civitai. Here's every way to earn from your work - and how the Creator Program lets you turn the Buzz you earn into real payouts.":
         "你的模型、LoRA 和图片驱动着 Civitai。以下是你靠作品赚取收益的所有方式，以及创作者计划如何把赚到的 Buzz 变成真实收入。",
@@ -2355,6 +2411,22 @@
   };
   const FULL_MONTH_RE = Object.keys(FULL_MONTHS).join("|");
 
+  // 队伍颜色 → 单字（活动/创作者计划文案里会整句出现）
+  const CN_COLORS = { yellow: "黄", green: "绿", blue: "蓝", pink: "粉" };
+
+  /* 把 "Yellow and Green" 转成 "黄、绿" */
+  function cnColors(text) {
+    return text
+      .replace(/\b(Yellow|Green|Blue|Pink)\b/gi, (m) => CN_COLORS[m.toLowerCase()])
+      .replace(/\s+and\s+/gi, "、");
+  }
+
+  /* 把句中的 "November 1, 2026" 转成 "2026年11月1日" */
+  function cnFullDate(text) {
+    const re = new RegExp(`\\b(${FULL_MONTH_RE})\\s+(\\d{1,2}),\\s+(\\d{4})\\b`, "g");
+    return text.replace(re, (m, mon, day, year) => `${year}年${FULL_MONTHS[mon]}${day}日`);
+  }
+
   const REGEXPS = [
     // 相对时间：2 years ago / 3 days ago / a month ago
     [/^yesterday$/i, "昨天"],
@@ -2367,6 +2439,12 @@
     [/^in (\d+) days?$/i, (m, n) => `${n} 天后`],
     // 贴纸剩余数量：1 free
     [/^(\d+) free$/i, (m, n) => `免费 ${n} 张`],
+    // 创作者计划：Your Yellow and Green Buzz on November 1, 2026
+    [/^Your (.+) Buzz on (.+)$/, (m, colors, date) => `你在 ${cnFullDate(date)} 的 ${cnColors(colors)} Buzz`],
+    // 创作者计划：Bankable Buzz earned since November 1, 2026
+    [/^Bankable Buzz earned since (.+)$/, (m, date) => `自 ${cnFullDate(date)} 起赚取的可存入 Buzz`],
+    // 创作者计划：Paid to other users since November 1, 2026
+    [/^Paid to other users since (.+)$/, (m, date) => `自 ${cnFullDate(date)} 起支付给其他用户`],
     // 活动页队伍帽子：Team Yellow hats
     [
       /^Team (Pink|Green|Blue|Yellow) hats$/i,
@@ -2739,6 +2817,7 @@
     ["safety", /^\/safety(?:\/|$)/],
     ["creator-program", /^\/creator-program(?:\/|$)/],
     ["creator-journey", /^\/creators\/journey(?:\/|$)/],
+    ["issues", /^\/issues(?:\/|$)/],
     ["posts", /^\/posts\/\d+/],
     ["user", /^\/user(?:\/|$)/],
     ["home", /^\/$/],
