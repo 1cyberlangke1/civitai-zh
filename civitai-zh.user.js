@@ -646,6 +646,124 @@
     "Knights of New Order: Knight Demotion": "新秩序骑士：骑士降级",
     "Knights of New Order: Blessed Buzz Granted": "新秩序骑士：获得祝福 Buzz",
 
+    // ---- 通知类别明细（折叠栏内，按类别分块）----
+    // 评论
+    "New @mentions": "新的 @提及",
+    "New comments on your models": "你的模型有新评论",
+    "New comment responses (Models)": "新的评论回复（模型）",
+    "New responses to comments and reviews on your models": "你的模型上的评论与评测有新回复",
+    "New comment replies": "新的评论回复",
+    "New replies to comment threads you are in": "你参与的评论串有新回复",
+    "New review responses": "新的评测回复",
+    "New comments on your images": "你的图片有新评论",
+    "New comments on your posts": "你的帖子有新评论",
+    "New comments on your app listings": "你的应用列表有新评论",
+    "New comments on your articles": "你的文章有新评论",
+    "New comments on your bounty": "你的悬赏有新评论",
+    "New comments on your bounty entries": "你的悬赏作品有新评论",
+    "New comments on your challenges": "你的挑战有新评论",
+    "New comments on your crucibles": "你的擂台有新评论",
+    "New comments on your storylines": "你的故事线有新评论",
+    "New comments on your 3D models": "你的 3D 模型有新评论",
+    "New responses to your comments on 3D models": "你在 3D 模型上的评论有新回复",
+    "New nested comments on your 3D models": "你的 3D 模型有新的嵌套评论",
+    "New private feedback on your apps": "你的应用有新的私密反馈",
+    "New comic comment": "新的漫画评论",
+    // 里程碑
+    "Model download milestones": "模型下载里程碑",
+    "Model like milestones": "模型点赞里程碑",
+    "Comment reaction milestones": "评论反应里程碑",
+    "Image reaction milestones": "图片反应里程碑",
+    "Article reaction milestones": "文章反应里程碑",
+    "Article view milestones": "文章浏览里程碑",
+    "Article like milestones": "文章点赞里程碑",
+    "Creator Score tier reached": "达成创作者积分等级",
+    "Creator milestone reached": "达成创作者里程碑",
+    // 更新
+    "New versions of models you follow": "你关注的模型有新版本",
+    "New models from followed users": "关注的用户有新模型",
+    "New reviews": "新的评测",
+    "New articles from followed users": "关注的用户有新文章",
+    "A developer resolved or closed your app feedback": "开发者已解决或关闭你的应用反馈",
+    "New chapters in storylines you follow": "你关注的故事线有新章节",
+    "Your submission was accepted": "你的提交已通过",
+    "Your submission wasn't accepted": "你的提交未通过",
+    "New items added to a collection you follow": "你关注的收藏集有新增内容",
+    "New entry submitted to your collection": "你的收藏集收到新条目",
+    "You were invited to collaborate on a collection": "你被邀请协作某个收藏集",
+    "New follower": "新的关注者",
+    "Challenge you follow is starting": "你关注的挑战即将开始",
+    "New challenges from followed users": "关注的用户发布了新挑战",
+    "Challenge you are tracking is ending": "你追踪的挑战即将结束",
+    "Results for a challenge you are tracking": "你追踪的挑战结果已出",
+    "Crucible Ended": "擂台已结束",
+    "Crucible you follow or entered is ending soon": "你关注或参加的擂台即将结束",
+    "Crucible you follow is starting": "你关注的擂台即将开始",
+    "Results for a crucible you follow": "你关注的擂台结果已出",
+    "New Entry on Your Crucible": "你的擂台有新作品",
+    "New comic chapter": "新的漫画章节",
+    // 系统
+    "New Civitai features": "Civitai 新功能",
+    "Event reminders": "活动提醒",
+    "Services: New request for your service": "服务：你的服务收到新请求",
+    "Services: Your request was accepted": "服务：你的请求已被接受",
+    "Services: Your request was declined": "服务：你的请求已被拒绝",
+    "Services: Your request expired": "服务：你的请求已过期",
+    "Services: Your order was delivered": "服务：你的订单已交付",
+    "Services: A buyer requested a revision": "服务：买家要求修改",
+    "Services: Cancellation requested": "服务：已请求取消",
+    "Services: Your deal was completed": "服务：你的交易已完成",
+    "Services: You were paid for a deal": "服务：你已收到交易款项",
+    "Creator Shop: Cosmetic approved": "创作者商店：装饰已通过审核",
+    "Creator Shop: Changes requested": "创作者商店：要求修改",
+    "Creator Shop: Cosmetic unpublished": "创作者商店：装饰已下架",
+    "Creator Shop: Cosmetic rejected": "创作者商店：装饰被拒",
+    "Creator Shop: An item you resell was withdrawn": "创作者商店：你转售的商品已被撤回",
+    "Creator Shop: Cosmetic removed": "创作者商店：装饰已被移除",
+    "Shop: A cosmetic you bought was removed": "商店：你购买的装饰已被移除",
+    "Shop: A cosmetic you bought was withdrawn": "商店：你购买的装饰已被撤回",
+    "Shop: A purchase was refunded": "商店：购买已退款",
+    "Shop: New Products Available": "商店：有新品上架",
+    "Shop: Your Item got bought (Creator Program exclusive)": "商店：你的商品已被购买（创作者计划专属）",
+    "Crucible Prize Won": "赢得擂台奖品",
+    // 管理
+    "Model marked as minor": "模型被标记为未成年人相关",
+    "Model restricted by automated review": "模型被自动审核限制",
+    "Bounty hidden by automated review": "悬赏被自动审核隐藏",
+    "Avatar blocked": "头像被屏蔽",
+    "Content rating raised": "内容分级已上调",
+    "Storyline title moderated": "故事线标题被审核",
+    // 悬赏
+    "Bounty you are involved in is ending": "你参与的悬赏即将结束",
+    "Bounty awarded to you": "悬赏颁发给你",
+    "Bounty entry reaction milestones": "悬赏作品反应里程碑",
+    "New entry on bounty you are involved in": "你参与的悬赏有新作品",
+    // 创作者
+    "Sticker awaiting your review": "有贴纸待你审核",
+    "Free sticker awaiting your review": "有免费贴纸待你审核",
+    "Remix awaiting your review": "有重混待你审核",
+    "Free remix awaiting your review": "有免费重混待你审核",
+    "Your remix submission was answered": "你的重混提交已有回复",
+    "A remix submission could not be delivered": "有一次重混提交无法送达",
+    "Your sticker placement was resolved": "你的贴纸放置已处理",
+    "A sticker was accepted on your image automatically": "你的图片上的贴纸已自动通过",
+    "Someone wants to continue your storyline": "有人想续写你的故事线",
+    "Your storyline continuation was added": "你的故事线续写已添加",
+    "Your storyline continuation was declined": "你的故事线续写被拒绝",
+    "Your storyline rating was raised to fit its first chapter": "你的故事线分级已上调以匹配首章",
+    "You were invited to collaborate on a storyline": "你被邀请协作某个故事线",
+    "Someone started a story from your image": "有人用你的图片开启了故事",
+    "Banking phase ending": "存入阶段即将结束",
+    "Extraction phase started": "提取阶段已开始",
+    "Extraction phase ending": "提取阶段即将结束",
+    "Funds settled": "资金已结算",
+    // Buzz / 推荐 / 其他
+    "Tip Received": "收到小费",
+    "Referral Reward Settled": "推荐奖励已结算",
+    "Referral Milestone Reached": "达成推荐里程碑",
+    "Referral Tokens Expiring Soon": "推荐代币即将到期",
+    Other: "其他",
+
     // ---- 搜索分类 ----
     Users: "用户",
     Collections: "收藏集",
@@ -2439,6 +2557,8 @@
     [/^in (\d+) days?$/i, (m, n) => `${n} 天后`],
     // 贴纸剩余数量：1 free
     [/^(\d+) free$/i, (m, n) => `免费 ${n} 张`],
+    // 通知类别计数：21 OF 21（大写 OF）
+    [/^(\d+)\s+OF\s+(\d+)$/i, (m, a, b) => `${a} / ${b}`],
     // 创作者计划：Your Yellow and Green Buzz on November 1, 2026
     [/^Your (.+) Buzz on (.+)$/, (m, colors, date) => `你在 ${cnFullDate(date)} 的 ${cnColors(colors)} Buzz`],
     // 创作者计划：Bankable Buzz earned since November 1, 2026
@@ -2977,6 +3097,17 @@
    *  transNode：翻译单个文本节点，保留前后空白
    *  输入：Text 节点 / 输出：无
    * ---------------------------------------------------------------------- */
+  /* 跳过注释/空节点，取相邻可见文本（用于「N of M」这类拆分句） */
+  function adjacentText(node, dir) {
+    let sib = dir === "prev" ? node.previousSibling : node.nextSibling;
+    while (sib) {
+      const text = (sib.textContent || "").trim();
+      if (text) return text;
+      sib = dir === "prev" ? sib.previousSibling : sib.nextSibling;
+    }
+    return "";
+  }
+
   function transNode(node) {
     if (!node || node.nodeType !== 3) return;
     const parent = node.parentElement;
@@ -2991,8 +3122,8 @@
     // 拆开的比例连接词：<span>0</span> of <span>10</span> 只在前后都是数字时翻译
     const trimmedRaw = raw.trim();
     if (trimmedRaw === "of") {
-      const prev = node.previousSibling ? node.previousSibling.textContent.trim() : "";
-      const next = node.nextSibling ? node.nextSibling.textContent.trim() : "";
+      const prev = adjacentText(node, "prev");
+      const next = adjacentText(node, "next");
       if (/\d$/.test(prev) && /^\d/.test(next)) {
         node.nodeValue = raw.replace(trimmedRaw, "/");
         return;
