@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.4
+// @version      0.2.5
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -21,7 +21,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.4";
+  const VERSION = "0.2.5";
 
   /* ========================================================================
    *  翻译边界
@@ -140,6 +140,10 @@
     "Load More Comments": "加载更多评论",
     "Show More": "显示更多",
     "Show more": "显示更多",
+    "Got it": "知道了",
+    "Learn More": "了解更多",
+    "Learn more": "了解更多",
+    Upcoming: "即将开始",
     Details: "详情",
     Filters: "筛选",
     Hot: "热门",
@@ -149,6 +153,9 @@
     "Most Reactions": "最多反应",
     "Most Bookmarks": "最多收藏",
     "Most Downloaded": "最多下载",
+    "Most Comments": "最多评论",
+    "Most Collected": "最多收藏",
+    "Recently Updated": "最近更新",
     "Close Ad": "关闭广告",
     "No results found": "未找到结果",
     Support: "支持",
@@ -197,10 +204,257 @@
     Next: "下一步",
     Standard: "标准",
 
+    // ---- 模型筛选 / 排序（标签分类源码为小写 + CSS 大写，故按小写入库）----
+    All: "全部",
+    Everyone: "所有人",
+    Followed: "已关注",
+    "New & Upcoming": "新品与即将上线",
+    "Time period": "时间范围",
+    Day: "日",
+    Week: "周",
+    Month: "月",
+    Year: "年",
+    "Published (up to 31 days)": "发布时间（最多 31 天）",
+    "Model status": "模型状态",
+    "Early Access": "抢先体验",
+    "Paid Access": "付费访问",
+    "Hide Paid": "隐藏付费",
+    "On-site Generation": "站内生成",
+    "Made On-site": "站内制作",
+    Featured: "精选",
+    "Model types": "模型类型",
+    "Aesthetic Gradient": "美学梯度",
+    Upscaler: "放大模型",
+    Motion: "动态",
+    "Text Encoder": "文本编码器",
+    Poses: "姿势",
+    Wildcards: "通配符",
+    Workflows: "工作流",
+    "ComfyUI Workflows": "ComfyUI 工作流",
+    Detection: "检测",
+    Other: "其他",
+    "Base model": "基础模型",
+    "All Base Models": "全部基础模型",
+    Modifiers: "修饰项",
+    Hidden: "隐藏",
+    Reset: "重置",
+    "Apply filters": "应用筛选",
+    // 标签分类
+    character: "角色",
+    style: "风格",
+    concept: "概念",
+    clothing: "服装",
+    "base model": "基础模型",
+    background: "背景",
+    poses: "姿势",
+    tool: "工具",
+    assets: "素材",
+    vehicle: "载具",
+    buildings: "建筑",
+    objects: "物品",
+    action: "动作",
+    animal: "动物",
+
+    // ---- 账号菜单 ----
+    Pinned: "置顶",
+    "Your Profile": "你的主页",
+    "Your Stuff": "你的内容",
+    "Creator tools": "创作者工具",
+    "Rewards and play": "奖励与游戏",
+    "Liked Models": "喜欢的模型",
+    "Bookmarked Articles": "收藏的文章",
+    "Creators You Follow": "你关注的创作者",
+    "Download History": "下载历史",
+    Vault: "保险库",
+    Inventory: "物品栏",
+    "Buzz Dashboard": "Buzz 面板",
+    "Creator Studio": "创作者工作室",
+    "Creator Journey": "创作者历程",
+    Training: "训练",
+    Placements: "展示位",
+    NEW: "新",
+    "Get help fast": "快速获取帮助",
+    "Switch account": "切换账号",
+    Prizes: "奖品",
+    Referrals: "推荐",
+
+    // ---- 设置页导航 ----
+    Account: "账户",
+    Overview: "概览",
+    "Profile & Account": "资料与账户",
+    Preferences: "偏好设置",
+    Notifications: "通知",
+    Content: "内容",
+    "Content & Browsing": "内容与浏览",
+    Creator: "创作者",
+    "Billing & access": "账单与权限",
+    "Membership & Billing": "会员与账单",
+    "Security & Apps": "安全与应用",
+    "Jump to": "跳转到",
+
+    // ---- 设置页正文 ----
+    "Account info": "账户信息",
+    Username: "用户名",
+    "Account email": "账户邮箱",
+    "Verify email": "验证邮箱",
+    "Change email": "更改邮箱",
+    "Save changes": "保存更改",
+    "Customize profile": "自定义主页",
+    "Event hat": "活动帽子",
+    "Show my event hat on my avatar": "在我的头像上显示活动帽子",
+    "Turn this off to take the event hat off your avatar. You keep your hats and can turn it back on any time.":
+      "关闭后即可从头像上取下活动帽子。你仍保留帽子，随时可以重新开启。",
+    "Creator profile": "创作者资料",
+    "Shown on your public profile.": "显示在你的公开主页上。",
+    "Social links": "社交链接",
+    "Add link": "添加链接",
+    "Sponsorship links": "赞助链接",
+    "Account standing": "账户信誉",
+    "Creator Score": "创作者积分",
+    "Reputation from your content, minus content removed for violations":
+      "来自你内容的声誉，减去因违规被移除的内容",
+    "Unlocks: judge crucibles.": "解锁：担任擂台评委。",
+    "How Creator Score works": "创作者积分如何计算",
+    "Your Creator Score measures how much the community values what you share. It grows when":
+      "你的创作者积分衡量社区对你分享内容的认可程度。它会在以下情况增长：",
+    "Downloads, generations, and positive reviews of models": "模型的下载、生成与好评",
+    "Reactions and comments on images": "图片上的反应与评论",
+    "Views, reactions, and comments on articles": "文章的浏览、反应与评论",
+    "Follower count": "关注者数量",
+    "Helping moderation": "协助管理",
+    "Reports filed that moderators act on": "被管理员处理的问题举报",
+    "Images removed for breaking our rules take points away for six months, some less than others depending on the reason.":
+      "因违反规则被移除的图片会扣分六个月，视原因不同，部分扣分较少。",
+    "Models a moderator takes down stop counting, and if people unfollow you or remove a reaction, those points go too.":
+      "被管理员下架的模型不再计分；若有人取消关注或移除反应，相应积分也会消失。",
+    "Your score updates once a day, so today's activity shows up tomorrow.":
+      "积分每天更新一次，今天的活动明天才会计入。",
+    Strikes: "违规记录",
+    "No active strikes.": "无有效违规记录。",
+    "Good standing": "信誉良好",
+    "Refresh my session": "刷新我的会话",
+    "Reloads your account data. Safe to run any time.":
+      "重新加载你的账户数据。随时可安全执行。",
+    Refresh: "刷新",
+    "Delete account": "删除账户",
+    "You choose what happens to your models and images. This cannot be undone.":
+      "你可以决定模型和图片如何处置。此操作无法撤销。",
+    Membership: "会员资格",
+    "Buzz balance": "Buzz 余额",
+    Standing: "信誉",
+    Good: "良好",
+    Unverified: "未验证",
+    free: "免费",
+    "email notifications, on-site, comments": "邮件通知、站内、评论",
+    "mature, nsfw, browsing level": "成人、NSFW、浏览级别",
+    "subscription, membership, payment methods": "订阅、会员、支付方式",
+    "sign in, connected accounts, api keys": "登录、关联账户、API 密钥",
+    Email: "邮箱",
+    "social links": "社交链接",
+    "sponsorship links": "赞助链接",
+    "See your journey": "查看你的历程",
+    "people use, react to, and follow your work": "人们使用、反应并关注你的作品",
+    // ---- Civitai Link / Vault（支持者功能卡片）----
+    "Civitai Vault": "Civitai 保险库",
+    "Civitai Link is a Supporter feature, still in early access.":
+      "Civitai Link 是支持者功能，仍在抢先体验中。",
+    "Are you a supporter and seeing this message?": "你是支持者却看到这条消息？",
+    "Click here": "点击这里",
+    "Send models straight to your machine": "将模型直接发送到你的设备",
+    "Supporters get one-click sending to the ComfyUI node pack or the Link desktop app.":
+      "支持者可一键发送到 ComfyUI 节点包或 Link 桌面应用。",
+    "ComfyUI node pack": "ComfyUI 节点包",
+    "Link desktop app": "Link 桌面应用",
+    "See how it works": "了解详情",
+    "Become a Supporter": "成为支持者",
+
+    // ---- 设置：偏好 Preferences ----
+    "Media playback": "媒体播放",
+    "Autoplay GIFs": "自动播放 GIF",
+    "Swipe between images on gallery cards": "在画廊卡片上滑动切换图片",
+    "Swipe through a post's images instead of using the arrows.":
+      "滑动浏览帖子的图片，无需使用箭头。",
+    "Animate stickers placed on images": "为图片上的贴纸添加动画",
+    "Off keeps them still; they stay visible either way.":
+      "关闭后保持静止；无论开关如何它们都会显示。",
+    "Larger Images in Generator": "生成器中更大的图片",
+    "Images displayed in the generator will be larger on small screens":
+      "生成器中显示的图片在小屏幕上会更大",
+    "Native Video Controls": "原生视频控件",
+    "Use your browser's built-in video player controls (with a seek bar) for all videos.":
+      "对所有视频使用浏览器内置的视频播放器控件（带进度条）。",
+    Generation: "生成",
+    "Advanced Mode": "高级模式",
+    "Allow unrestricted mixing of additional resources and base models.":
+      "允许不受限制地混用附加资源和基础模型。",
+    "File preferences": "文件偏好",
+    "Defaults for the download button.": "下载按钮的默认设置。",
+    "Preferred model format": "首选模型格式",
+    "Preferred precision": "首选精度",
+    "fp16 halves the size of most checkpoints.":
+      "fp16 可将大多数 Checkpoint 的体积减半。",
+    "CivBot Assistant": "CivBot 助手",
+    "A helpful chat assistant that can answer questions about Stable Diffusion, Civitai, and more! We're still training it, so please report any issues you find!":
+      "一个有用的聊天助手，可以回答有关 Stable Diffusion、Civitai 等的问题！我们仍在训练它，如发现问题请反馈！",
+    Personality: "个性",
+    "Available to subscribers.": "订阅者可用。",
+    "Hide me from 'who reacted' and 'who collected' lists":
+      "在「谁反应了」和「谁收藏了」列表中隐藏我",
+    "Creators and other users will not see your name when you react to or publicly collect their content. Your reactions still count, and you still see your own.":
+      "创作者和其他用户不会在你对他们的内容作出反应或公开收藏时看到你的名字。你的反应仍然计入，你仍然能看到自己的。",
+    "Show my older image reactions in 'who reacted' lists":
+      "在「谁反应了」列表中显示我较早的图片反应",
+    "Image reactions you made before September 23, 2026, when creators could first see who reacted, stay out of those lists unless you turn this on.":
+      "你在 2026 年 9 月 23 日（创作者首次可以看到谁反应）之前作出的图片反应，除非开启此项，否则不会出现在这些列表中。",
+    Features: "功能",
+    "Training Studio": "训练工作室",
+    Beta: "Beta",
+    "Use the new Training Studio for LoRA training. Turn this off to go back to the classic trainer, which will be phased out gradually as Training Studio matures.":
+      "使用新的训练工作室进行 LoRA 训练。关闭后将回到经典训练器，随着训练工作室成熟，经典训练器会逐步淘汰。",
+    "AI Resource Identifier": "AI 资源标识符",
+    "Show the Civitai AIR on resources for easy use within the Civitai Services API or Civitai Comfy Nodes.":
+      "在资源上显示 Civitai AIR，便于在 Civitai Services API 或 Civitai Comfy Nodes 中使用。",
+    Chats: "聊天",
+    "Send and receive DMs from users across the site.": "在全站用户之间收发私信。",
+    "Hide Blue Buzz in the header": "在顶栏隐藏蓝色 Buzz",
+    "Leaves it out of the header balance. You can still spend it.":
+      "从顶栏余额中隐藏。你仍可花费它。",
+    "Fit post images to screen": "让帖子图片适应屏幕",
+    "Shows each image in a post whole, sized to fit your screen, instead of at full width.":
+      "完整显示帖子中的每张图片，按屏幕大小缩放，而不是全宽显示。",
+    "Join the early-adopter program": "加入抢先体验计划",
+    "Features before they roll out. They may be rough or change without notice.":
+      "在功能全面推出前提前体验。它们可能不完善或随时变更，恕不另行通知。",
+
+    // ---- 设置：通知 Notifications ----
+    Delivery: "发送方式",
+    "On-site notifications": "站内通知",
+    "The bell in the header. Off silences every category below.":
+      "顶栏的铃铛。关闭会静音下方所有类别。",
+    Newsletter: "订阅邮件",
+    "Product news by email. Separate from the categories below.":
+      "通过邮件发送的产品新闻。与下方类别独立。",
+    Comment: "评论",
+    Milestone: "里程碑",
+    Update: "更新",
+    System: "系统",
+    Moderation: "管理",
+    Referral: "推荐",
+    "Knights of New Order: Performance Check Failed":
+      "新秩序骑士：性能检查失败",
+    "Knights of New Order: Smite": "新秩序骑士：惩击",
+    "Knights of New Order: Cleansed Smite": "新秩序骑士：净化惩击",
+    "Knights of New Order: Game Over": "新秩序骑士：游戏结束",
+    "Knights of New Order: Templar Promotion": "新秩序骑士：圣殿骑士晋升",
+    "Knights of New Order: Knight Demotion": "新秩序骑士：骑士降级",
+    "Knights of New Order: Blessed Buzz Granted": "新秩序骑士：获得祝福 Buzz",
+
     // ---- 搜索分类 ----
     Users: "用户",
     Collections: "收藏集",
     Tools: "工具",
+    Bounties: "悬赏",
+    Bounty: "悬赏",
 
     // ---- 内容分级 / 技术名词（保持原样，显式列出便于统一维护）----
     PG: "PG",
@@ -383,21 +637,21 @@
     // ---- 文章列表 ----
     articles: {
       "My checkpoints": "我的 Checkpoint",
-      // 文章分类（站点定义的筛选项）
-      "CIVITAI OFFICIAL": "官方",
-      ANNOUNCEMENT: "公告",
-      STORY: "故事",
-      MUSING: "随笔",
-      WORKFLOWS: "工作流",
-      "GENERATION GUIDE": "生成指南",
-      NEWS: "新闻",
-      "TOOL GUIDE": "工具指南",
-      "TRAINING GUIDE": "训练指南",
-      "RESOURCE GUIDE": "资源指南",
-      "COMPARATIVE STUDY": "对比研究",
-      "VIDEO GENERATION GUIDE": "视频生成指南",
-      "DATA PREP": "数据准备",
-      "ML RESEARCH": "机器学习研究",
+      // 文章分类（站点定义的筛选项；DOM 里是大小写混合，靠 CSS 转大写）
+      "Civitai Official": "Civitai 官方",
+      announcement: "公告",
+      story: "故事",
+      musing: "随笔",
+      workflows: "工作流",
+      "generation guide": "生成指南",
+      news: "新闻",
+      "tool guide": "工具指南",
+      "training guide": "训练指南",
+      "resource guide": "资源指南",
+      "comparative study": "对比研究",
+      "video generation guide": "视频生成指南",
+      "data prep": "数据准备",
+      "ML Research": "机器学习研究",
     },
 
     // ---- 文章详情 ----
@@ -428,6 +682,30 @@
     crucibles: {
       "Crucible Discovery": "擂台发现",
       "Welcome to the Crucible": "欢迎来到擂台",
+      "Start Judging": "开始评审",
+      "Create Crucible": "创建擂台",
+      "Create a crucible": "创建擂台",
+      "A new way to play and earn Buzz on Civitai: head-to-head competitions where the community, not an AI, picks the winner.":
+        "在 Civitai 上边玩边赚 Buzz 的新方式：正面交锋的比赛，由社区而非 AI 决定赢家。",
+      "Submit your best image or video to a crucible whose theme it fits. Every entry fee grows the prize pool.":
+        "将你最好的图片或视频提交到主题契合的擂台。每笔参赛费都会扩充奖池。",
+      "Pick the better of two entries, head to head. Every vote moves the rankings, and every judge's vote counts the same.":
+        "在两件作品之间一对一选出更好的。每一票都会改变排名，每位评委的票权重相同。",
+      "Prize Pool": "奖池",
+      "Enter Competition": "参加比赛",
+      "Your crucible record": "你的擂台战绩",
+      "Crucibles Entered": "参加擂台数",
+      "Buzz Won": "赢得 Buzz",
+      "Best Finish": "最佳名次",
+      "Avg Finish": "平均名次",
+      "Votes Cast": "投票数",
+      "From ended crucibles": "来自已结束的擂台",
+      "Ending Soon": "即将结束",
+      "Most Entries": "参赛最多",
+      "Content type": "内容类型",
+      Active: "进行中",
+      Completed: "已结束",
+      "Report crucible": "举报擂台",
       Enter: "参赛",
       Judge: "评审",
       Win: "获胜",
@@ -909,6 +1187,134 @@
       "Earned before launch": "上线前获得",
       "First Model": "第一个模型",
       "Published your first model.": "发布了你的第一个模型。",
+
+      // ---- 设置：内容与浏览 ----
+      Topics: "主题",
+      "Selected topics appear less often while browsing.":
+        "选中的主题在浏览时会较少出现。",
+      "Hide anime": "隐藏动漫",
+      "Hide furry": "隐藏兽人",
+      "Hide gore": "隐藏血腥",
+      "Hide political": "隐藏政治",
+      "Hidden tags": "隐藏的标签",
+      "Content with these tags is hidden from you.": "带有这些标签的内容对你隐藏。",
+      political: "政治",
+      anthro: "兽人",
+      furry: "兽人",
+      "Hidden users": "隐藏的用户",
+      "Unhide all": "全部取消隐藏",
+      "Their models, images and comments are hidden from you.":
+        "他们的模型、图片和评论对你隐藏。",
+      "Hidden models": "隐藏的模型",
+      "Hidden models are left out of search, feeds and model pages.":
+        "隐藏的模型不会出现在搜索、信息流和模型页面中。",
+      hidden: "隐藏",
+
+      // ---- 设置：创作者 ----
+      "Creator Showcase": "创作者展示",
+      "Hide me from the Creator Showcase": "在创作者展示中隐藏我",
+      "Leaves you out of Mythic, the Hall of Fame and New Supernovas. Your badges still show on your profile.":
+        "你将不会出现在 Mythic、名人堂和 New Supernovas 中。你的徽章仍会显示在主页上。",
+      "Metric visibility": "指标可见性",
+      "You and moderators still see your real stats on model pages and cards. On search results you see the hidden state, same as the public.":
+        "你和管理员在模型页面和卡片上仍能看到真实数据。在搜索结果中，你看到的是隐藏状态，与公众一致。",
+      "The default for all your models. Creator Program members only; reverts if your membership lapses.":
+        "你所有模型的默认设置。仅限创作者计划成员；会员失效后会恢复原状。",
+      "Creator Program members only": "仅限创作者计划成员",
+      "Gain more control over how your models are presented, plus the rest of the Creator Program:":
+        "更好地控制模型的展示方式，并享受创作者计划的其余权益：",
+      "Hide your model metrics and donation goals": "隐藏模型指标和捐赠目标",
+      "Earn real cash from your creations": "从你的作品赚取真实收入",
+      "Join the Creator Program": "加入创作者计划",
+      "Hide tipped / earned Buzz": "隐藏打赏/赚取的 Buzz",
+      "Others won't see Buzz earned on your models, unless a model or version overrides it.":
+        "其他人看不到你模型上赚取的 Buzz，除非某个模型或版本覆盖此设置。",
+      "Hide download count": "隐藏下载数",
+      "Others won't see your download counts, unless a model or version overrides it.":
+        "其他人看不到你的下载数，除非某个模型或版本覆盖此设置。",
+      "Hide generation count": "隐藏生成数",
+      "Others won't see your generation counts, unless a model or version overrides it.":
+        "其他人看不到你的生成数，除非某个模型或版本覆盖此设置。",
+      "Hide my donation goals from public view": "对公众隐藏我的捐赠目标",
+      "Others won't see the progress or amount. The goal still works.":
+        "其他人看不到进度或金额。目标仍然有效。",
+      "Stickers on your images": "你图片上的贴纸",
+      "Let other people pay to place a sticker on your work. You keep most of what they pay, and you can decline anything you don't want. Individual posts and images can override this.":
+        "允许他人付费在你的作品上放置贴纸。你保留他们支付的大部分费用，也可以拒绝任何你不想要的内容。单个帖子和图片可以覆盖此设置。",
+      "No stickers": "不允许贴纸",
+      "Review each one": "逐个审核",
+      "Accept all": "全部接受",
+      "Allow stickers on": "允许贴纸用于",
+      "Price per placement": "每次放置价格",
+      "Your cap is": "你的上限为",
+      "Buzz, set by your creator score and membership tier. We store the price you choose, so if the cap rises later your price takes effect on its own.":
+        "Buzz，由创作者积分和会员等级决定。我们保存你选择的价格，因此若上限之后提高，你的价格会自动生效。",
+      "Use the platform default": "使用平台默认值",
+      "Placers pay 100 Buzz": "放置者支付 100 Buzz",
+      "Largest sticker allowed": "允许的最大贴纸",
+      "As a share of the image's width, so it scales with however large the image is drawn. Placements already on your work keep the size they were accepted at.":
+        "以图片宽度的占比计算，因此会随图片显示尺寸缩放。已放置在你作品上的贴纸保持其被接受时的尺寸。",
+      "of the size of the image": "图片尺寸的",
+      Free: "免费",
+      stickers: "贴纸",
+      "you'll accept": "你将接受",
+      ", set by your creator score and membership tier. Paid placements never use these up.":
+        "，由创作者积分和会员等级决定。付费放置从不占用这些额度。",
+      "per image": "每张图片",
+      "Review pending stickers": "审核待处理的贴纸",
+      "Stickers you've placed": "你已放置的贴纸",
+      "Your sticker inventory": "你的贴纸库存",
+      "Browse and manage your stickers in the Stickerbook.":
+        "在贴纸册中浏览和管理你的贴纸。",
+      "Remix galleries on your images": "你图片上的重混画廊",
+      "No remix gallery": "无重混画廊",
+      "Price per submission": "每次提交价格",
+      "Submitters pay 100 Buzz": "提交者支付 100 Buzz",
+      "What people may submit": "人们可以提交什么",
+      "Either way you review every submission before it appears. This only decides what can be offered to you in the first place.":
+        "无论哪种方式，每个提交在出现前都会经过你审核。这只决定一开始可以向您提供什么。",
+      "At or below my image's rating": "等于或低于我图片的分级",
+      "Any rating": "任何分级",
+      submissions: "提交",
+      "Submitted to you": "提交给你的",
+      "You've submitted": "你已提交",
+      "Hat Turf on my images": "我图片上的帽子地盘",
+      "Let people play Hat Turf on my images": "允许人们在我的图片上玩帽子地盘",
+      "Off hides team hats on your images and they stop counting. They're back if you turn it on.":
+        "关闭后你图片上的队伍帽子会隐藏且不再计分。开启后会恢复。",
+
+      // ---- 设置：会员与账单 ----
+      "No active membership": "无有效会员",
+      "You're on the free plan. A membership adds:":
+        "你当前是免费方案。会员可额外获得：",
+      "A monthly Buzz allowance": "每月 Buzz 额度",
+      "Ad-free browsing": "无广告浏览",
+      "Exclusive Discord channels and early access": "专属 Discord 频道和抢先体验",
+      "See membership plans": "查看会员方案",
+      Payouts: "提现",
+      "Where your earnings and withdrawals land.": "你的收益和提现去向。",
+      "Set up payouts once you join the Creator Program:":
+        "加入创作者计划后即可设置提现：",
+      "Withdraw your earnings to your bank": "将收益提现到你的银行",
+
+      // ---- 设置：安全与应用 ----
+      "Sign-in methods": "登录方式",
+      "Sign in with any account you connect.": "使用你连接的任何账户登录。",
+      Connect: "连接",
+      "API keys": "API 密钥",
+      "Add API key": "添加 API 密钥",
+      "Programmatic access to your account. Treat them like passwords.":
+        "对你的账户的程序化访问权限。请像对待密码一样对待它们。",
+      "Full Access": "完全访问",
+      "Can generate": "可生成",
+      "No limit": "无限制",
+      "OAuth applications": "OAuth 应用",
+      "Register App": "注册应用",
+      "Let third-party apps call the API on a user's behalf.":
+        "允许第三方应用代表用户调用 API。",
+      "No OAuth applications registered yet": "尚未注册 OAuth 应用",
+      "Register your first OAuth application to enable third-party integrations.":
+        "注册你的第一个 OAuth 应用以启用第三方集成。",
     },
   };
 
@@ -978,6 +1384,13 @@
       new RegExp(`^Earned\\s+(${MONTH_RE})\\s+(\\d{1,2}),\\s+(\\d{4})$`),
       (m, mon, day, year) => `获得于 ${year}年${MONTHS[mon]}${day}日`,
     ],
+    // 注册时间：Member since Apr 19, 2024 / Member since April 19, 2024
+    [
+      new RegExp(`^Member since\\s+(${MONTH_RE}|${FULL_MONTH_RE})\\s+(\\d{1,2}),\\s+(\\d{4})$`),
+      (m, mon, day, year) => `${year}年${(MONTHS[mon] || FULL_MONTHS[mon])}${day}日加入`,
+    ],
+    // 保险库容量：100 GB of model storage
+    [/^(\d+)\s*GB of model storage$/i, "$1 GB 模型存储空间"],
     // 完整月份 + 年份：November 2026
     [
       new RegExp(`^(${FULL_MONTH_RE})\\s+(\\d{4})$`),
@@ -1073,6 +1486,10 @@
       (m, prec, pruned, size) =>
         `${prec}，最佳匹配，半精度，均衡最佳${pruned ? "（精简版）" : ""}，${size}`,
     ],
+    // 擂台战绩：0 of 0 won
+    [/^(\d+)\s+of\s+(\d+)\s+won$/i, "$1 / $2 获胜"],
+    // 欢迎回来：Welcome back, cyberlangke!
+    [/^Welcome back,\s+(.+?)!$/, "欢迎回来，$1！"],
     // 步骤计数：3 of 4
     [/^(\d+)\s+of\s+(\d+)$/, "$1 / $2"],
     // Tensors 1,131 VRAM min 1.4 GB rec 3.2 GB
@@ -1246,7 +1663,14 @@
     if (pageDict) Object.assign(raw, pageDict);
 
     const dict = Object.create(null);
-    for (const key of Object.keys(raw)) dict[normalizeText(key)] = raw[key];
+    // 额外维护一份全小写索引：UI 常用 CSS 转大写，源文本大小写不统一
+    const lower = Object.create(null);
+    for (const key of Object.keys(raw)) {
+      const k = normalizeText(key);
+      dict[k] = raw[key];
+      lower[k.toLowerCase()] = raw[key];
+    }
+    State.dictLower = lower;
     return dict;
   }
 
@@ -1281,6 +1705,13 @@
     const alias = CASE_ALIASES[trimmed.toLowerCase()];
     if (alias && Object.prototype.hasOwnProperty.call(dict, normalizeText(alias))) {
       return dict[normalizeText(alias)];
+    }
+
+    const lowerKey = trimmed.toLowerCase();
+    // 大小写回退：处理 ALL CAPS / 首字母大写等同一 UI 文案
+    if (trimmed.length <= 60 && State.dictLower &&
+        Object.prototype.hasOwnProperty.call(State.dictLower, lowerKey)) {
+      return State.dictLower[lowerKey];
     }
 
     // 正则只处理短文本，避免误伤长正文
