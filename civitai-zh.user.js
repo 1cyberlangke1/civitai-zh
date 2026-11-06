@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.8
+// @version      0.2.9
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -22,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.8";
+  const VERSION = "0.2.9";
 
   /* ========================================================================
    *  翻译边界
@@ -620,6 +620,8 @@
     "Shows each image in a post whole, sized to fit your screen, instead of at full width.":
       "完整显示帖子中的每张图片，按屏幕大小缩放，而不是全宽显示。",
     "Join the early-adopter program": "加入抢先体验计划",
+    "Let other people pay to feature their remixes on your work. You review every submission and decide what a remix means on your own images. Turning this on does not share your prompt - hidden prompts stay hidden.":
+      "让其他人付费把他们的重混展示在你的作品上。每份提交都由你审核，你可以决定重混在你自己的图片上意味着什么。开启此功能不会共享你的提示词——隐藏的提示词仍然保持隐藏。",
     "Features before they roll out. They may be rough or change without notice.":
       "在功能全面推出前提前体验。它们可能不完善或随时变更，恕不另行通知。",
 
@@ -1829,7 +1831,16 @@
       "App author fees": "应用作者费用",
       "Sticker, remix and promotion fees": "贴纸、重混与推广费用",
       "Not bankable": "不可存入",
-      "Buzz you bought": "你购买的 Buzz",
+      "Your Cap is your Peak Earning Month multiplied by your membership tier's percentage, up to that tier's ceiling where it has one. Your Peak Earning Month is the single best month of licensing fees and Buzz other people spent on your work that you have had in the last 12 completed months. From November 1, 2026, generation compensation no longer counts toward your peak, including for earlier months. Tips and rewards do not set your peak. Tiers with a fixed Cap stay at that number, and every member has a minimum Cap of 100k Buzz, however small their peak.":
+        "你的上限等于「峰值收益月」乘以会员等级的百分比，若该等级设有天花板则以天花板为上限。峰值收益月指最近 12 个完整月份中，你从作品获得的许可费与他人花费的 Buzz 合计最高的那一个月。自 2026 年 11 月 1 日起，生成补偿不再计入峰值，包括此前月份。小费与奖励不计入峰值。设有固定上限的等级就保持该数值，且每位会员的上限最低为 10 万 Buzz，无论峰值多小。",
+      "Only completed months are eligible, so a great month raises your Cap the month after it finishes rather than while it is still running. That way your Peak Earning Month is settled before it is used, and it stays fixed for the whole month while every creator is banking against the same pool. If you are earning more than ever this month, your Cap will reflect it next month with nothing for you to claim or apply for.":
+        "只有已结束的月份才计入，因此收益高的月份是在结束后的下个月才提升你的上限，而不是当月即时生效。这样峰值收益月在启用前就已确定，并在整月内保持不变，让所有创作者都按同一个资金池存入。如果你本月收益创新高，上限会在下个月体现，无需你申请或领取。",
+      "Because the Cap is meant to track what you are earning now, not what you earned once. The Compensation Pool is split between everyone who banks into it that month, so a rolling window keeps it shared between creators who are actively earning. The window rolls forward with you, so beating your current peak inside it raises your Cap again.":
+        "因为上限意在反映你当下的收益，而不是曾经的一次高峰。补偿池由当月存入的所有人共同分得，因此采用滚动窗口，让资金在持续产出的创作者之间共享。窗口会随你向前滚动，所以在窗口内超越当前峰值会再次提升你的上限。",
+      "Earned Yellow or Green Buzz can be Banked, up to your cap. From November 1, 2026, you can Bank the Buzz you held on that date plus what you earn from your work afterwards: licensing fees, Early Access and paid access, tips from other users, generator tips, donations, shop sales, bounties, App author fees, and sticker, remix and promotion fees. Generation compensation is still paid to you but no longer counts toward what you can Bank. Buzz you pay other users after that date (tips, Early Access and paid access, shop items, bounties and donations) is subtracted from what you have earned since then, and beyond that from what you have not yet banked of the Buzz you held on that date.":
+        "赚取的黄色或绿色 Buzz 可以存入，直至你的上限。自 2026 年 11 月 1 日起，你可存入该日持有的 Buzz，加上此后从作品获得的部分：许可费、抢先体验与付费访问、其他用户的小费、生成器小费、捐赠、商店销售、悬赏、应用作者费用，以及贴纸、重混与推广费用。生成补偿仍会支付给你，但不再计入可存入额度。该日期之后你支付给其他用户的 Buzz（小费、抢先体验与付费访问、商店商品、悬赏与捐赠）会先从此后赚取的部分中扣除，不足的部分再从你该日持有但尚未存入的 Buzz 中扣除。",
+      "The last three days of each month make up the Extraction Phase, during which you can reclaim your Buzz back to your Buzz Wallet if you choose not to proceed with a payout. Extractions must be all or nothing - you cannot partially Extract your Buzz. A tiered fee structure is in place to prevent Bank manipulation: the first 100k Buzz is fee-free, the next 900k Buzz is charged a 5% Extraction fee, the next 4M Buzz is charged a 10% Extraction fee, and any amount above 5M Buzz is charged a 15% Extraction fee.":
+        "每月最后三天为提取阶段，若你决定不提现，可在此期间把 Buzz 取回 Buzz 钱包。提取必须全额进行——不能只提取一部分。为防操纵存入，采用阶梯手续费：前 10 万 Buzz 免费，其后 90 万 Buzz 收取 5% 提取费，再其后 400 万 Buzz 收取 10%，超过 500 万 Buzz 的部分收取 15%。",      "Buzz you bought": "你购买的 Buzz",
       "Rewards and credits from Civitai": "来自 Civitai 的奖励与额度",
       "Buzz matched by what you paid other users": "按你支付给其他用户的金额匹配的 Buzz",
       "Earn on Civitai": "在 Civitai 赚取收益",
