@@ -1012,7 +1012,11 @@
     if (alias && Object.prototype.hasOwnProperty.call(dict, alias)) return dict[alias];
 
     for (const [re, rep] of REGEXPS) {
-      if (re.test(trimmed)) return trimmed.replace(re, rep);
+      try {
+        if (re.test(trimmed)) return trimmed.replace(re, rep);
+      } catch (err) {
+        if (CONFIG.debug) console.warn("[civitai-zh] 正则失败", re, err);
+      }
     }
     return null;
   }
@@ -1076,7 +1080,10 @@
     });
 
     let node;
-    while ((node = walker.nextNode())) transNode(node);
+    while ((node = walker.nextNode())) {
+      // 单节点失败不影响整棵树：否则一个异常会让后面全部漏翻
+      safe(() => transNode(node), "transNode");
+    }
   }
 
   /* ------------------------------------------------------------------------
@@ -1126,8 +1133,9 @@
    * ---------------------------------------------------------------------- */
   function translatePage() {
     if (!State.enabled) return;
-    safe(() => walk(document.body), "walk");
-    safe(() => walkAttributes(document.body), "walkAttributes");
+    const root = document.body || document.documentElement;
+    safe(() => walk(root), "walk");
+    safe(() => walkAttributes(root), "walkAttributes");
     safe(transTitle, "title");
   }
 
