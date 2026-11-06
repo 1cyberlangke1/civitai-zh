@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.3
+// @version      0.2.4
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -21,7 +21,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.3";
+  const VERSION = "0.2.4";
 
   /* ========================================================================
    *  翻译边界
@@ -72,7 +72,7 @@
     Images: "图片",
     Videos: "视频",
     "3D Models": "3D 模型",
-    Hubs: "Hubs",
+    Hubs: "中心",
     Articles: "文章",
     Comics: "漫画",
     Crucibles: "擂台",
@@ -80,6 +80,8 @@
     Updates: "更新",
     Shop: "商店",
     More: "更多",
+    Storylines: "故事线",
+    Challenges: "挑战",
     Pro: "会员",
     Create: "创作",
     "Sign In": "登录",
@@ -155,6 +157,39 @@
     Version: "版本",
     "How it works": "了解详情",
     "Read more": "阅读更多",
+    "🛟 Support": "🛟 支持",
+    "Sign In/Sign up": "登录/注册",
+    Leaderboard: "排行榜",
+    Auctions: "拍卖",
+    "Download Link App": "下载链接应用",
+    "Get help": "获取帮助",
+    "Report a bug": "报告问题",
+    "Education Hub": "教育中心",
+    FAQ: "常见问题",
+    "Discord Community": "Discord 社区",
+    "Support Portal": "支持门户",
+    "Visit civitai.red": "访问 civitai.red",
+    "View perks memberships": "查看特权会员",
+    "Gift this tier": "赠送此等级",
+    "Private Models": "私密模型",
+    "Civitai Link": "Civitai 链接",
+    "Creator Program": "创作者计划",
+    Bronze: "青铜",
+    Silver: "白银",
+    Gold: "黄金",
+    "Civitai's 4th Birthday": "Civitai 四周年",
+    "Civitai | Share your models": "Civitai | 分享你的模型",
+    "Green Memberships | Civitai": "Green 会员 | Civitai",
+    "View Post": "查看帖子",
+    Uploaded: "上传于",
+    "The queue is empty": "队列为空",
+    "Some new filtering options don't apply retroactively.":
+      "部分新的筛选选项不会追溯生效。",
+    "Civitai turns 4.": "Civitai 四周年。",
+    "Pick up a hat.": "领取一顶帽子。",
+    "Four color teams, Nov 1 to Nov 30. Hat your best work and score for your team.":
+      "四色队伍，11 月 1 日至 11 月 30 日。为你的最佳作品戴上帽子，为你的队伍得分。",
+    Cap: "上限",
     Discussion: "讨论",
     "You must": "你需要",
     "to add a comment": "才能添加评论",
@@ -191,6 +226,8 @@
     videos: "Videos",
     "3d models": "3D Models",
     hubs: "Hubs",
+    storylines: "Storylines",
+    challenges: "Challenges",
     articles: "Articles",
     comics: "Comics",
     crucibles: "Crucibles",
@@ -206,6 +243,7 @@
     creators: "Creators",
     advertise: "Advertise",
     api: "API",
+    cap: "Cap",
   };
 
   /* ========================================================================
@@ -524,6 +562,14 @@
       Standard: "标准",
       Skip: "跳过",
       Next: "下一步",
+      Try: "试试",
+      generating: "生成",
+      "new images with our resources": "用我们的资源创作新图片",
+      "Welcome to the content generation tool! This tour will guide you through the process.":
+        "欢迎使用内容生成工具！本引导将带你走完整个流程。",
+      "our content policies": "我们的内容政策",
+      "will result in the loss of your access to the image generator. Illegal or exploitative content will be removed and reported.":
+        "将导致你失去图像生成器的访问权限。违法或剥削性内容将被删除并上报。",
     },
 
     // ---- 挑战 ----
@@ -577,6 +623,8 @@
       "Enter Buzz...": "输入 Buzz...",
       "Search items...": "搜索项目...",
       "Getting Started with Auctions": "拍卖入门",
+      "Welcome to auctions! This tour will guide you through the process.":
+        "欢迎来到拍卖！本引导将带你走完整个流程。",
     },
 
     // ---- 排行榜 ----
@@ -674,9 +722,174 @@
       "View the full policy": "查看完整政策",
     },
 
-    // ---- 创作者计划（营销正文不翻）----
+    // ---- 创作者计划（含折叠栏正文）----
     "creator-program": {
       "Earn on Civitai": "在 Civitai 赚取收益",
+      "Your models, LoRAs, and images power Civitai. Here's every way to earn from your work - and how the Creator Program lets you turn the Buzz you earn into real payouts.":
+        "你的模型、LoRA 和图片驱动着 Civitai。以下是你靠作品赚取收益的所有方式，以及创作者计划如何把赚到的 Buzz 变成真实收入。",
+      "How is my Banking Cap calculated?": "我的存入上限如何计算？",
+      "Why doesn't this month's earning count toward my Cap?":
+        "为什么本月收益不计入我的上限？",
+      "Why does the Cap look at the last 12 months?": "为什么上限参考最近 12 个月？",
+      "You make Civitai": "你在成就 Civitai",
+      "Every model, LoRA, and image posted here is what brings people to Civitai and keeps them generating. When your work drives that activity, you should share in what it creates — that's what earning on Civitai is all about, whether you're building models or filling the feeds with great generations.":
+        "这里发布的每一个模型、LoRA 和图片，都是吸引人们来到 Civitai 并持续生成的原因。当你的作品推动这些活动时，你理应分享它所创造的收益——无论你是在制作模型，还是在信息流里贡献优秀作品，这就是在 Civitai 赚取收益的意义。",
+      "How you earn": "如何赚取",
+      "Every creator earns from their work — no membership required. These are open to everyone.":
+        "每位创作者都能靠作品赚取收益——无需会员。以下对所有创作者开放。",
+      "Generation compensation": "生成补偿",
+      "Earn every time someone generates with your models.":
+        "每当有人用你的模型生成，你都能获得收益。",
+      "Generator tips": "生成器打赏",
+      "Receive tips from the people generating with your work.":
+        "接收使用你作品生成的人打赏。",
+      "Image rewards": "图片奖励",
+      "Earn Buzz when the community reacts to the images you post.":
+        "社区对你发布的图片作出反应时获得 Buzz。",
+      "Early access": "抢先体验",
+      "Offer timed early access to your newest models.": "为你最新的模型提供限时抢先体验。",
+      "Paid access": "付费访问",
+      "Sell permanent access to your models.": "出售模型的永久访问权。",
+      "Licensing fees": "许可费",
+      "Set a per-generation fee on your models.": "为你的模型设置按次生成的费用。",
+      "Creator Shops": "创作者商店",
+      "Sell custom cosmetics, your models, and soon merch, right on your profile.":
+        "直接在个人主页出售自定义装饰、你的模型，以及即将上线的周边。",
+      "Manage it all in the Creator Studio": "在创作者工作室统一管理",
+      "See your earnings and analytics, set licensing fees and paid access, and bulk-edit across your whole catalogue — all in one place. The Creator Studio is open to every creator.":
+        "查看收益与分析、设置许可费和付费访问，并批量编辑整个作品目录——全部集中在一处。创作者工作室对所有创作者开放。",
+      "Open Creator Studio": "打开创作者工作室",
+      "The Civitai Creator Program": "Civitai 创作者计划",
+      "Get paid for your work.": "让你的作品获得报酬。",
+      "The Creator Program is how you earn more and unlock the ability to cash out. Bank the Buzz you earn to claim your share of our monthly Creator Compensation Pool, then get paid your share.":
+        "创作者计划让你赚得更多并解锁提现能力。将赚到的 Buzz 存入银行，即可领取每月创作者补偿池中属于你的份额，然后获得报酬。",
+      "Join the Creator Program": "加入创作者计划",
+      "Charge more as you climb": "等级越高，定价越高",
+      "Every creator can monetize their work — your membership tier decides how much you can charge. The higher your tier, the higher your caps.":
+        "每位创作者都能变现——会员等级决定你的收费上限。等级越高，上限越高。",
+      "Higher licensing fee caps.": "更高的许可费上限。",
+      "Set a per-generation licensing fee on your models and raise your ceiling as you move up tiers — Bronze, Silver, then Gold each unlock a higher maximum fee.":
+        "为模型设置按次生成的许可费，并随等级提升上限——青铜、白银、黄金会依次解锁更高的最高费用。",
+      "Higher paid-access price caps.": "更高的付费访问价格上限。",
+      "Charge for early or permanent access to your resources. Higher tiers let you set higher access prices, so top-tier members can price their most in-demand work accordingly.":
+        "为资源的抢先体验或永久访问收费。更高等级允许设置更高的访问价格，让顶级会员能为最抢手的作品定价。",
+      "Here is every tier's ceiling. Upgrading raises how much you can earn per resource.":
+        "以下是各等级的上限。升级即可提高每个资源的收益上限。",
+      "Compare membership tiers": "对比会员等级",
+      "Model versions you can monetize each month": "每月可变现的模型版本数",
+      "— a licensing fee or paid access": "——许可费或付费访问",
+      Tier: "等级",
+      "Monetized / month": "每月可变现",
+      Free: "免费",
+      Bronze: "青铜",
+      Silver: "白银",
+      Gold: "黄金",
+      Unlimited: "无限",
+      "A licensing fee or a permanent paid-access price each count once, per version, the first time you set one. Changing or removing a price you have already set costs nothing, and a timed early-access window never counts.":
+        "许可费或永久付费访问价格，按每个版本首次设置时各计一次。修改或移除已设置的价格不产生费用，限时抢先体验窗口不计入。",
+      "How much you charge is the same at every tier: up to":
+        "各等级的收费上限相同：最高",
+      "⚡ per generation as a licensing fee (": "⚡ 每次生成作为许可费（",
+      "⚡ for video models), and any price you like for paid access.":
+        "⚡ 用于视频模型），付费访问可任意定价。",
+      "How cash-out works": "提现如何运作",
+      "Generating a lot of Buzz? Bank it to claim your share of the pool.":
+        "赚了很多 Buzz？存入银行即可领取补偿池中属于你的份额。",
+      "Earn Buzz": "赚取 Buzz",
+      "Bank your Buzz": "存入 Buzz",
+      "Claim your Share": "领取你的份额",
+      "The Basics": "基础说明",
+      "If you meet the program requirements, join!": "符合计划要求就加入吧！",
+      "Each month Civitai allocates a Creator Compensation Pool from a portion of our revenue based off of":
+        "Civitai 每月会从收入中按一定比例划出创作者补偿池，依据是",
+      "purchased.": "的购买量。",
+      "During the Banking Phase, you Bank Buzz to secure your share of the Compensation Pool":
+        "在存入阶段，存入 Buzz 以锁定你在补偿池中的份额",
+      "During the Extraction Phase, you can choose to keep Buzz in the Bank to get paid or Extract it to save it for the future":
+        "在提取阶段，你可以选择把 Buzz 留在银行领取报酬，或提取出来留待日后使用",
+      "Get paid!": "获得报酬！",
+      "How do I join?": "如何加入？",
+      "Program requirements:": "计划要求：",
+      "Have a Creator Score of at least 40,000": "创作者积分至少达到 40,000",
+      "Your Creator Score grows when": "你的创作者积分会增长，当",
+      "people use, react to, and follow your work": "人们使用、反应并关注你的作品时",
+      ", and it updates once a day.": "，每天更新一次。",
+      "See your journey": "查看你的历程",
+      "Be a Civitai Green Member": "成为 Civitai Green 会员",
+      "Become a Civitai Member Now!": "立即成为 Civitai 会员！",
+      "Join Now!": "立即加入！",
+      "Want to know more? Check out the full Guide!": "想了解更多？查看完整指南！",
+      "Earning with the Creator Program": "通过创作者计划赚取收益",
+      "Compensation Pool": "补偿池",
+      "Current Banked Buzz": "当前已存入 Buzz",
+      "How is this determined?": "这是如何确定的？",
+      "Creator Banking Caps": "创作者存入上限",
+      "Every creator in the program has a Cap to the amount of Buzz they can Bank in a month. Caps align with membership tiers as outlined below.":
+        "计划中的每位创作者每月可存入的 Buzz 都有上限。上限按下方的会员等级划分。",
+      Member: "会员",
+      "125% of your Peak Earning Month with": "你的峰值收益月的 125%，搭配",
+      "150% of your Peak Earning Month with": "你的峰值收益月的 150%，搭配",
+      "no cap": "无上限",
+      "How your Peak Earning Month is picked": "如何选取你的峰值收益月",
+      "We take your best month of licensing fees and Buzz other people spent on your work, in the last":
+        "我们取你最近",
+      completed: "完整",
+      "months. From": "个月中，许可费与他人为你的作品花费 Buzz 最高的月份。自",
+      ", generation compensation no longer counts toward your peak, including for earlier months. Tips and rewards do not set your peak.":
+        "起，生成补偿不再计入峰值，包括更早的月份。打赏和奖励不计入峰值。",
+      "The month you are in does not count.": "当前月份不计入。",
+      "Buzz earned today cannot raise today's Cap, so your Cap holds steady.":
+        "今天赚到的 Buzz 无法提高今天的上限，因此上限保持稳定。",
+      "The last": "最近",
+      "completed months are what count.": "个完整月份才计入。",
+      "The Cap follows what you earn now, keeping the Pool shared between active creators.":
+        "上限跟随你当前的收益，让补偿池在活跃创作者之间共享。",
+      "Ready to get paid for your work?": "准备好靠作品获得报酬了吗？",
+      "Frequently asked questions": "常见问题",
+      "Do I need a membership to earn on Civitai?":
+        "在 Civitai 赚取收益需要会员吗？",
+      "No. Generation compensation, tips, image rewards, early access, paid access, licensing fees, and Creator Shops are open to every creator, member or not. The Creator Program is how you earn more and unlock the ability to cash out your Buzz.":
+        "不需要。生成补偿、打赏、图片奖励、抢先体验、付费访问、许可费和创作者商店对所有创作者开放，无论是否为会员。创作者计划则是让你赚得更多并解锁 Buzz 提现能力的方式。",
+      "What's the difference between earning Buzz and the Creator Program?":
+        "赚取 Buzz 和创作者计划有什么区别？",
+      "You earn Buzz from your work automatically as people generate with, tip, and react to it. The Creator Program lets you bank that Buzz to claim a share of the monthly Creator Compensation Pool and get paid.":
+        "当人们使用你的作品生成、打赏并作出反应时，你会自动赚取 Buzz。创作者计划让你把这些 Buzz 存入银行，以领取每月创作者补偿池的份额并获得报酬。",
+      "Where do I manage my fees, paid access, and earnings?":
+        "我在哪里管理费用、付费访问和收益？",
+      "In the": "在",
+      "Creator Studio": "创作者工作室",
+      ". It shows your earnings and analytics and lets you set licensing fees and paid access across your models. It's open to every creator.":
+        "中。它会显示你的收益与分析，并可跨模型设置许可费和付费访问。它对所有创作者开放。",
+      "Is the Creator Program voluntary?": "创作者计划是自愿的吗？",
+      "Yes! If you're eligible for the program, but don't want to participate, nobody's forcing you! Even if you do join the program, but don't want to contribute Buzz, that's fine – there's no requirement to Bank anything.":
+        "是的！如果你符合计划资格但不想参与，没有人会强迫你！即使加入了计划，不想存入 Buzz 也没问题——没有任何存入要求。",
+      "Can I bank both Yellow and Green Buzz?": "我可以同时存入黄色和绿色 Buzz 吗？",
+      "Yes! There is a single unified Compensation Pool. You can bank either Yellow or Green Buzz (or both) into the same pool each month. Your earnings are based on your total banked Buzz across both types.":
+        "可以！补偿池是统一的一个。你每月可以存入黄色或绿色 Buzz（或两者）。你的收益基于两种 Buzz 的存入总量。",
+      "Would buying a higher Membership Tier (Silver or Gold) increase my earnings?":
+        "购买更高会员等级（白银或黄金）会增加我的收益吗？",
+      "Not your earnings, as such, but it does increase the maximum you can Bank each month.":
+        "不会直接增加收益，但会提高你每月可存入的上限。",
+      "Will I get my Banked Buzz back?": "存入的 Buzz 会退还吗？",
+      "No, your Banked Buzz will be consumed each month, unless you choose to Extract it during the Extraction Phase!":
+        "不会，存入的 Buzz 每月会被消耗，除非你在提取阶段选择提取！",
+      "What types of Buzz can be Banked?": "哪些类型的 Buzz 可以存入？",
+      "Do I need an active membership to Bank Buzz?": "存入 Buzz 需要有效会员吗？",
+      "Yes, you must have an active Civitai membership to bank Buzz in the Creator Program. If your membership expires, you will not be able to bank additional Buzz until you renew your subscription.":
+        "需要。你必须有有效的 Civitai 会员才能在创作者计划中存入 Buzz。会员到期后，在续订前无法继续存入。",
+      "What happens if cancel my Civitai Membership?": "如果我取消 Civitai 会员会怎样？",
+      "If you deactivate your Subscription you'll remain in the Program until the end of the month, allowing you to Bank your Buzz and withdraw through the end of the period.":
+        "如果你停用订阅，你仍会保留在计划中直到月底，期间可以存入 Buzz 并提现。",
+      "When, and how, do I sign up with your Payment Partner to withdraw my cash?":
+        "何时以及如何注册支付合作伙伴来提现？",
+      "When you have at least $50 in Ready to Withdraw status, you'll be invited to set up your account with our Payment Partner, via the email tied to your Civitai account, and a link on the Creator Program interface.":
+        "当你有至少 $50 处于「可提现」状态时，我们会通过你 Civitai 账号绑定的邮箱以及创作者计划界面上的链接，邀请你注册支付合作伙伴账户。",
+      "Must I withdraw my “Ready to Withdraw” funds each month?":
+        "我必须每月提取「可提现」资金吗？",
+      "No, funds can accumulate in your account until you're ready to pay out! There's no requirement to pay out each month.":
+        "不必，资金可以在账户中累积，直到你准备提现！没有每月必须提现的要求。",
+      "What happens if I decide I want my Banked Buzz back?":
+        "如果我想要回已存入的 Buzz 会怎样？",
     },
 
     // ---- 用户主页 ----
@@ -765,6 +978,11 @@
       new RegExp(`^Earned\\s+(${MONTH_RE})\\s+(\\d{1,2}),\\s+(\\d{4})$`),
       (m, mon, day, year) => `获得于 ${year}年${MONTHS[mon]}${day}日`,
     ],
+    // 完整月份 + 年份：November 2026
+    [
+      new RegExp(`^(${FULL_MONTH_RE})\\s+(\\d{4})$`),
+      (m, mon, year) => `${year}年${FULL_MONTHS[mon]}`,
+    ],
     // 完整日期 + 时间：November 6, 2026 8:00am
     [
       new RegExp(
@@ -822,6 +1040,8 @@
       /^(fp16|fp32|bf16),\s*Half precision,\s*best balance( \(pruned\))?,\s*([\d.]+\s*[GM]B)$/,
       "$1，半精度，均衡最佳$2，$3",
     ],
+    // 拍卖分类：Featured Resources - Anima
+    [/^Featured Resources\s*-\s*(.+)$/, "精选资源 - $1"],
     // 3D 下载按钮：Download (11.06 MB)
     [/^Download \((\d+(?:\.\d+)? [KMG]B)\)$/, "下载（$1）"],
     // 日期区间：Nov 1 to Nov 30
@@ -909,6 +1129,7 @@
     "Earn on Civitai | Civitai": "在 Civitai 赚取收益 | Civitai",
     "Civitai's 4th Birthday | Civitai": "Civitai 四周年 | Civitai",
     "Civitai Changelog": "Civitai 更新日志",
+    "Civitai | Share your models": "Civitai | 分享你的模型",
   };
 
   /* ------------------------------------------------------------------------
@@ -998,14 +1219,34 @@
   }
 
   /* ------------------------------------------------------------------------
-   *  buildDict：合并通用词库 + 当前页面词库
+   *  normalizeText：统一文本形态，避免「看着一样却匹配不上」
+   *  - 去零宽字符（React 有时会插入）
+   *  - NBSP / 多空白压成单空格
+   *  - 弯引号、弯破折号归一成 ASCII
+   *  输入：任意文本 / 输出：归一化后的文本
+   * ---------------------------------------------------------------------- */
+  function normalizeText(text) {
+    return String(text == null ? "" : text)
+      .replace(/[\u200b-\u200d\ufeff]/g, "")
+      .replace(/[\u2018\u2019\u02bc]/g, "'")
+      .replace(/[\u201c\u201d]/g, '"')
+      .replace(/[\u2013\u2014]/g, "-")
+      .replace(/[\s\u00a0]+/g, " ")
+      .trim();
+  }
+
+  /* ------------------------------------------------------------------------
+   *  buildDict：合并通用词库 + 当前页面词库（键统一归一化）
    *  输出：普通对象（页面词条覆盖通用词条）
    * ---------------------------------------------------------------------- */
   function buildDict(pageKey) {
-    const dict = Object.create(null);
-    Object.assign(dict, COMMON);
+    const raw = Object.create(null);
+    Object.assign(raw, COMMON);
     const pageDict = PAGES[pageKey];
-    if (pageDict) Object.assign(dict, pageDict);
+    if (pageDict) Object.assign(raw, pageDict);
+
+    const dict = Object.create(null);
+    for (const key of Object.keys(raw)) dict[normalizeText(key)] = raw[key];
     return dict;
   }
 
@@ -1028,16 +1269,22 @@
    * ---------------------------------------------------------------------- */
   function transText(text) {
     if (typeof text !== "string") return null;
-    const trimmed = text.replace(/[\s\u00a0]+/g, " ").trim();
-    if (!trimmed || trimmed.length > CONFIG.maxTextLength) return null;
+    const trimmed = normalizeText(text);
+    if (!trimmed) return null;
     if (!/[a-zA-Z]/.test(trimmed)) return null;
 
     const dict = State.dict;
+    // 精确词条不限制长度：长段落（折叠栏正文）也能命中
     if (Object.prototype.hasOwnProperty.call(dict, trimmed)) return dict[trimmed];
 
     // 小写别名：仅限导航/页脚等已知 UI 词
     const alias = CASE_ALIASES[trimmed.toLowerCase()];
-    if (alias && Object.prototype.hasOwnProperty.call(dict, alias)) return dict[alias];
+    if (alias && Object.prototype.hasOwnProperty.call(dict, normalizeText(alias))) {
+      return dict[normalizeText(alias)];
+    }
+
+    // 正则只处理短文本，避免误伤长正文
+    if (trimmed.length > CONFIG.maxTextLength) return null;
 
     for (const [re, rep] of REGEXPS) {
       try {
@@ -1067,8 +1314,7 @@
     const trimmed = raw.trim();
     // 只替换首尾去空白后的原文，避免破坏排版
     const next = raw.replace(trimmed, out);
-    if (next !== raw) node.nodeValue = next;
-  }
+    if (next !== raw) node.nodeValue = next;  }
 
   /* ------------------------------------------------------------------------
    *  transAttribute：翻译元素属性（placeholder/title/aria-label）
@@ -1271,7 +1517,45 @@
   }
 
   /* ------------------------------------------------------------------------
-   *  菜单：开关翻译
+   *  collectUntranslated：导出当前页所有未命中的英文可见文本
+   *  用途：折叠栏/悬浮窗里的漏网文案，直接复制给我补词库
+   *  输出：去重后的字符串数组（已过滤用户内容无关的数字/链接）
+   * ---------------------------------------------------------------------- */
+  function collectUntranslated() {
+    const root = document.body || document.documentElement;
+    if (!root) return [];
+
+    const result = [];
+    const seen = new Set();
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || isIgnored(parent)) return NodeFilter.FILTER_REJECT;
+        return normalizeText(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      },
+    });
+
+    let node;
+    while ((node = walker.nextNode())) {
+      const parent = node.parentElement;
+      // 诊断时跳过不可见节点（隐藏弹窗残留）
+      if (parent && typeof parent.checkVisibility === "function" && !parent.checkVisibility()) continue;
+      const text = normalizeText(node.nodeValue);
+      if (text.length < 2 || text.length > 200) continue;
+      if (!/[a-zA-Z]/.test(text)) continue;
+      if (/[\u4e00-\u9fa5]/.test(text)) continue;
+      if (/^https?:/.test(text)) continue;
+      if (/^[\d\s.,:#%+/\-]+$/.test(text)) continue;
+      if (transText(text) != null) continue;
+      if (seen.has(text)) continue;
+      seen.add(text);
+      result.push(text);
+    }
+    return result;
+  }
+
+  /* ------------------------------------------------------------------------
+   *  菜单：开关翻译 / 导出未翻译文本
    *  输入：无 / 输出：无
    * ---------------------------------------------------------------------- */
   function setupMenuCommands() {
@@ -1286,6 +1570,11 @@
       State.enabled = !State.enabled;
       setValue("civitai-zh-enabled", State.enabled);
       if (State.enabled) refreshContext(true);
+    });
+
+    register("导出未翻译文本到控制台", () => {
+      const list = collectUntranslated();
+      console.info(`[civitai-zh] 未翻译 ${list.length} 条：`, list);
     });
   }
 
@@ -1329,6 +1618,7 @@
   window.__civitaiZh = {
     transText,
     getPageKey,
+    collectUntranslated,
     get pageKey() {
       return State.pageKey;
     },

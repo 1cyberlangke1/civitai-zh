@@ -1,6 +1,6 @@
 {
   "name": "civitai-zh",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Civitai 界面中文化 Tampermonkey 脚本",
   "scripts": {
     "test": "node --check civitai-zh.user.js"
