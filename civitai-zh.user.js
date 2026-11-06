@@ -854,6 +854,17 @@
       "What's a remix gallery?": "什么是重混画廊？",
       "No stickers yet - place the first one": "还没有贴纸——来贴第一张吧",
       "Place a sticker · 1 free": "贴一张贴纸 · 免费 1 张",
+      cfgScale: "CFG 强度",
+      sampler: "采样器",
+      width: "宽度",
+      height: "高度",
+      clipSkip: "CLIP 跳过层",
+      "Tap or drag a sticker onto the image.": "点选或拖拽贴纸到图片上。",
+      "Free placement + one sticker use": "免费放置 + 消耗一次贴纸",
+      "Only you see it until the creator approves": "创作者通过前只有你能看到",
+      "Spends your free placement, even if they decline it": "即使对方拒绝，也会消耗你的免费放置次数",
+      "No stickers yet": "还没有贴纸",
+      "Browse the sticker shop": "逛逛贴纸商店",
       "Any creator can appear on a popular image, and you get to see other takes on work you liked. Iterate on it, restyle it, edit it, or turn it into a video - the creator reviews every submission.":
         "任何创作者都可能出现在热门图片上，你也能看到别人如何演绎你喜欢的作品。你可以迭代、改风格、编辑，或把它做成视频 - 每次提交都会由创作者审核。",
       "Why we built this": "为什么我们要做这个",
@@ -2353,6 +2364,8 @@
     [/^Civitai on (\S+)$/, "Civitai 的 $1"],
     // 活动倒计时：in 24 days
     [/^in (\d+) days?$/i, (m, n) => `${n} 天后`],
+    // 贴纸剩余数量：1 free
+    [/^(\d+) free$/i, (m, n) => `免费 ${n} 张`],
     // 活动页队伍帽子：Team Yellow hats
     [
       /^Team (Pink|Green|Blue|Yellow) hats$/i,
