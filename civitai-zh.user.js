@@ -852,6 +852,8 @@
       "View media": "查看媒体",
       "Daily free sticker": "每日免费贴纸",
       "What's a remix gallery?": "什么是重混画廊？",
+      "No stickers yet - place the first one": "还没有贴纸——来贴第一张吧",
+      "Place a sticker · 1 free": "贴一张贴纸 · 免费 1 张",
       "Any creator can appear on a popular image, and you get to see other takes on work you liked. Iterate on it, restyle it, edit it, or turn it into a video - the creator reviews every submission.":
         "任何创作者都可能出现在热门图片上，你也能看到别人如何演绎你喜欢的作品。你可以迭代、改风格、编辑，或把它做成视频 - 每次提交都会由创作者审核。",
       "Why we built this": "为什么我们要做这个",
@@ -1185,6 +1187,14 @@
     challenges: {
       "Community Challenges": "社区挑战",
       "No challenges found": "未找到挑战",
+      "Daily Challenges": "每日挑战",
+      "Previous winners": "往届获奖者",
+      "Theme:": "主题：",
+      "Create Challenge": "创建挑战",
+      Community: "社区",
+      "You are all caught up": "你已全部看完",
+      "Consider changing your period or filters to find more": "试试更换时间范围或筛选条件以发现更多",
+      "Back to the top": "回到顶部",
       // 挑战详情页
       Live: "进行中",
       entries: "件作品",
@@ -1232,6 +1242,12 @@
     storylines: {
       "Start a storyline": "开始故事线",
       "Welcome to Storylines": "欢迎来到 Storylines",
+      "Stories told in images, one chapter at a time, by more than one creator. Read one from the start, or pick it up where it ends and write what happens next.":
+        "用图片讲述的故事，一章一章，由多位创作者接续完成。你可以从头读起，也可以在结尾处接手，写下接下来发生的事。",
+      "At the end of a chapter, the story can fork. See where other readers went and choose yours.":
+        "每章结尾，故事都可以分岔。看看其他读者走向了哪里，再选择你的路线。",
+      Complete: "已完结",
+      chapter: "章",
       "Watch the video": "观看视频",
       "Got it": "知道了",
       New: "新",
@@ -1345,6 +1361,44 @@
 
     // ---- 活动 ----
     events: {
+      Rank: "排名",
+      "or try the Mystery Box ·": "或试试神秘盒子 ·",
+      "Points live": "实时积分",
+      Team: "队伍",
+      Yellow: "黄色",
+      Green: "绿色",
+      Blue: "蓝色",
+      Pink: "粉色",
+      "· you": "· 你",
+      "Points over time": "积分走势",
+      "See who's on each team": "查看各队成员",
+      "Every design in your color. Pick one to preview and buy it.":
+        "尽是你队伍颜色的设计。挑一个预览并购买吧。",
+      "Mystery Box": "神秘盒子",
+      "Birthday Mystery Box": "生日神秘盒子",
+      "A hat from your team's collection. Never one you already own.":
+        "来自你队伍收藏的帽子，绝不会是你已拥有的那顶。",
+      Common: "普通",
+      Uncommon: "优秀",
+      Rare: "稀有",
+      Legendary: "传说",
+      collected: "已收集",
+      "Look inside": "看看里面",
+      "Buy and open": "购买并开启",
+      hats: "帽子",
+      "Team points": "队伍积分",
+      "Show me on my team's roster": "在队伍名册中显示我",
+      "points for your team": "分为你的队伍",
+      "Pick your showcase hat": "选择你的展示帽子",
+      "Put your hat on something": "把帽子戴上某件作品",
+      "A hat scores for your team once it's on one of your images, models or articles.":
+        "帽子只有戴在你的图片、模型或文章上才会为队伍得分。",
+      "Place your hat": "戴上帽子",
+      views: "浏览量",
+      reactions: "反应",
+      remixes: "重混",
+      "Get another hat": "再拿一顶帽子",
+      "One more post scoring for your team.": "再发一条帖子为队伍得分。",
       "Show me on my team's roster (avatar, username, hats and points)":
         "在队伍名单中显示我（头像、用户名、帽子和积分）",
       "Watch the Hats On video": "观看 Hats On 视频",
@@ -2294,9 +2348,15 @@
     [/^today$/i, "今天"],
     [/^just now$/i, "刚刚"],
     // 社交主页 aria：tensor.art profile / Ko-fi profile
-    [/^(\S+) profile$/, "$1 主页"],
-    // 页脚社交链接 aria：Civitai on YouTube
+    [/^(\S+) profile$/, "$1 主页"],    // 页脚社交链接 aria：Civitai on YouTube
     [/^Civitai on (\S+)$/, "Civitai 的 $1"],
+    // 活动倒计时：in 24 days
+    [/^in (\d+) days?$/i, (m, n) => `${n} 天后`],
+    // 活动页队伍帽子：Team Yellow hats
+    [
+      /^Team (Pink|Green|Blue|Yellow) hats$/i,
+      (m, c) => `${({ pink: "粉色", green: "绿色", blue: "蓝色", yellow: "黄色" })[c.toLowerCase()]}队帽子`,
+    ],
     [
       /^(\d+)\s+(second|minute|hour|day|week|month|year)s?\s+ago$/,
       (m, n, unit) =>
