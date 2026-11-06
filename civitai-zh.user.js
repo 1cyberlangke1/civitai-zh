@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.2
+// @version      0.2.3
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -21,7 +21,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.2";
+  const VERSION = "0.2.3";
 
   /* ========================================================================
    *  翻译边界
@@ -75,7 +75,8 @@
     Hubs: "Hubs",
     Articles: "文章",
     Comics: "漫画",
-    Crucibles: "Crucibles",
+    Crucibles: "擂台",
+    Crucible: "擂台",
     Updates: "更新",
     Shop: "商店",
     More: "更多",
@@ -193,6 +194,7 @@
     articles: "Articles",
     comics: "Comics",
     crucibles: "Crucibles",
+    crucible: "Crucible",
     updates: "Updates",
     shop: "Shop",
     more: "More",
@@ -385,7 +387,27 @@
     },
 
     // ---- Crucibles ----
-    crucibles: {},
+    crucibles: {
+      "Crucible Discovery": "擂台发现",
+      "Welcome to the Crucible": "欢迎来到擂台",
+      Enter: "参赛",
+      Judge: "评审",
+      Win: "获胜",
+      "When the timer runs out, the top-ranked entries split the prize pool in Buzz.":
+        "倒计时结束时，排名靠前的作品将平分 Buzz 奖池。",
+      "Biggest prize pool": "最大奖池",
+      "Time Remaining": "剩余时间",
+      Entries: "参赛作品",
+      "Discover Crucibles": "探索擂台",
+      "Ending soon": "即将结束",
+      left: "剩余",
+      entries: "件作品",
+      entrants: "位参赛者",
+      "You are all caught up": "你已经看完了",
+      "Consider changing your period or filters to find more":
+        "试试更换时间段或筛选条件来发现更多",
+      "Back to the top": "回到顶部",
+    },
 
     // ---- 更新日志（正文不翻，仅 UI）----
     changelog: {},
@@ -590,9 +612,9 @@
       "Sticker Placers": "贴纸放置者",
       "Sticker Spenders": "贴纸消费者",
       "Sticker Makers": "贴纸制作者",
-      "Crucible Judges": "Crucible 评委",
-      "Crucible Competitors": "Crucible 参赛者",
-      "Crucible Hosts": "Crucible 主办者",
+      "Crucible Judges": "擂台评委",
+      "Crucible Competitors": "擂台参赛者",
+      "Crucible Hosts": "擂台主办者",
       "Top model creators in the community": "社区顶级模型创作者",
       "As of": "截至",
       ". Refreshes in:": "。刷新倒计时：",
@@ -754,6 +776,12 @@
         return `${year}年${FULL_MONTHS[mon]}${day}日 ${hour}:${min}`;
       },
     ],
+    // 剩余时间：1 hour / 2 days
+    [
+      /^(\d+)\s+(second|minute|hour|day|week|month|year)s?$/,
+      (m, n, unit) =>
+        `${n} ${({ second: "秒", minute: "分钟", hour: "小时", day: "天", week: "周", month: "个月", year: "年" })[unit]}`,
+    ],
     // 展开更多评论：Show 3 More / Show 25 More
     [/^Show\s+(\d+)\s+More$/, "再显示 $1 条"],
     // 模型版本数量：12 model versions
@@ -864,7 +892,7 @@
     "Civitai Articles | Community Guides and Insights": "Civitai 文章 | 社区指南与洞察",
     "Comics - Civitai": "漫画 - Civitai",
     "Civitai Crucibles | Head-to-Head Image Competitions":
-      "Civitai Crucibles | 一对一图像竞赛",
+      "Civitai 擂台 | 一对一图像竞赛",
     "Civitai Changelog | The latest updates to Civitai":
       "Civitai 更新日志 | Civitai 最新动态",
     "Civitai Cosmetic Shop | Created with Love & AI": "Civitai 装饰商店 | 用爱与 AI 打造",
