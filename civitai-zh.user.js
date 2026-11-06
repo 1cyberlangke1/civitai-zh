@@ -223,6 +223,19 @@
     "Save image to collection": "收藏图片到收藏集",
     "Hide this image": "隐藏此图片",
     "Hide content from this user": "隐藏此用户的内容",
+    "Start a story from this image": "以此图片开启故事线",
+    // 图片/模型页通用按钮与 aria-label
+    "Generation data": "生成数据",
+    "Collapse Generation data": "收起生成数据",
+    "What is this?": "这是什么？",
+    "Need help? Start the tour!": "需要帮助？开始导览！",
+    "Scroll versions right": "向右滚动版本",
+    "Add to Vault": "添加到保险库",
+    "License fee info": "许可费说明",
+    "Hugging Face profile": "Hugging Face 主页",
+    "Previous image": "上一张图片",
+    "Next image": "下一张图片",
+    "Civitai on Discord": "Civitai 的 Discord",
     "Comment notification settings": "评论通知设置",
     // 404 页面
     "The page you are looking for doesn't exist": "你访问的页面不存在",
@@ -255,6 +268,12 @@
     "Hide this model": "隐藏此模型",
     "Block this user": "屏蔽此用户",
     "Report resource": "举报资源",
+    // 举报/隐藏菜单
+    "Hide content with these tags": "隐藏含这些标签的内容",
+    "Mature Content": "成人内容",
+    "TOS Violation": "违反服务条款",
+    "Needs Moderator Review": "需要版主审核",
+    Spam: "垃圾信息",
     "Report image": "举报图片",
     "Education Hub": "教育中心",
     FAQ: "常见问题",
@@ -800,7 +819,6 @@
     "image-detail": {
       "Submit your remix": "提交你的重混",
       "COPY ALL": "复制全部",
-      "Generation data": "生成数据",
       "Resources used": "使用的资源",
       Prompt: "提示词",
       "Negative prompt": "反向提示词",
@@ -808,7 +826,6 @@
       "External Generator": "外部生成器",
       "Remix gallery": "重混画廊",
       Tag: "标签",
-      "Collapse Generation data": "收起生成数据",
       "Collapse Discussion": "收起讨论",
       "Comment options": "评论选项",
       "View media": "查看媒体",
@@ -2248,6 +2265,10 @@
     [/^yesterday$/i, "昨天"],
     [/^today$/i, "今天"],
     [/^just now$/i, "刚刚"],
+    // 社交主页 aria：tensor.art profile / Ko-fi profile
+    [/^(\S+) profile$/, "$1 主页"],
+    // 页脚社交链接 aria：Civitai on YouTube
+    [/^Civitai on (\S+)$/, "Civitai 的 $1"],
     [
       /^(\d+)\s+(second|minute|hour|day|week|month|year)s?\s+ago$/,
       (m, n, unit) =>
