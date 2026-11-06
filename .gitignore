@@ -3,6 +3,7 @@ tmp/
 .playwright-mcp/
 .sisyphus/
 node_modules/
+package-lock.json
 .DS_Store
 Thumbs.db
 *.swp
