@@ -237,6 +237,27 @@
     "Next image": "下一张图片",
     "Civitai on Discord": "Civitai 的 Discord",
     "Comment notification settings": "评论通知设置",
+    // 站内公告卡片（首页/模型页轮播）
+    "One Model, Two Storefronts": "一个模型，两个店面",
+    "Give your models their own title, description and cover on civitai.com and civitai.red. Same model, same downloads, reviews and stats, all in one place.":
+      "在 civitai.com 与 civitai.red 上为模型设置各自的标题、描述与封面。同一个模型、同样的下载、评测与统计，全在一处。",
+    "Kling 4: 30-Second Video, Sound Built In": "Kling 4：30 秒视频，自带音效",
+    "Kling 4 is in the generator. Clips up to 30 seconds at 720p or 1080p, with sound in every one. Start from text, a frame, up to 10 references, or a clip to edit. From 1,021 Buzz for 5 seconds.":
+      "Kling 4 已上线生成器。支持 720p 或 1080p、最长 30 秒的片段，且每段都带音效。可从文本、一帧画面、最多 10 张参考图，或待编辑的片段开始。5 秒起价 1,021 Buzz。",
+    "Try Kling 4": "试用 Kling 4",
+    "Our 4th Birthday Event: Everyone Gets a Hat": "我们的四周年活动：人人有帽子",
+    "It's our birthday, so everyone gets a free hat. Join a random color team, put hats on your best work, and win your team the Champion badge. All of November.":
+      "我们过生日啦，所以人人有免费帽子。加入随机颜色的队伍，给你最好的作品戴上帽子，为队伍赢取冠军徽章。整个十一月有效。",
+    // 首页板块说明
+    "Random team. Teams are final.": "随机分队，队伍确定后不可更改。",
+    "All sorts of cool pictures created by our community, from simple shapes to detailed landscapes or human faces. A virtual canvas where you can unleash your creativity or get inspired.":
+      "社区创作的各式酷炫图片，从简单图形到精细风景或人脸。这块虚拟画布让你释放创意或寻找灵感。",
+    "A list of all featured models on the site.": "站内全部精选模型的列表。",
+    "Popular work from creators who just got started": "新晋创作者的受欢迎作品",
+    "Popular models from creators who just got started": "新晋创作者的受欢迎模型",
+    "Community Gallery Creators": "社区画廊创作者",
+    "Ran out of Buzz while playing? Or want to be generous? Jump in.":
+      "玩到 Buzz 用光了？还是想慷慨解囊？快到碗里来。",
     // 404 页面
     "The page you are looking for doesn't exist": "你访问的页面不存在",
     "Go back home": "返回首页",
@@ -1744,6 +1765,13 @@
       "Posted to": "发布到",
       "No comments yet.": "暂无评论。",
       Reply: "回复",
+      "Save post": "收藏帖子",
+      "Share post": "分享帖子",
+      "Post options": "帖子选项",
+      "Delete Post": "删除帖子",
+      "Edit Post": "编辑帖子",
+      "Make this chapter 1 of a storyline": "将此章设为故事线第 1 章",
+      "Add to a storyline": "添加到故事线",
     },
 
     user: {
