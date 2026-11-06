@@ -869,6 +869,7 @@
 
     // ---- 3D 模型详情 ----
     "3d-model-detail": {
+      "Model actions": "模型操作",
       Plain: "纯色",
       Studio: "影棚",
       Light: "光照",
