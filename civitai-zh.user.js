@@ -811,6 +811,7 @@
       rec: "推荐",
       License: "许可",
       "Model options": "模型选项",
+      "Add to hub": "添加到中心",
       "Get notifications for this model": "订阅此模型的更新",
       "Add to collection": "添加到收藏集",
       "Download variant options": "下载版本选项",
