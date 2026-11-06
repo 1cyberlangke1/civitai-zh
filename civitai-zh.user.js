@@ -80,6 +80,8 @@
     Create: "创作",
     "Sign In": "登录",
     "Sign in": "登录",
+    "Join a team": "加入队伍",
+    "Join and get your free hat": "加入并领取免费帽子",
 
     // ---- 页脚 ----
     "© Civitai": "© Civitai",
@@ -141,10 +143,15 @@
     "Most Reactions": "最多反应",
     "Most Bookmarks": "最多收藏",
     "Most Downloaded": "最多下载",
+    "Close Ad": "关闭广告",
     "No results found": "未找到结果",
     Support: "支持",
+    Download: "下载",
+    Comments: "评论",
+    Version: "版本",
+    "How it works": "了解详情",
+    "Read more": "阅读更多",
     Discussion: "讨论",
-    "Show 1 More": "再显示 1 条",
     "You must": "你需要",
     "to add a comment": "才能添加评论",
     Skip: "跳过",
@@ -163,6 +170,37 @@
     LoRA: "LoRA",
     Buzz: "Buzz",
     API: "API",
+  };
+
+  /* ========================================================================
+   *  小写别名
+   *  Civitai 导航/页脚的源码文案是小写（home / models / updates），
+   *  靠 CSS text-transform: capitalize 显示成首字母大写。
+   *  这里只做「已知 UI 词」的小写映射，不做全局忽略大小写，
+   *  避免把用户标签（tag: animal / anime 等）误翻。
+   * ======================================================================== */
+
+  const CASE_ALIASES = {
+    home: "Home",
+    models: "Models",
+    images: "Images",
+    videos: "Videos",
+    "3d models": "3D Models",
+    hubs: "Hubs",
+    articles: "Articles",
+    comics: "Comics",
+    crucibles: "Crucibles",
+    updates: "Updates",
+    shop: "Shop",
+    more: "More",
+    "terms of service": "Terms of Service",
+    privacy: "Privacy",
+    safety: "Safety",
+    status: "Status",
+    "known issues": "Known Issues",
+    creators: "Creators",
+    advertise: "Advertise",
+    api: "API",
   };
 
   /* ========================================================================
@@ -218,7 +256,6 @@
       "Add to collection": "添加到收藏集",
       "Download variant options": "下载版本选项",
       "How to use this": "如何使用",
-      "Show 1 More": "再显示 1 条",
       "Suggested Resources for this model": "此模型的推荐资源",
     },
 
@@ -251,6 +288,33 @@
     // ---- 3D 模型列表 ----
     "3d-models": {
       "Preview 3D model": "预览 3D 模型",
+    },
+
+    // ---- 3D 模型详情 ----
+    "3d-model-detail": {
+      Plain: "纯色",
+      Studio: "影棚",
+      Light: "光照",
+      Transparent: "透明",
+      "Reset view": "重置视角",
+      "Generate with this image": "用此图像生成",
+      "Write a review": "写评测",
+      Version: "版本",
+      "Generate texture": "生成贴图",
+      Yes: "是",
+      "Target polycount": "目标面数",
+      Topology: "拓扑",
+      Triangle: "三角面",
+      Symmetry: "对称",
+      Auto: "自动",
+      Remesh: "重构网格",
+      "PBR textures": "PBR 贴图",
+      Animate: "动画",
+      Seed: "种子",
+      "License:": "许可：",
+      "All Rights Reserved": "保留所有权利",
+      "No comments yet.": "暂无评论。",
+      "File variant + format": "文件版本与格式",
     },
 
     // ---- Hubs ----
@@ -327,7 +391,6 @@
     shop: {
       "Civitai Cosmetic Shop": "Civitai 装饰商店",
       "Customize profile": "自定义个人资料",
-      "24 / page": "24 / 页",
       "Featured Creator Cosmetics": "精选创作者装饰",
       "Creator Cosmetics": "创作者装饰",
       Sticker: "贴纸",
@@ -386,8 +449,6 @@
       "Early access to new features": "新功能抢先体验",
       ": earn from your Buzz": "：用你的 Buzz 赚取收益",
       Monetize: "变现",
-      "10 model versions": "10 个模型版本",
-      "25 model versions": "25 个模型版本",
       "unlimited model versions": "无限模型版本",
       "a month — a licensing fee or paid access. Changing a price you have already set is always free.":
         "每月，可设置许可费或付费访问。修改已设置的价格始终免费。",
@@ -538,7 +599,49 @@
     collections: {},
 
     // ---- 活动 ----
-    events: {},
+    events: {
+      "Show me on my team's roster (avatar, username, hats and points)":
+        "在队伍名单中显示我（头像、用户名、帽子和积分）",
+      "Watch the Hats On video": "观看 Hats On 视频",
+      "What happens to my hats when the event ends?": "活动结束后我的帽子会怎样？",
+      "Do I keep hats bought during the tester and mod preview?":
+        "测试者和版主预览期间购买的帽子会保留吗？",
+      "Do I need to do anything every day?": "我需要每天做什么吗？",
+      "Can I change teams?": "我可以换队伍吗？",
+      "Won't the biggest creators make it unfair?": "大创作者不会让比赛不公平吗？",
+      "Sign in to open": "登录后开启",
+      "Team standings": "队伍排名",
+      Points: "积分",
+      Position: "名次",
+      "Per hour": "每小时",
+      "Hardest-working hats": "最勤奋的帽子",
+      "Civitai's 4th Birthday": "Civitai 四周年",
+      "Pick up a hat.": "领取一顶帽子。",
+      "left to score": "剩余计分时间",
+      "You get a random team. Teams are final.": "你会被随机分配队伍，队伍不可更改。",
+      "Three steps, and the rules that keep it fair.": "三个步骤，以及保证公平的规则。",
+      Step: "步骤",
+      Join: "加入",
+      "Hat your best work": "把你的最佳作品戴上帽子",
+      "Score for your team": "为你的队伍得分",
+      "How points add up": "积分如何累计",
+      "Keeping it fair": "保持公平",
+      "per view in a feed": "每次信息流浏览",
+      "per reaction": "每次反应",
+      "per comment": "每条评论",
+      "per sticker": "每个贴纸",
+      "per remix": "每次重混",
+      "for your own views and reactions": "你自己的浏览和反应",
+      "Hats go on your own": "帽子戴在你自己的",
+      "images, models and articles": "图片、模型和文章上",
+      "Articles score views, reactions and comments.": "文章按浏览、反应和评论计分。",
+      "Models score views and thumbs-up reviews.": "模型按浏览和好评计分。",
+      "One person can earn a creator at most": "一个人最多可为一个创作者贡献",
+      "points a day.": "积分/天。",
+      "Only signed-in people's views and reactions count.":
+        "只有已登录用户的浏览和反应才计分。",
+      "A hat can move again": "帽子可以再次移动",
+    },
 
     // ---- 安全中心（正文不翻，仅标题）----
     safety: {
@@ -568,8 +671,6 @@
       "Earned before launch": "上线前获得",
       "First Model": "第一个模型",
       "Published your first model.": "发布了你的第一个模型。",
-      "1M Downloads": "100 万次下载",
-      "Your models reached 1,000,000 downloads in total.": "你的模型总下载量达到 1,000,000 次。",
     },
   };
 
@@ -650,6 +751,17 @@
         return `${year}年${FULL_MONTHS[mon]}${day}日 ${hour}:${min}`;
       },
     ],
+    // 展开更多评论：Show 3 More / Show 25 More
+    [/^Show\s+(\d+)\s+More$/, "再显示 $1 条"],
+    // 模型版本数量：12 model versions
+    [/^(\d+)\s+model versions$/, "$1 个模型版本"],
+    // 下载成就：1M Downloads
+    [/^([\d.,]+[KMB]?)\s+Downloads$/, "$1 次下载"],
+    // 模型总下载成就：Your models reached 2,345,678 downloads in total.
+    [
+      /^Your models reached\s+([\d,]+)\s+downloads in total\.$/,
+      "你的模型总下载量达到 $1 次。",
+    ],
     // 评论计数：Showing 8 of 523 comments
     [/^Showing\s+([\d,]+)\s+of\s+([\d,]+)\s+comments$/, "显示 $1 / $2 条评论"],
     // 贴纸：4 stickers / 1 sticker
@@ -679,15 +791,36 @@
       /^(fp16|fp32|bf16),\s*Half precision,\s*best balance( \(pruned\))?,\s*([\d.]+\s*[GM]B)$/,
       "$1，半精度，均衡最佳$2，$3",
     ],
+    // 3D 下载按钮：Download (11.06 MB)
+    [/^Download \((\d+(?:\.\d+)? [KMG]B)\)$/, "下载（$1）"],
+    // 日期区间：Nov 1 to Nov 30
+    [
+      new RegExp(`^(${MONTH_RE})\\s+(\\d{1,2})\\s+to\\s+(${MONTH_RE})\\s+(\\d{1,2})$`),
+      (m, mon1, day1, mon2, day2) => `${MONTHS[mon1]}${day1}日 至 ${MONTHS[mon2]}${day2}日`,
+    ],
+    // 活动收集数量：43 hats to collect
+    [/^(\d+)\s+hats to collect$/, "共 $1 顶帽子可收集"],
+    // 稀有度：Common 50% / Uncommon 27% / Rare 17% / Legendary 6%
+    [
+      /^(Common|Uncommon|Rare|Legendary)\s+(\d+%)$/,
+      (m, tier, pct) =>
+        `${({ Common: "普通", Uncommon: "罕见", Rare: "稀有", Legendary: "传说" })[tier]} ${pct}`,
+    ],
+    // 队伍积分：Team Pink score
+    [
+      /^Team (Pink|Green|Blue|Yellow) score$/,
+      (m, team) => `${({ Pink: "粉队", Green: "绿队", Blue: "蓝队", Yellow: "黄队" })[team]}积分`,
+    ],
     // 下载版本描述：Half precision, best balance (pruned) • 1.99 GB
     [
       /^Half precision,\s*best balance( \(pruned\))?\s*•\s*([\d.]+\s*[GM]B)$/,
-      "半精度，均衡最佳$1 • $2",
+      (m, pruned, size) => `半精度，均衡最佳${pruned ? "（精简版）" : ""} • ${size}`,
     ],
     // 下载版本 aria：fp16, best match, Half precision, best balance (pruned), 1.99 GB
     [
       /^(fp16|fp32|bf16),\s*best match,\s*Half precision,\s*best balance( \(pruned\))?,\s*([\d.]+\s*[GM]B)$/,
-      "$1，最佳匹配，半精度，均衡最佳$2，$3",
+      (m, prec, pruned, size) =>
+        `${prec}，最佳匹配，半精度，均衡最佳${pruned ? "（精简版）" : ""}，${size}`,
     ],
     // 步骤计数：3 of 4
     [/^(\d+)\s+of\s+(\d+)$/, "$1 / $2"],
@@ -743,8 +876,17 @@
     "Collections | Civitai": "收藏集 | Civitai",
     "Safety Center | Policies and Guidelines": "安全中心 | 政策与指南",
     "Earn on Civitai | Civitai": "在 Civitai 赚取收益 | Civitai",
+    "Civitai's 4th Birthday | Civitai": "Civitai 四周年 | Civitai",
     "Civitai Changelog": "Civitai 更新日志",
   };
+
+  /* ------------------------------------------------------------------------
+   *  标题正则：只替换固定后缀，用户内容（模型名等）原样保留
+   * ---------------------------------------------------------------------- */
+  const TITLE_REGEXPS = [
+    [/^(.*) \| 3D Models \| Civitai$/, "$1 | 3D 模型 | Civitai"],
+    [/^(.*) \| Stable Diffusion (.+) Checkpoint \| Civitai$/, "$1 | Stable Diffusion $2 Checkpoint | Civitai"],
+  ];
 
   /* ========================================================================
    *  页面判定：按 pathname，与域名无关
@@ -758,6 +900,7 @@
     ["images", /^\/images(?:\/|$)/],
     ["video-detail", /^\/videos\/\d+/],
     ["videos", /^\/videos(?:\/|$)/],
+    ["3d-model-detail", /^\/3d-models\/\d+/],
     ["3d-models", /^\/3d-models(?:\/|$)/],
     ["hub-detail", /^\/hubs\/[^/]+/],
     ["hubs", /^\/hubs(?:\/|$)/],
@@ -861,6 +1004,10 @@
     const dict = State.dict;
     if (Object.prototype.hasOwnProperty.call(dict, trimmed)) return dict[trimmed];
 
+    // 小写别名：仅限导航/页脚等已知 UI 词
+    const alias = CASE_ALIASES[trimmed.toLowerCase()];
+    if (alias && Object.prototype.hasOwnProperty.call(dict, alias)) return dict[alias];
+
     for (const [re, rep] of REGEXPS) {
       if (re.test(trimmed)) return trimmed.replace(re, rep);
     }
@@ -958,6 +1105,12 @@
       document.title = TITLES[trimmed];
       return;
     }
+    for (const [re, rep] of TITLE_REGEXPS) {
+      if (re.test(trimmed)) {
+        document.title = trimmed.replace(re, rep);
+        return;
+      }
+    }
     // 详情页标题形如「模型名 | Civitai」，只翻固定后缀
     if (trimmed.endsWith("| Civitai") && trimmed !== "| Civitai") {
       return; // 模型名等用户内容保持原样
@@ -1033,9 +1186,13 @@
    *  输出：无
    * ---------------------------------------------------------------------- */
   function startObserver() {
-    if (State.observer || !document.body) return;
-    State.observer = new MutationObserver(safe(onMutations, "observer"));
-    State.observer.observe(document.body, {
+    if (State.observer || !document.documentElement) return;
+    // 注意：回调必须包成函数再传给 MutationObserver，
+    // 不能写成 new MutationObserver(safe(onMutations))——那会立即执行并传入 undefined
+    State.observer = new MutationObserver((mutations) =>
+      safe(() => onMutations(mutations), "observer")
+    );
+    State.observer.observe(document.documentElement, {
       childList: true,
       subtree: true,
       characterData: true,
@@ -1045,13 +1202,14 @@
   }
 
   /* ------------------------------------------------------------------------
-   *  兜底重扫：部分 SPA 内容不经 MutationObserver（如 canvas 后插入的延迟渲染）
+   *  兜底重扫：React 水合/延迟渲染可能漏掉部分节点
+   *  这里必须直接调用 translatePage（refreshContext 在 URL 未变时会提前返回）
    * ---------------------------------------------------------------------- */
   function startRescan() {
     if (State.rescanTimer) return;
     State.rescanTimer = window.setInterval(() => {
       if (!State.enabled) return;
-      refreshContext(false);
+      safe(translatePage, "rescan");
     }, CONFIG.rescanInterval);
   }
 
@@ -1119,4 +1277,17 @@
   } else {
     init();
   }
+
+  /* ------------------------------------------------------------------------
+   *  调试接口：在控制台验证某段文本是否命中词条/正则
+   *  用法：__civitaiZh.transText("Show 3 More")
+   *  预期：返回 "再显示 3 条"；未命中返回 null
+   * ---------------------------------------------------------------------- */
+  window.__civitaiZh = {
+    transText,
+    getPageKey,
+    get pageKey() {
+      return State.pageKey;
+    },
+  };
 })(window, document);
