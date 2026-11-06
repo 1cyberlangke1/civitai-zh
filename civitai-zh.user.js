@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.6
+// @version      0.2.7
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -22,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.6";
+  const VERSION = "0.2.7";
 
   /* ========================================================================
    *  翻译边界
@@ -59,7 +59,7 @@
     rescanInterval: 1500,
 
     // 单个文本节点最大长度：超过视为正文，不翻
-    maxTextLength: 120,
+    maxTextLength: 200,
 
     debug: false,
   };
@@ -119,6 +119,10 @@
     "Page loading progress": "页面加载进度",
     "Table of contents": "目录",
     "Table of Contents": "目录",
+    Shape: "形状",
+    Precision: "精度",
+    // React 拆开的连接词（仅独立文本节点才会命中）
+    and: "和",
     "Updated:": "更新：",
 
     // ---- 通用动作 ----
@@ -160,6 +164,9 @@
     Others: "其他",
     "Hide Read": "隐藏已读",
     "All caught up! Nothing to see here": "全部看完了！这里没有新内容",
+    // React 会把 "No {标签} yet." 拆成三个文本节点，这里分别处理首尾
+    No: "暂无",
+    "yet.": "。",
     // ---- 自定义导航弹窗 ----
     "Customize navigation": "自定义导航",
     "Show labels": "显示标签",
@@ -169,6 +176,10 @@
       "在窄屏上滚动标签，而不是将其缩小为图标。",
     "Primary menu": "主菜单",
     "Shown as tabs, in this order.": "按此顺序显示为标签。",
+    "More menu": "更多菜单",
+    "Collapsed into a dropdown at the end of the bar.": "在导航栏末尾折叠为下拉菜单。",
+    "Account settings": "账户设置",
+    "Find a setting": "查找设置",
     "Always shown": "始终显示",
     Posts: "帖子",
     "Reset to default": "恢复默认",
@@ -208,6 +219,9 @@
     "Recently Updated": "最近更新",
     "Close Ad": "关闭广告",
     "No results found": "未找到结果",
+    "Try adjusting your search or filters to find what you're looking for":
+      "试试调整搜索或筛选条件，找到你想要的内容",
+    "Searching for Models": "搜索模型",
     Support: "支持",
     Download: "下载",
     Comments: "评论",
@@ -220,7 +234,12 @@
     Auctions: "拍卖",
     "Download Link App": "下载链接应用",
     "Get help": "获取帮助",
+    "Getting Started": "入门指南",
     "Report a bug": "报告问题",
+    "Hide this model": "隐藏此模型",
+    "Block this user": "屏蔽此用户",
+    "Report resource": "举报资源",
+    "Report image": "举报图片",
     "Education Hub": "教育中心",
     FAQ: "常见问题",
     "Discord Community": "Discord 社区",
@@ -286,22 +305,61 @@
     "Made On-site": "站内制作",
     Featured: "精选",
     "Model types": "模型类型",
-    "Aesthetic Gradient": "美学梯度",
-    Upscaler: "放大模型",
-    Motion: "动态",
-    "Text Encoder": "文本编码器",
-    Poses: "姿势",
-    Wildcards: "通配符",
-    Workflows: "工作流",
-    "ComfyUI Workflows": "ComfyUI 工作流",
-    Detection: "检测",
-    Other: "其他",
+    // 技术名词标签保持原文：用「自身映射」阻断大小写回退误翻
+    // （例如 poses 分类=姿势，但 Poses 模型类型必须保持 Poses）
+    "Aesthetic Gradient": "Aesthetic Gradient",
+    CLIP: "CLIP",
+    Checkpoint: "Checkpoint",
+    Controlnet: "Controlnet",
+    DoRA: "DoRA",
+    Hypernetwork: "Hypernetwork",
+    LLM: "LLM",
+    LoRA: "LoRA",
+    LyCORIS: "LyCORIS",
+    Motion: "Motion",
+    Other: "Other",
+    Poses: "Poses",
+    "Text Encoder": "Text Encoder",
+    Embedding: "Embedding",
+    UNet: "UNet",
+    Upscaler: "Upscaler",
+    VAE: "VAE",
+    VLM: "VLM",
+    Wildcards: "Wildcards",
+    Workflows: "Workflows",
+    "ComfyUI Workflows": "ComfyUI Workflows",
+    Detection: "Detection",
     "Base model": "基础模型",
     "All Base Models": "全部基础模型",
     Modifiers: "修饰项",
     Hidden: "隐藏",
     Reset: "重置",
     "Apply filters": "应用筛选",
+    // 筛选面板（按字段筛选）
+    "Sort models by": "模型排序方式",
+    Relevancy: "相关度",
+    "Highest Rated": "最高评分",
+    "Most Liked": "最多点赞",
+    "Most Discussed": "最多讨论",
+    "Most Images": "最多图片",
+    "Filter by Base Model": "按基础模型筛选",
+    "Search Filter by Base Model": "搜索基础模型",
+    "Filter by Model Type": "按模型类型筛选",
+    "Filter by Checkpoint Type": "按 Checkpoint 类型筛选",
+    Merge: "Merge",
+    Trained: "Trained",
+    "Filter by Last Updated At": "按最近更新时间筛选",
+    From: "从",
+    "Start date": "开始日期",
+    To: "至",
+    "End date": "结束日期",
+    "Filter by File Format": "按文件格式筛选",
+    "Filter by Category": "按分类筛选",
+    Tags: "标签",
+    "Search Tags": "搜索标签",
+    "Search Users": "搜索用户",
+    "Hide Early Access & paid models": "隐藏抢先体验与付费模型",
+    Celebrity: "名人",
     // 标签分类
     character: "角色",
     style: "风格",
@@ -1278,6 +1336,27 @@
       "Published your first model.": "发布了你的第一个模型。",
 
       // ---- 设置：内容与浏览 ----
+      "Mature content": "成人内容",
+      "The eye button in the header overrides this for one session. These are the defaults it returns to.":
+        "顶栏的眼睛按钮可临时覆盖此设置（仅本次会话）。这里设置的是它会恢复的默认值。",
+      "Show mature content": "显示成人内容",
+      "Confirms you are over 18.": "确认你已年满 18 岁。",
+      "Blur mature content": "模糊成人内容",
+      "Browsing level": "浏览级别",
+      "Everything at or below your highest pick is shown.":
+        "显示你所选最高级别及以下的所有内容。",
+      "Safe for work. No naughty stuff": "适合工作场合。无露骨内容",
+      "Revealing clothing, small bulges, subtle nipple outline, posing/sexualized bare chested men, light gore, violence":
+        "暴露衣着、轻微凸起、隐约乳首轮廓、摆姿势/性化的裸上身男性、轻度血腥、暴力",
+      "Adult themes and situations, partial nudity, bikinis, big bulges, sexual situations, graphic violence":
+        "成人题材与情境、部分裸露、比基尼、明显凸起、性相关情境、血腥暴力",
+      "Graphic nudity, genitalia, adult objects, or settings":
+        "露骨裸露、生殖器、成人道具或场景",
+      "Sexual Acts, masturbation, ejaculation, cum, vore, anal gape, extremely disturbing content":
+        "性行为、自慰、射精、精液、吞食、肛门扩张、极度令人不适的内容",
+      "Search tags to hide": "搜索要隐藏的标签",
+      "Search users to hide": "搜索要隐藏的用户",
+      "Recently Added": "最近添加",
       Topics: "主题",
       "Selected topics appear less often while browsing.":
         "选中的主题在浏览时会较少出现。",
@@ -1303,7 +1382,7 @@
       "Creator Showcase": "创作者展示",
       "Hide me from the Creator Showcase": "在创作者展示中隐藏我",
       "Leaves you out of Mythic, the Hall of Fame and New Supernovas. Your badges still show on your profile.":
-        "你将不会出现在 Mythic、名人堂和 New Supernovas 中。你的徽章仍会显示在主页上。",
+        "你将不会出现在神话、名人堂和新星中。你的徽章仍会显示在主页上。",
       "Metric visibility": "指标可见性",
       "You and moderators still see your real stats on model pages and cards. On search results you see the hidden state, same as the public.":
         "你和管理员在模型页面和卡片上仍能看到真实数据。在搜索结果中，你看到的是隐藏状态，与公众一致。",
@@ -1360,6 +1439,10 @@
       "Price per submission": "每次提交价格",
       "Submitters pay 100 Buzz": "提交者支付 100 Buzz",
       "What people may submit": "人们可以提交什么",
+      "Free submissions you'll accept": "你会接受的免费提交",
+      "Free stickers you'll accept": "你会接受的免费贴纸",
+      "People get one free placement a day across the whole site, and these are the slots they can spend it on. A slot is held while one waits for you, and comes back if you decline it or let it expire. Your maximum is":
+        "每人每天在全站有一个免费放置名额，这些名额就是你可以把它花在上面的格子。当有人等待你时，该名额会被占用；若你拒绝或让它过期，名额会退回。你的上限是",
       "Either way you review every submission before it appears. This only decides what can be offered to you in the first place.":
         "无论哪种方式，每个提交在出现前都会经过你审核。这只决定一开始可以向您提供什么。",
       "At or below my image's rating": "等于或低于我图片的分级",
@@ -1445,6 +1528,214 @@
       "Your earnings broken down by source.": "按来源细分的收益。",
       "Usage that drives your fees.": "影响你费用的使用情况。",
       "Payout status, membership, defaults.": "提现状态、会员、默认设置。",
+
+      // ---- 创作者工作室：变现 / 销售 ----
+      "Set licensing fees, manage early/paid access, and sell access indefinitely - per version.":
+        "按版本设置许可费、管理抢先/付费访问，并可无限期出售访问权。",
+      "Fees and paid access are open to everyone. A membership raises how many new prices you can set each month.":
+        "设置费用和付费访问对所有人开放。会员可提高每月可设置的新价格数量。",
+      "See tiers": "查看会员等级",
+      "Not unlocked yet - grows with your creator score":
+        "尚未解锁 - 会随你的创作者积分增长",
+      "Monetization limits · free": "变现额度 · 免费",
+      "What used your pricing slots": "已占用你定价名额的内容",
+      "Per page": "每页",
+      "You have no models yet.": "你还没有模型。",
+      "Upload one on civitai.com": "在 civitai.com 上传一个",
+      "to get started.": "即可开始。",
+      "Temporary discounts across your paid versions. Start one by selecting the versions you want to discount.":
+        "为你的付费版本提供限时折扣。选中要打折的版本即可开始。",
+      "New sale": "新建促销",
+      "Scheduling a sale needs a creator score of 10,000":
+        "安排促销需要 10,000 创作者积分",
+      "Score comes from followers, model usage and engagement, so it climbs as people use what you publish.":
+        "积分来自关注者、模型使用和互动，因此会随着人们使用你发布的内容而增长。",
+      "You're at": "你当前为",
+
+      // ---- 创作者工作室：收益 / 分析 ----
+      "What you earned and where it came from - shown in the currency received, without conversion.":
+        "你赚了什么、来自哪里 - 以收到的货币显示，不做换算。",
+      "These totals are creator-level.": "这些是创作者级别的总计。",
+      "For earnings broken down by individual model, see":
+        "要查看按单个模型拆分的收益，请参阅",
+      "Model analytics": "模型分析",
+      "to start earning.": "开始赚取收益。",
+      "to turn buzz into cash.": "将 Buzz 兑换为现金。",
+      "Your content and model performance.": "你的内容与模型表现。",
+      "Image views": "图片浏览量",
+      "Model views": "模型浏览量",
+      "Article views": "文章浏览量",
+      "All-time:": "历史总计：",
+      "reactions across your content ·": "你的内容获得的反应 ·",
+      "comments on your images": "你图片上的评论",
+      "Image views over time": "图片浏览量趋势",
+      "· counted through yesterday": "· 统计截至昨日",
+      "Reactions received over time": "收到的反应趋势",
+      Line: "折线",
+      Bar: "柱状",
+      "Per-version performance": "各版本表现",
+      "Nothing to review": "暂无需要查看的内容",
+      "- none of your published models have downvotes or comments.":
+        "- 你已发布的模型没有点踩或评论。",
+      "All-time reactions (all your content)": "历史反应（你的全部内容）",
+      "All-time comments (your images only)": "历史评论（仅你的图片）",
+      "New followers over time": "新关注者趋势",
+      // 侧栏/顶栏徽标
+      studio: "工作室",
+      member: "会员",
+      "Requires a membership": "需要会员",
+      "Search models…": "搜索模型…",
+      vs: "对比",
+      "your models": "你的模型",
+      "Join the Creator Program": "加入创作者计划",
+    },
+
+    // ---- 创作者历程（/creators/journey）----
+    "creator-journey": {
+      "Your Creator Journey": "你的创作者历程",
+      "Where your Creator Score stands, what it unlocks next, and the badges you have earned. Only you can see this page.":
+        "查看你的创作者积分现状、接下来能解锁什么，以及你已获得的徽章。此页面仅你可见。",
+      "See the Creator Showcase": "查看创作者展示",
+      "Your Creator Score": "你的创作者积分",
+      "Next:": "下一级：",
+      "to go.": "分",
+      "tier badges": "等级徽章",
+      "The Ladder": "等级阶梯",
+      Spark: "星火",
+      Kindle: "引燃",
+      Flame: "烈焰",
+      Blaze: "炽焰",
+      Beacon: "信标",
+      Nova: "新星",
+      Star: "星耀",
+      Supernova: "超新星",
+      Legend: "传奇",
+      Mythic: "神话",
+      "Judge crucibles": "担任擂台评委",
+      "Post up to 60 times a day (120 as a member)":
+        "每天最多发布 60 次（会员 120 次）",
+      "Post up to 150 times a day (300 as a member)":
+        "每天最多发布 150 次（会员 300 次）",
+      "Higher comment limits": "更高的评论上限",
+      "Higher reaction limits": "更高的反应上限",
+      "Publish up to 5 articles a day": "每天最多发布 5 篇文章",
+      "Publish up to 10 articles a day": "每天最多发布 10 篇文章",
+      "Publish up to 20 articles a day": "每天最多发布 20 篇文章",
+      "Charge for access to your model versions": "为模型版本设置付费访问",
+      "Run sales on your model versions": "为模型版本开展促销",
+      "Early access for up to 3 days": "抢先体验最长 3 天",
+      "Early access for up to 5 days": "抢先体验最长 5 天",
+      "Early access for up to 7 days": "抢先体验最长 7 天",
+      "Early access for up to 9 days": "抢先体验最长 9 天",
+      "Early access for up to 12 days": "抢先体验最长 12 天",
+      "Early access for up to 15 days": "抢先体验最长 15 天",
+      "One version in early access at a time": "同一时间仅 1 个版本可抢先体验",
+      "2 versions in early access at once": "同一时间最多 2 个版本可抢先体验",
+      "4 versions in early access at once": "同一时间最多 4 个版本可抢先体验",
+      "6 versions in early access at once": "同一时间最多 6 个版本可抢先体验",
+      "8 versions in early access at once": "同一时间最多 8 个版本可抢先体验",
+      "20 versions in early access at once": "同一时间最多 20 个版本可抢先体验",
+      "Post creator announcements": "发布创作者公告",
+      "Higher price cap on stickers, remix galleries, gallery promotions, and model promotions":
+        "提高贴纸、重混画廊、画廊推广和模型推广的价格上限",
+      "More free placements on stickers, remix galleries, gallery promotions, and model promotions":
+        "贴纸、重混画廊、画廊推广和模型推广获得更多免费名额",
+      "Join the": "加入",
+      "Supernova badge": "超新星徽章",
+      "A Supernova name plate on your username": "用户名上的超新星铭牌",
+      "Eligible for New Supernovas on the": "有资格登上创作者展示的",
+      ", the month you cross": "，当你跨越的那个月",
+      "A Supernova role on our Discord": "我们 Discord 上的超新星身份",
+      "How to claim": "如何领取",
+      "Animated Legend badge": "动态传奇徽章",
+      "An animated Legend name plate on your username": "用户名上的动态传奇铭牌",
+      "\"Legend since\" and the month you crossed": "主页上的「传奇始于」及跨越月份",
+      "on your profile": "显示在你的主页上",
+      ", or \"Founding Legend\" if you were already there at launch":
+        "，若上线时你已在此等级则为「创始传奇」",
+      "A place in the": "在以下位置获得一席之地：",
+      "Hall of Fame": "名人堂",
+      "A Legend role and the #legends channel on our Discord":
+        "我们 Discord 上的传奇身份和 #legends 频道",
+      "Mythic badge": "神话徽章",
+      "A Mythic glow on your creator card, everywhere it appears":
+        "你的创作者卡片在所有出现处都会带有神话光效",
+      "A place in the Mythic section of the": "在以下页面的神话分区获得一席之地：",
+      "A Mythic role on our Discord": "我们 Discord 上的神话身份",
+      "Where Your Score Comes From": "积分来源",
+      Reports: "举报",
+      "Removed content": "已移除内容",
+      pts: "分",
+      "How Creator Score is earned": "创作者积分如何获得",
+      Followers: "关注者",
+      Achievements: "成就",
+      "Closest next": "最接近的下一个",
+      reactions: "反应",
+      "more for": "还需",
+      "100 Reactions": "100 个反应",
+      "0 published": "已发布 0",
+      "First Model": "第一个模型",
+      "First Article": "第一篇文章",
+      "5 Articles": "5 篇文章",
+      "25 Articles": "25 篇文章",
+      "50 Articles": "50 篇文章",
+      "100 Articles": "100 篇文章",
+      Reach: "触达",
+      Downloads: "下载",
+      "0 total": "总计 0",
+      "1k Downloads": "1k 次下载",
+      "10k Downloads": "10k 次下载",
+      "100k Downloads": "100k 次下载",
+      "100 Followers": "100 个关注者",
+      "500 Followers": "500 个关注者",
+      "1k Followers": "1k 个关注者",
+      "5k Followers": "5k 个关注者",
+      "10k Followers": "10k 个关注者",
+      Reactions: "反应",
+      "1k Reactions": "1k 个反应",
+      "10k Reactions": "10k 个反应",
+      "100k Reactions": "100k 个反应",
+      "1M Reactions": "1M 个反应",
+      Earn: "赚取",
+      Sales: "销售",
+      "0 Buzz": "0 Buzz",
+      "100k Sales": "100k 销售",
+      "250k Sales": "250k 销售",
+      "500k Sales": "500k 销售",
+      "1M Sales": "1M 销售",
+      "2M Sales": "2M 销售",
+      Community: "社区",
+      "Crucible votes": "擂台投票",
+      "0 cast": "已投 0",
+      "500 Judged": "已评审 500",
+      "1k Judged": "已评审 1k",
+      "5k Judged": "已评审 5k",
+      "10k Judged": "已评审 10k",
+      "25k Judged": "已评审 25k",
+      Compete: "竞赛",
+      Wins: "获胜",
+      "First Win": "首次获胜",
+      "5 Wins": "5 次获胜",
+      "10 Wins": "10 次获胜",
+      "25 Wins": "25 次获胜",
+      "100 Wins": "100 次获胜",
+      "Special Achievements": "特殊成就",
+      found: "已获得",
+      "Someone else won with your work.": "别人用你的作品获胜了。",
+      "You saw it before everyone else.": "你比别人更早发现了它。",
+      "One of your models found its audience late.": "你的某个模型后来才找到受众。",
+      "Every step of the podium.": "包揽领奖台每一步。",
+      "Lots of ratings, almost no complaints.": "评分很多，几乎无人差评。",
+      "Good at more than one thing.": "不只擅长一件事。",
+      "Top of the board.": "榜首。",
+      "Badges Earned": "已获得的徽章",
+      "No badges yet.": "暂无徽章。",
+      "Your first arrives at Spark, a Creator Score of 500.":
+        "你的第一枚徽章将在星火（500 创作者积分）时获得。",
+      "Badges you earn are yours to keep.": "获得的徽章永久保留。",
+      "Creator Showcase": "创作者展示",
+      "Progress to the next rung": "距离下一级的进度",
+      "Next rung": "下一级",
     },
   };
 
@@ -1620,6 +1911,8 @@
     [/^(\d+)\s+of\s+(\d+)\s+won$/i, "$1 / $2 获胜"],
     // 欢迎回来：Welcome back, cyberlangke! / Welcome back, cyberlangke.
     [/^Welcome back,\s+(.+?)[!.]$/, "欢迎回来，$1！"],
+    // 用户名被单独包成 <span> 时的前半句
+    [/^Welcome back,?\s*$/, "欢迎回来，"],
     // 步骤计数：3 of 4
     [/^(\d+)\s+of\s+(\d+)$/, "$1 / $2"],
     // Tensors 1,131 VRAM min 1.4 GB rec 3.2 GB
@@ -1641,6 +1934,101 @@
     [/^Show all\s+\(([\d,]+)\)$/, "查看全部（$1）"],
     // 页面分页：24 / page
     [/^([\d,]+)\s*\/\s*page$/, "$1 / 页"],
+    // ---- 创作者工作室 ----
+    // 简写月份 + 年份：Nov 2026
+    [
+      new RegExp(`^(${MONTH_RE})\\s+(\\d{4})$`),
+      (m, mon, year) => `${year}年${MONTHS[mon]}`,
+    ],
+    // 变现进度：Creator score 20 of 10,000 to monetize
+    [
+      /^Creator score\s+([\d,]+)\s+of\s+([\d,]+)\s+to monetize$/,
+      "创作者积分 $1 / $2 可开启变现",
+    ],
+    // 销售额度说明：You're at 20. Score comes from followers, model usage and engagement, so it climbs as people use what you publish.
+    [
+      /^You're at\s+([\d,]+)\.\s*Score comes from .+$/,
+      "你当前为 $1。积分来自关注者、模型使用与互动，会随着人们使用你发布的内容而增长。",
+    ],
+    // 促销剩余：3 sale-days left
+    [/^(\d+)\s+sale-days? left$/, "剩余 $1 个促销日"],
+    // 无收益提示：No buzz earnings for Nov 1, 2026 - Nov 6, 2026. Set access prices on
+    [
+      /^No buzz earnings for\s+(.+?)\.\s*Set access prices on$/,
+      "在 $1 期间没有 Buzz 收益。请在以下位置设置访问价格",
+    ],
+    // 统计区间：Totals for Nov 1, 2026 - Nov 6, 2026
+    [/^Totals for\s+(.+?)\s+-\s+(.+)$/, "$1 至 $2 总计"],
+    // 受众区间：for Nov 1, 2026 - Nov 6, 2026
+    [/^for\s+(\w{3}\s+\d{1,2},\s+\d{4})\s+-\s+(\w{3}\s+\d{1,2},\s+\d{4})$/, "$1 至 $2"],
+    // 无版本活动：- no version activity for Nov 1, 2026 - Nov 6, 2026 yet.
+    [
+      /^-\s*no version activity for\s+(.+?)\s+yet\.$/,
+      "- $1 期间暂无版本活动。",
+    ],
+    // 距离下一等级：480 to Spark. Unlocks: judge crucibles.
+    [
+      /^([\d,]+)\s+to\s+([A-Z][A-Za-z ]+?)\.\s*Unlocks:\s*(.+?)\.$/,
+      (m, n, tier, unlock) => {
+        const tiers = {
+          Spark: "星火",
+          Kindle: "引燃",
+          Flame: "烈焰",
+          Blaze: "炽焰",
+          Beacon: "信标",
+          Nova: "新星",
+          Star: "星耀",
+          Supernova: "超新星",
+          Legend: "传奇",
+          Mythic: "神话",
+        };
+        const unlocks = { "judge crucibles": "担任擂台评委" };
+        const tierName = tiers[tier.trim()] || tier.trim();
+        const unlockName = unlocks[unlock.trim()] || unlock;
+        return `距 ${tierName} 还差 ${n} 分。解锁：${unlockName}。`;
+      },
+    ],
+    // 等级门槛：(from 25,000)
+    [/^\(from\s+([\d,]+)\)$/, "（$1 起）"],
+    // 距下一等级：Spark at 500
+    [
+      /^(Spark|Kindle|Flame|Blaze|Beacon|Nova|Star|Supernova|Legend|Mythic) at\s+([\d,]+)$/,
+      (m, tier, n) =>
+        `${({ Spark: "星火", Kindle: "引燃", Flame: "烈焰", Blaze: "炽焰", Beacon: "信标", Nova: "新星", Star: "星耀", Supernova: "超新星", Legend: "传奇", Mythic: "神话" })[tier]}（${n} 分）`,
+    ],
+    // 数字被拆成独立节点：Spark at
+    [
+      /^(Spark|Kindle|Flame|Blaze|Beacon|Nova|Star|Supernova|Legend|Mythic) at$/,
+      (m, tier) =>
+        `${({ Spark: "星火", Kindle: "引燃", Flame: "烈焰", Blaze: "炽焰", Beacon: "信标", Nova: "新星", Star: "星耀", Supernova: "超新星", Legend: "传奇", Mythic: "神话" })[tier]} 至`,
+    ],
+    // 历程统计：0 published / 0 total / 0 cast
+    [/^([\d,]+)\s+published$/, "已发布 $1"],
+    [/^([\d,]+)\s+total$/, "总计 $1"],
+    [/^([\d,]+)\s+cast$/, "已投 $1"],
+    [/^([\d,]+)\s+pts$/, "$1 分"],
+    [/^([\d,]+)\s+reactions$/, "$1 个反应"],
+    // 距离下一等级还差：500 to go.
+    [/^([\d,]+)\s+to go\.$/, "还差 $1 分。"],
+    // 里程碑差额：5 more for 100 Reactions
+    [/^([\d,]+)\s+more for\s+(.+)$/, "距 $2 还需 $1"],
+    // 竞赛战绩：0 challenge wins · 0 Crucible wins
+    [
+      /^([\d,]+)\s+challenge wins?\s*·\s*([\d,]+)\s+Crucible wins?$/,
+      "$1 次挑战获胜 · $2 次擂台获胜",
+    ],
+    // Buzz 分色提示：Blue: 61 / Green: 300 / Yellow: 1,234
+    [
+      /^(Blue|Green|Yellow):\s*([\d,]+)$/,
+      (m, color, n) => `${({ Blue: "蓝色", Green: "绿色", Yellow: "黄色" })[color]} Buzz：${n}`,
+    ],
+    // 小写复数：0 models
+    [/^([\d,]+)\s+models?$/, "$1 个模型"],
+    // 隐藏模型提示：191 models have been hidden due to your settings.
+    [
+      /^([\d,]+)\s+models? (?:have|has) been hidden due to your settings\.$/,
+      "因你的设置，已隐藏 $1 个模型。",
+    ],
   ];
 
   /* ========================================================================
@@ -1720,6 +2108,7 @@
     ["events", /^\/events(?:\/|$)/],
     ["safety", /^\/safety(?:\/|$)/],
     ["creator-program", /^\/creator-program(?:\/|$)/],
+    ["creator-journey", /^\/creators\/journey(?:\/|$)/],
     ["user", /^\/user(?:\/|$)/],
     ["home", /^\/$/],
   ];
@@ -1879,6 +2268,17 @@
     const raw = node.nodeValue;
     if (!raw || !raw.trim()) return;
 
+    // 拆开的比例连接词：<span>0</span> of <span>10</span> 只在前后都是数字时翻译
+    const trimmedRaw = raw.trim();
+    if (trimmedRaw === "of") {
+      const prev = node.previousSibling ? node.previousSibling.textContent.trim() : "";
+      const next = node.nextSibling ? node.nextSibling.textContent.trim() : "";
+      if (/\d$/.test(prev) && /^\d/.test(next)) {
+        node.nodeValue = raw.replace(trimmedRaw, "/");
+        return;
+      }
+    }
+
     const out = transText(raw, parent);
     if (out == null) return;
 
@@ -1993,12 +2393,92 @@
   }
 
   /* ------------------------------------------------------------------------
+   *  consolidatePhrases：合并被 React 拆开的整句文本
+   *  React 常把一句话拆成多个文本节点（如 "Free " + "submissions" + " you'll accept"），
+   *  逐节点翻译会语序错乱。这里先看元素整体文本能否命中静态词条，命中就直接替换。
+   *  限制：只处理纯行内内容（无链接/按钮/图片/表单），避免破坏交互元素。
+   *  输入：根节点 / 输出：无
+   * ---------------------------------------------------------------------- */
+  const PHRASE_SELECTOR = "p, span, label, li, h1, h2, h3, h4, h5, h6";
+  // 带这些子元素的句子不能整段替换（会破坏交互/媒体）
+  const PHRASE_BLOCKERS = "button, img, svg, input, textarea, select, video, canvas, br";
+
+  /* 把连续的文本节点合并后翻译；成功则替换成一个节点 */
+  function replaceSegment(nodes, rawText) {
+    const out = transText(rawText);
+    if (!out || out === rawText) return false;
+    const first = nodes[0];
+    if (!first || !first.parentNode) return false;
+    const merged = document.createTextNode(out);
+    first.parentNode.replaceChild(merged, first);
+    for (let i = 1; i < nodes.length; i++) nodes[i].remove();
+    return true;
+  }
+
+  function consolidatePhrases(root) {
+    if (!root || !root.querySelectorAll) return;
+    const els = [];
+    // 根元素本身也可能是被拆句的容器（MutationObserver 只给新增节点）
+    if (root.nodeType === 1 && root.matches && root.matches(PHRASE_SELECTOR)) els.push(root);
+    els.push(...root.querySelectorAll(PHRASE_SELECTOR));
+
+    let checked = 0;
+    for (const el of els) {
+      if (checked++ > 3000) break;
+      if (el.childNodes.length <= 1) continue;
+      if (isIgnored(el) || el.querySelector(PHRASE_BLOCKERS)) continue;
+
+      // 含链接时只在链接之间分段处理，保住 <a> 本身
+      if (el.querySelector("a")) {
+        let run = [];
+        for (const child of [...el.childNodes]) {
+          if (child.nodeType === 1 && child.tagName === "A") {
+            if (run.length > 0) {
+              const text = run.map((n) => n.textContent).join("").trim();
+              if (/[a-zA-Z]/.test(text) && text.length <= 200) replaceSegment(run, text);
+            }
+            run = [];
+          } else if (child.nodeType === 3 || (child.nodeType === 1 && !child.querySelector(PHRASE_BLOCKERS))) {
+            run.push(child);
+          } else {
+            run = [];
+          }
+        }
+        if (run.length > 0) {
+          const text = run.map((n) => n.textContent).join("").trim();
+          if (/[a-zA-Z]/.test(text) && text.length <= 200) replaceSegment(run, text);
+        }
+        continue;
+      }
+
+      const raw = el.textContent;
+      if (!raw || !/[a-zA-Z]/.test(raw)) continue;
+
+      const trimmed = normalizeText(raw);
+      if (!trimmed || trimmed.length > 200) continue;
+      if (!State.dict) continue;
+
+      let out = null;
+      if (Object.prototype.hasOwnProperty.call(State.dict, trimmed)) {
+        out = State.dict[trimmed];
+      } else if (trimmed.length <= 60 && State.dictLower &&
+                 Object.prototype.hasOwnProperty.call(State.dictLower, trimmed.toLowerCase())) {
+        out = State.dictLower[trimmed.toLowerCase()];
+      }
+      if (out && out !== trimmed && /[\u4e00-\u9fa5]/.test(out)) {
+        el.textContent = out;
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------------
    *  translatePage：整页翻译（幂等）
    *  输出：无
    * ---------------------------------------------------------------------- */
   function translatePage() {
     if (!State.enabled) return;
     const root = document.body || document.documentElement;
+    safe(() => consolidatePhrases(root), "phrases");
     safe(() => walk(root), "walk");
     safe(() => walkAttributes(root), "walkAttributes");
     safe(() => walkReadonlyValues(root), "readonly-values");
@@ -2031,8 +2511,12 @@
       const pending = State.pending;
       State.pending = new Set();
       for (const node of pending) {
-        if (node.nodeType === 3) transNode(node);
-        else if (node.nodeType === 1) {
+        if (node.nodeType === 3) {
+          // 先看父元素的整句能否命中，避免拆开的句子被逐节点翻译
+          if (node.parentElement) safe(() => consolidatePhrases(node.parentElement), "mutation-phrase");
+          if (node.isConnected) transNode(node);
+        } else if (node.nodeType === 1) {
+          safe(() => consolidatePhrases(node), "mutation-phrase");
           safe(() => walk(node), "mutation-walk");
           safe(() => walkAttributes(node), "mutation-attrs");
         }
