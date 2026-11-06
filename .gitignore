@@ -1,0 +1,12 @@
+tmp/
+.claude/
+.playwright-mcp/
+.sisyphus/
+node_modules/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+task_plan.md
+findings.md
+progress.md

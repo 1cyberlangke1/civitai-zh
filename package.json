@@ -1,0 +1,22 @@
+{
+  "name": "civitai-zh",
+  "version": "0.1.0",
+  "description": "Civitai 界面中文化 Tampermonkey 脚本",
+  "scripts": {
+    "test": "node --check civitai-zh.user.js"
+  },
+  "keywords": [
+    "tampermonkey",
+    "userscript",
+    "civitai",
+    "i18n",
+    "zh-cn",
+    "translation"
+  ],
+  "author": "1cyberlangke1",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}
