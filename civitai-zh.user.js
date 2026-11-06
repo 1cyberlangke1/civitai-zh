@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.7
+// @version      0.2.8
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -22,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.7";
+  const VERSION = "0.2.8";
 
   /* ========================================================================
    *  翻译边界
@@ -219,6 +219,11 @@
     "Recently Updated": "最近更新",
     "Close Ad": "关闭广告",
     "No results found": "未找到结果",
+    Reviews: "评测",
+    "No comments yet.": "暂无评论。",
+    "No reviews yet": "暂无评测",
+    Reply: "回复",
+    Joined: "加入于",
     "Try adjusting your search or filters to find what you're looking for":
       "试试调整搜索或筛选条件，找到你想要的内容",
     "Searching for Models": "搜索模型",
@@ -649,6 +654,65 @@
       "Do It": "去开通",
     },
 
+    // ---- 上传模型 ----
+    "models-create": {
+      "Publish a Model": "发布模型",
+      "Use a template": "使用模板",
+      "Create your model": "创建你的模型",
+      "Add version": "添加版本",
+      "Upload files": "上传文件",
+      "Create a post": "创建帖子",
+      "Title, description & cover": "标题、描述与封面",
+      "Your model has a card on civitai.red and a card on civitai.com. These are the parts each card can set for itself; everything else about the model is shared across both sites.":
+        "你的模型在 civitai.red 和 civitai.com 各有一张卡片。以下内容是每张卡片可单独设置的；模型的其他一切在两个站点间共享。",
+      "Same on both sites": "两个站点相同",
+      "civitai.com shows the same card as civitai.red.":
+        "civitai.com 显示与 civitai.red 相同的卡片。",
+      "Set up a civitai.com card to give this model its own title, description and cover there. civitai.com is for a general audience, so its card is checked for that.":
+        "为 civitai.com 设置单独卡片，让它在那里拥有自己的标题、描述和封面。civitai.com 面向大众，因此该卡片会按此标准审核。",
+      "Customize for civitai.com": "为 civitai.com 自定义",
+      "Draft a civitai.com version": "起草 civitai.com 版本",
+      "You can select your main cover after you publish this model's first images. A default cover will be selected for you from there.":
+        "发布该模型的首批图片后即可选择主封面。在此之前会为你自动选择一个默认封面。",
+      "Checkpoint Type": "Checkpoint 类型",
+      Type: "类型",
+      Category: "分类",
+      "Selecting the closest match helps users find your resource.":
+        "选择最接近的分类有助于用户找到你的资源。",
+      "Search or create tags for your model": "为模型搜索或创建标签",
+      "Showcase Collection": "展示收藏集",
+      "Select the collection this model belongs to": "选择该模型所属的收藏集",
+      "Click here to select a collection": "点击此处选择收藏集",
+      "Creator Controls: metric privacy": "创作者控制：指标隐私",
+      "Metric privacy applies while you hold an active Creator Program membership. These stats are shown until then.":
+        "指标隐私在你是有效创作者计划成员期间生效。在此之前这些统计会公开展示。",
+      "When using this model, I give permission for users to:":
+        "使用此模型时，我允许用户：",
+      "Use without crediting me": "使用但无需署名我",
+      "Share merges of this model": "分享此模型的合并版",
+      "Use different permissions on merges": "对合并版使用不同权限",
+      "Learn more about how licensing works by reading our": "阅读我们的",
+      "Licensing Guide": "许可指南",
+      "Commercial Use": "商业用途",
+      "Select all permissions you would like to apply to your model.":
+        "勾选你想应用于此模型的所有权限。",
+      "Sell generated images": "出售生成的图片",
+      "Use on Civitai generation service": "在 Civitai 生成服务上使用",
+      "Use on other generation services": "在其他生成服务上使用",
+      "Sell this model": "出售此模型",
+      "Sell merges using this model": "出售使用此模型的合并版",
+      "This resource:": "此资源：",
+      "Depicts an actual person": "描绘真实人物",
+      "This model was trained on real imagery of a living, or deceased, person, or depicts a character portrayed by a real-life actor or actress. E.g. Tom Cruise or Tom Cruise as Maverick.":
+        "此模型使用在世或已故真实人物的真实影像训练，或描绘由真人演员饰演的角色。例如汤姆·克鲁斯或汤姆·克鲁斯饰演的独行侠。",
+      Yes: "是",
+      "Is intended to produce mature themes": "意在生成成人主题",
+      "Intended to depict a minor character": "意在描绘未成年角色",
+      "Cannot be used for NSFW generation": "不可用于 NSFW 生成",
+      "I acknowledge that I have reviewed the choices above, selected the appropriate option, and understand that my account may be at risk if the selection is found to be incorrect.":
+        "我确认已审阅上述选项、选择了合适的选项，并了解若选择被认定有误，我的账号可能面临风险。",
+    },
+
     // ---- 模型详情 ----
     "model-detail": {
       "Suggested Resources": "推荐资源",
@@ -675,6 +739,15 @@
       "Download variant options": "下载版本选项",
       "How to use this": "如何使用",
       "Suggested Resources for this model": "此模型的推荐资源",
+      // 评测评级
+      "Overwhelmingly Positive": "好评如潮",
+      "Very Positive": "特别好评",
+      Positive: "好评",
+      Mixed: "褒贬不一",
+      Negative: "差评",
+      "Very Negative": "特别差评",
+      "Overwhelmingly Negative": "差评如潮",
+      Joined: "加入于",
     },
 
     // ---- 图片列表 ----
@@ -698,6 +771,11 @@
       "Collapse Discussion": "收起讨论",
       "Comment options": "评论选项",
       "View media": "查看媒体",
+      "Daily free sticker": "每日免费贴纸",
+      "What's a remix gallery?": "什么是重混画廊？",
+      "Any creator can appear on a popular image, and you get to see other takes on work you liked. Iterate on it, restyle it, edit it, or turn it into a video - the creator reviews every submission.":
+        "任何创作者都可能出现在热门图片上，你也能看到别人如何演绎你喜欢的作品。你可以迭代、改风格、编辑，或把它做成视频 - 每次提交都会由创作者审核。",
+      "Why we built this": "为什么我们要做这个",
     },
 
     // ---- 视频列表 ----
@@ -753,6 +831,12 @@
       "Something else": "其他",
       "Name a hub and fill it with the creators, models and tags you choose.":
         "给 Hub 取个名字，填入你选择的创作者、模型和标签。",
+      "My hubs": "我的 Hub",
+      "How hubs work": "Hub 如何运作",
+      "Pick the creators, models and tags you want to keep an eye on. New images show up in your hub as they are posted - you never have to add them.":
+        "挑选你想关注的创作者、模型和标签。新图片发布后会自动出现在你的 Hub 中——你无需手动添加。",
+      "You have not made a hub yet. Pick a starting point above, or make an empty one.":
+        "你还没有创建 Hub。从上方选一个起点，或创建一个空的。",
     },
 
     // ---- 文章列表 ----
@@ -797,6 +881,7 @@
       Thriller: "惊悚",
       Other: "其他",
       "No Image": "无图片",
+      "ch.": "章",
     },
 
     // ---- Crucibles ----
@@ -847,7 +932,20 @@
     },
 
     // ---- 更新日志（正文不翻，仅 UI）----
-    changelog: {},
+    // ---- 更新日志 ----
+    changelog: {
+      Changelog: "更新日志",
+      Announcement: "公告",
+      "New Features": "新功能",
+      "🚀 New Features": "🚀 新功能",
+      "Bug Fixes": "问题修复",
+      "🐛 Bug Fixes": "🐛 问题修复",
+      Improvements: "改进",
+      "✨ Improvements": "✨ 改进",
+      "Read the announcement": "阅读公告",
+      ", or see": "，或查看",
+      "the guide": "指南",
+    },
 
     // ---- 商店 ----
     shop: {
@@ -1001,6 +1099,47 @@
     challenges: {
       "Community Challenges": "社区挑战",
       "No challenges found": "未找到挑战",
+      // 挑战详情页
+      Live: "进行中",
+      entries: "件作品",
+      "What To Create": "创作主题",
+      "Theme Elements": "主题元素",
+      Starts: "开始",
+      Ends: "结束",
+      "Max Entries": "最大提交数",
+      "per user": "每位用户",
+      "AI Reviews": "AI 评审",
+      Generate: "生成",
+      Submit: "提交",
+      "We're featuring": "本期推荐",
+      "Participation Prize Requirement": "参与奖条件",
+      Min: "最少",
+      "entries to qualify": "件作品即可获得资格",
+      "Allowed Ratings": "允许的分级",
+      Participation: "参与奖",
+      Judging: "评审",
+      by: "由",
+      "1st Place": "第 1 名",
+      "2nd Place": "第 2 名",
+      "3rd Place": "第 3 名",
+      "Only entries the judge scores can place. The highest scores make a shortlist, and a final review of that shortlist decides the places, so a higher score doesn't guarantee a place.":
+        "只有经过评委打分的作品才有机会获奖。得分最高的作品会进入候选名单，最终由评审决定名次，因此高分并不保证获奖。",
+      Theme: "主题",
+      "How well the entry fits and interprets the challenge theme; higher for a clear, strong, on-theme interpretation.":
+        "作品对挑战主题的贴合与诠释程度；诠释越清晰、强烈、切题，得分越高。",
+      Wittiness: "巧思",
+      "Cleverness and conceptual wit of the idea; higher for sharp, clever concepts.":
+        "创意的机智与概念巧妙程度；概念越犀利、巧妙，得分越高。",
+      Humor: "幽默",
+      "How funny or amusing the entry is; higher for genuinely funny results.":
+        "作品的搞笑或有趣程度；越真正好笑，得分越高。",
+      Aesthetic: "美感",
+      "Overall visual appeal - composition, color, lighting, and style; higher for striking, well-composed images.":
+        "整体视觉吸引力——构图、色彩、光线与风格；画面越出彩、构图越好，得分越高。",
+      "Eligible Models": "可用模型",
+      total: "总计",
+      "Generate Entries": "生成作品",
+      "Submit Entries": "提交作品",
     },
 
     // ---- Storylines ----
@@ -1011,6 +1150,18 @@
       "Got it": "知道了",
       New: "新",
       Read: "阅读",
+      Ongoing: "连载中",
+      "Collaborators only": "仅协作者",
+      "Secret class": "私密等级",
+      chapters: "章",
+      "Start reading": "开始阅读",
+      Chapters: "章节",
+      Contributors: "贡献者",
+      "About continuing": "关于续写",
+      "'s collaborators can continue it.": " 的协作者可以续写。",
+      "Up to": "最多",
+      "This chapter is hidden by your browsing level": "此章节因你的浏览等级被隐藏",
+      Only: "仅",
       "Every storyline is a run of posts. Start at chapter 1 and page through like one long post.":
         "每条故事线都是一串帖子。从第 1 章开始，像读一篇长文那样翻页。",
       "Pick a path": "选择路线",
@@ -1094,7 +1245,17 @@
     },
 
     // ---- 收藏集 ----
-    collections: {},
+    // ---- 收藏集 ----
+    collections: {
+      "Likes & bookmarks": "点赞与收藏",
+      "Bookmarked Model": "已收藏模型",
+      "Pick a collection": "选择一个收藏集",
+      "Choose one from the list on the left to view it.":
+        "从左侧列表中选择一个以查看。",
+      "Create collection": "创建收藏集",
+      Article: "文章",
+      Model: "模型",
+    },
 
     // ---- 活动 ----
     events: {
@@ -1145,6 +1306,201 @@
     safety: {
       "Civitai Safety Center": "Civitai 安全中心",
       "View the full policy": "查看完整政策",
+      "A summary of our policies, guidelines, and approach to keeping Civitai safe.":
+        "我们政策、准则以及维护 Civitai 安全方式的概述。",
+      "How we keep generation and sharing safe": "我们如何保障生成与分享的安全",
+      Welcome: "欢迎",
+      "Responsible Resource Development": "负责任的资源开发",
+      "Content Policies": "内容政策",
+      "Using Civitai to Generate": "使用 Civitai 生成",
+      "How We Moderate Content": "我们如何审核内容",
+      Minors: "未成年人",
+      "Models intended for creating photorealistic depictions of minors are prohibited.":
+        "禁止制作意在生成未成年人照片级写实描绘的模型。",
+      "Take care not to include any photorealistic images of minors (under 18) in training data.":
+        "注意不要在训练数据中包含任何未成年（18 岁以下）的照片级写实图像。",
+      "Avoid all depictions of minors when training resources that are capable of depicting nudity or sexual themes.":
+        "训练能够描绘裸露或性主题的资源时，避免出现任何未成年人形象。",
+      "Extreme or Illegal Conduct": "极端或违法行为",
+      "Do not create resources with the purpose of depicting extreme fetishes or illegal conduct, such as rape, sexual abuse, scat or bestiality.":
+        "不要制作意在描绘极端癖好或违法行为的资源，例如强奸、性虐待、粪便癖或兽交。",
+      "Do not create resources with a tendency to produce disturbing imagery, such as graphic violence, gore, animal abuse, severe injuries or human death.":
+        "不要制作倾向于生成令人不适图像的资源，例如血腥暴力、猎奇、虐待动物、重伤或人类死亡。",
+      Testing: "测试",
+      "Prior to contributing a resource to Civitai, ensure that it does not have a tendency to produce:":
+        "在向 Civitai 贡献资源前，请确保它不会倾向于生成：",
+      "Photorealistic images of minors (under 18)": "未成年（18 岁以下）的照片级写实图像",
+      "Minors in inappropriate clothing, poses, or themes":
+        "穿着不当、姿势不当或主题不当的未成年人",
+      "Disturbing imagery, such as graphic violence, gore, animal abuse, severe injuries or human death":
+        "令人不适的图像，如血腥暴力、猎奇、虐待动物、重伤或人类死亡",
+      "All photorealistic images of minors are prohibited.":
+        "禁止所有未成年人的照片级写实图像。",
+      "All sexual depictions of minors are prohibited, including anime genres such as loli and shotacon":
+        "禁止所有未成年人的性描绘，包括 loli、shotacon 等动漫类型",
+      "Depicting Minors": "描绘未成年人",
+      "Portraying minors in any inappropriate or suggestive context is strictly prohibited. This includes:":
+        "严禁在任何不当或暗示性语境中描绘未成年人，包括：",
+      "Clothing:": "服装：",
+      Photorealism: "照片级写实",
+      "Photorealism:": "照片级写实：",
+      "Photorealistic images that could be mistaken for a real minor are strictly prohibited.":
+        "严禁可能被误认为真实未成年人的照片级写实图像。",
+      "Poses:": "姿势：",
+      "Poses should be natural, innocent, and age-appropriate. Avoid any poses and facial expressions that could be misinterpreted as suggestive or inappropriate.":
+        "姿势应自然、纯真且符合年龄。避免任何可能被误解为暗示性或不当的姿势与表情。",
+      "Interactions:": "互动：",
+      "Interactions between minors and adults, or between minors themselves, should be appropriate, non-suggestive, and common in a wholesome, everyday context.":
+        "未成年人与成年人之间，或未成年人之间的互动，应得体、无暗示性，并且是健康日常语境中常见的。",
+      FAQs: "常见问题",
+      "Q: How are these guidelines enforced?": "问：这些准则如何执行？",
+      "A:": "答：",
+      "Q: How can I report content that I believe violates the community guidelines?":
+        "问：如何举报我认为违反社区准则的内容？",
+      "Q: Why are you so strict about this?": "问：为什么你们对此如此严格？",
+      "Great question! We have two key reasons:": "好问题！我们有两个关键原因：",
+      "Ethical:": "伦理上：",
+      "Child exploitation is universally unacceptable. Our guidelines are designed to protect and respect the dignity of all individuals, especially minors.":
+        "剥削儿童在任何地方都不可接受。我们的准则旨在保护并尊重所有人的尊严，尤其是未成年人。",
+      "Legal:": "法律上：",
+      "Being a US-based entity, we're obliged to follow laws governing content involving minors.":
+        "作为总部位于美国的实体，我们必须遵守涉及未成年人内容的相关法律。",
+      "Q: I've used terms that invoke youth in my prompt, but the image doesn't resemble that. Is that okay?":
+        "问：我在提示词里用了暗示年幼的词，但图像并不像那样。这样可以吗？",
+      "Q: How do you determine if a character is a minor or not?":
+        "问：你们如何判断一个角色是否未成年？",
+      "Q: My resource is meant to depict a fictional character who is a minor. Can I depict them in a manner that is not age-appropriate?":
+        "问：我的资源意在描绘一个未成年的虚构角色。我能以不符合年龄的方式描绘他们吗？",
+      "No, we apply the same standards to fictional characters who are minors as we do to real-life minors. They should be depicted in an age-appropriate manner.":
+        "不可以。我们对未成年的虚构角色与真实未成年人适用相同标准，应以符合年龄的方式描绘。",
+      "Q: Are there any restrictions on using AI to create child-like models?":
+        "问：使用 AI 创建儿童般的模型有什么限制吗？",
+      "Yes, creating photorealistic models of minors is strictly prohibited.":
+        "有。严禁创建未成年人的照片级写实模型。",
+      "Q: What happens if someone repeatedly violates the community guidelines?":
+        "问：如果有人反复违反社区准则会怎样？",
+      "We take guideline violations seriously. We have a 0 strike policy for violations involving minors. Offending content will be removed, and the uploader will be banned from the platform.":
+        "我们严肃对待违反准则的行为。涉及未成年人的违规实行零容忍政策：违规内容将被删除，上传者将被封禁。",
+      "Q: I'm not sure if my content adheres to the guidelines. What should I do?":
+        "问：我不确定我的内容是否符合准则，该怎么办？",
+      "When in doubt, err on the side of caution. Contact our moderation team with questions or concerns before posting your content. We're here to assist!":
+        "拿不准时请谨慎行事。发布内容前，如有疑问或顾虑请联系我们的审核团队。我们随时提供帮助！",
+      "Q: Can I provide feedback or suggest changes to the community guidelines?":
+        "问：我可以对社区准则提供反馈或建议修改吗？",
+      "Absolutely! Your input is valuable to us. If you have suggestions for improving the guidelines or notice something we missed, let us know by submitting feedback or reaching out to us on Discord.":
+        "当然可以！你的意见对我们很有价值。如果你有改进准则的建议，或发现我们遗漏的地方，请提交反馈或在 Discord 联系我们。",
+      "Real People": "真实人物",
+      "Content that reproduces the likeness of real people, in any context, is prohibited.":
+        "禁止在任何语境中再现真实人物肖像的内容。",
+      "This prohibition includes fan-art or representations of characters as portrayed by a recognizable individual (e.g., Indiana Jones as portrayed by Harrison Ford).":
+        "该禁令包括同人创作，或以可辨认的个人形象呈现的角色（例如哈里森·福特饰演的印第安纳·琼斯）。",
+      "The use of names, facial features, or any other personally identifiable attributes to reference or imply a real individual is also disallowed.":
+        "同样不允许使用姓名、面部特征或任何其他可识别个人身份的特征来指代或暗示真实个人。",
+      "Disturbing Imagery and Hate Speech": "令人不适的图像与仇恨言论",
+      "Do not post extremely disturbing images, such as graphic violence, gore, animal abuse, severe injuries or human death":
+        "不要发布极度令人不适的图像，例如血腥暴力、猎奇、虐待动物、重伤或人类死亡",
+      "Do not post images that are disrespectful, demeaning or otherwise harmful towards people or groups of people on the basis of their:":
+        "不要发布基于以下因素对个人或群体不尊重、贬低或造成伤害的图像：",
+      "Religion or religious beliefs": "宗教或宗教信仰",
+      "Nationality, ethnicity, or race": "国籍、民族或种族",
+      "Gender or sexual orientation": "性别或性取向",
+      "Disability or medical conditions": "残疾或健康状况",
+      "Content Duplication and Impersonation": "内容重复与冒充",
+      "Only post original images that you generated yourself.":
+        "只发布你自己生成的原创图像。",
+      "Do not falsely label images as having been created or endorsed by another creator or otherwise impersonate another creator.":
+        "不要虚假标注图像由其他创作者创作或认可，也不要冒充其他创作者。",
+      "When using our onsite image generating services, all prompts and resulting images must comply with our content policies.":
+        "使用站内图像生成服务时，所有提示词及生成的图像都必须遵守我们的内容政策。",
+      "This includes, but is not limited to, restrictions on mature content as it applies to minors, illegal or violent activities, and disrespectful or offensive content.":
+        "这包括但不限于：涉及未成年人的成人内容限制、违法或暴力活动，以及不尊重或冒犯性内容。",
+      "Prohibited Image Generation Attempts": "禁止的图像生成尝试",
+      "Attempts to generate content that violate our content policies are strictly prohibited.":
+        "严禁尝试生成违反我们内容政策的内容。",
+      "Moderation and Enforcement": "审核与执行",
+      "Reporting and Accountability": "举报与问责",
+      "Users found to be repeatedly attempting to generate content that violates our rules may face additional consequences, including potential suspension or termination of their Civitai account.":
+        "被认定反复尝试生成违规内容的用户可能面临额外后果，包括暂停或终止其 Civitai 账号。",
+      "Transparency and Appeals": "透明度与申诉",
+      "Decisions made by our moderation team concerning onsite image generation are subject to the same transparency and appeal processes as other content on Civitai.":
+        "审核团队就站内图像生成作出的决定，与 Civitai 上其他内容一样适用相同的透明度与申诉流程。",
+      "Users can request an explanation or appeal a moderation decision using our":
+        "用户可以要求解释或通过我们的",
+      "Appeal Form": "申诉表单",
+      "For how these checks work when you generate, share, upload or train, see":
+        "关于生成、分享、上传或训练时这些检查如何运作，请参阅",
+      "How Civitai Keeps Generation and Sharing Safe": "Civitai 如何保障生成与分享安全",
+      "User Control": "用户控制",
+      "We prioritize user control and offer options to customize the content you see on our platform, including:":
+        "我们优先考虑用户控制，提供多种自定义平台上所见内容的选项，包括：",
+      "Tag-Based Filtering:": "基于标签的筛选：",
+      "Users can hide specific content based on tags. For instance, if a user":
+        "用户可以根据标签隐藏特定内容。例如，如果用户",
+      "doesn't": "不",
+      "want to view anime content, they can hide the anime tag.":
+        "想看动漫内容，可以隐藏 anime 标签。",
+      "Selective Hiding:": "选择性隐藏：",
+      "Users can choose to hide specific images, models, or even all models created by a specific user.":
+        "用户可以选择隐藏特定图片、模型，甚至某个用户创建的全部模型。",
+      "Automated Content Labeling and Moderation": "自动内容标记与审核",
+      "We facilitate this high degree of user control through a combination of checkpoints:":
+        "我们通过多重关卡实现这种高度的用户控制：",
+      "Automated Content Labeling": "自动内容标记",
+      ": We use a number of automated image tagging systems to automatically apply content labels and screen images for moderated content.":
+        "：我们使用多种自动图像标记系统，自动为图像添加内容标签并筛出受审核内容。",
+      "Community-Driven Moderation": "社区驱动的审核",
+      ": Users can vote on the content labels applied to images, helping us refine our image classification system. We encourage users to report content violations and reward their efforts through a":
+        "：用户可以对图像的内容标签投票，帮助我们改进图像分类系统。我们鼓励用户举报违规内容，并通过",
+      "Guardian's": "守护者",
+      "leaderboard that highlights the most helpful community members.":
+        "排行榜奖励他们的付出，表彰最有帮助的社区成员。",
+      "Manual Reviews": "人工审核",
+      ": Certain combinations of tags or resources trigger a manual review before the content becomes publicly visible.":
+        "：某些标签或资源组合会在内容公开可见前触发人工审核。",
+      "Community Participation": "社区参与",
+      "others'": "他人的",
+      "models where possible, and promptly reporting any content that violates our policies.":
+        "模型，并及时举报任何违反我们政策的内容。",
+      "Policy Feedback and Suggestions": "政策反馈与建议",
+      "Appeals Process": "申诉流程",
+      "If you believe your content has been removed unfairly, you can submit an appeal for further review through our":
+        "如果你认为你的内容被不公正地移除，可以通过我们的",
+      "Reporting Violations": "举报违规",
+      "If you find content that": "如果你发现内容",
+      "adhere to our guidelines, especially concerning minors, please":
+        "违反我们的准则，尤其涉及未成年人时，请",
+      "don't": "不要",
+      "hesitate to report it. A": "犹豫，立即举报。",
+      "\"Report\"": "「举报」",
+      "button is available on most images and models throughout the site.":
+        "按钮在站内大多数图片和模型上都有。",
+      "If you need additional help, you can always reach out to our moderators on our Discord server. Your vigilance helps us maintain a safe and respectful community.":
+        "如需更多帮助，可随时在 Discord 服务器联系我们的审核员。你的警惕有助于我们维护安全、互相尊重的社区。",
+      "Together we can better navigate the development of new AI content while upholding the openness and inclusivity of this platform and community.":
+        "携手并进，我们能在推动新 AI 内容发展的同时，维护这个平台与社区的开放与包容。",
+      // 长段落（引擎允许精确词条不限长）
+      "At Civitai, we recognize the transformative power of artificial intelligence and are committed to harnessing this potential responsibly. As part of this commitment, we have established clear guidelines to safeguard minors, respect real individuals, and prevent the generation of harmful or illegal content.":
+        "在 Civitai，我们认识到人工智能的变革力量，并致力于负责任地发挥这一潜力。为此，我们制定了明确的准则，以保护未成年人、尊重真实个人，并防止生成有害或非法内容。",
+      "Our platform is dedicated to fostering creativity and innovation while upholding standards of safety and respect. We understand the importance of balancing the freedom to create with the need to protect vulnerable groups and individuals. Therefore, we have stringent policies against the creation of photorealistic images of minors, depictions of extreme or illegal conduct, and any content that may be deemed disturbing or offensive. We also prohibit the use of our resources to generate the likeness of real-world individuals.":
+        "我们的平台致力于在坚持安全与尊重标准的同时促进创意与创新。我们理解在创作自由与保护弱势群体和个人之间取得平衡的重要性。因此，我们对制作未成年人照片级写实图像、描绘极端或违法行为，以及任何可能被视为令人不适或冒犯的内容制定了严格政策。我们也禁止使用我们的资源生成现实人物的肖像。",
+      "At Civitai, we utilize AI systems along with the power of community to maintain a safe and inclusive environment. We encourage you to be an active participant in upholding our standards by accurately tagging content, reporting violations, and providing feedback. Your involvement is crucial in shaping a safe AI community. Together, we can navigate the exciting world of AI, ensuring that Civitai remains a platform for innovation, creativity, and respect.":
+        "在 Civitai，我们借助 AI 系统与社区的力量共同维护安全、包容的环境。我们鼓励你积极参与维护标准：准确标记内容、举报违规并提供反馈。你的参与对塑造安全的 AI 社区至关重要。携手并进，我们能在令人兴奋的 AI 世界中前行，让 Civitai 始终是创新、创意与尊重的平台。",
+      "Civitai is committed to creating a safe, inclusive, and respectful environment for everyone. We are dedicated to harnessing the potential of AI responsibly, prioritizing the safety and wellbeing of minors and identifiable individuals.":
+        "Civitai 致力于为所有人营造安全、包容、互相尊重的环境。我们专注负责任地发挥 AI 的潜力，优先保障未成年人及可识别个人的安全与福祉。",
+      "As our community grows, we're committed to creating a safe, inclusive, and respectful environment for everyone. We are dedicated to harnessing the potential of AI responsibly, prioritizing the safety and wellbeing of minors. In line with this, we've refined our guidelines for content depicting minors.":
+        "随着社区壮大，我们致力于为所有人营造安全、包容、互相尊重的环境。我们专注负责任地发挥 AI 的潜力，优先保障未成年人的安全与福祉。为此，我们完善了涉及未成年人内容的准则。",
+      "Remember, these guidelines are here to ensure our community remains a safe, respectful, and constructive space for all. With your cooperation and input, we can make this community a shining example of responsible and creative use of AI.":
+        "请记住，这些准则旨在确保我们的社区始终是安全、尊重且建设性的空间。有了你的配合与意见，我们能让这个社区成为负责任且富有创意地使用 AI 的典范。",
+      "Our moderation team actively monitors onsite image generation activities. Content that violates our rules, or attempts to circumvent our content restrictions, will result in appropriate actions, which may include content removal, flagging of the account, suspension of access to the image generation feature, or a ban from the platform.":
+        "我们的审核团队会主动监控站内图像生成活动。违反规则或试图绕过内容限制的内容将导致相应处理，包括删除内容、标记账号、暂停图像生成功能访问权限，或封禁平台账号。",
+      "Users are encouraged to report any inappropriate image generation attempts or results they come across. Reports can be submitted through our standard reporting mechanism, and should include relevant information to assist in the investigation.":
+        "我们鼓励用户举报遇到的任何不当图像生成尝试或结果。可通过我们的标准举报机制提交，并附上有助于调查的相关信息。",
+      "As a platform, our goal is to foster an environment of openness and inclusivity while empowering users with tools to see content that is the most interesting and relevant to them. We do this through a combination of user controls, automated content labeling, and content moderation.":
+        "作为平台，我们的目标是营造开放包容的环境，同时为用户提供工具，让他们看到最有趣、最相关的内容。我们通过用户控制、自动内容标记与内容审核相结合来实现这一点。",
+      "We value your input. After all, this community is like a potluck – everyone brings something to the table. If you have suggestions for improving the guidelines or have spotted something we might have missed, please let us know by submitting feedback or reaching out to us on Discord.":
+        "我们重视你的意见。毕竟这个社区就像百乐餐——每个人都带来点什么。如果你有改进准则的建议，或发现我们可能遗漏的地方，请提交反馈或在 Discord 联系我们。",
+      "Remember, these guidelines are here to make sure that Civitai remains an innovative, respectful, and constructive community. With your cooperation and input, we can continue to make this community a shining example of how AI can be harnessed responsibly and creatively.":
+        "请记住，这些准则旨在确保 Civitai 始终是创新、尊重且建设性的社区。有了你的配合与意见，我们能继续让这个社区成为负责任且富有创意地运用 AI 的典范。",
     },
 
     // ---- 创作者计划（含折叠栏正文）----
@@ -1318,6 +1674,13 @@
     },
 
     // ---- 用户主页 ----
+    // ---- 帖子详情 ----
+    posts: {
+      "Posted to": "发布到",
+      "No comments yet.": "暂无评论。",
+      Reply: "回复",
+    },
+
     user: {
       Joined: "加入时间",
       Followers: "关注者",
@@ -1334,6 +1697,40 @@
       "Earned before launch": "上线前获得",
       "First Model": "第一个模型",
       "Published your first model.": "发布了你的第一个模型。",
+      // 主页
+      "Sticker Book": "贴纸册",
+      "Post an announcement to tell your followers what you're working on.":
+        "发布公告，让关注者知道你在做什么。",
+      "Open Creator Studio": "打开创作者工作室",
+      "View all images": "查看全部图片",
+      // 用户主页：模型 / 贴纸册 / 商店等标签页
+      Published: "已发布",
+      Draft: "草稿",
+      Private: "私密",
+      "Upload a Model": "上传模型",
+      "Train a LoRA": "训练 LoRA",
+      "'s Sticker Book": " 的贴纸册",
+      "earned from stickers on": "来自贴纸的收益，贴于",
+      your: "你的",
+      "Images you stickered": "你贴过贴纸的图片",
+      "You haven't had a sticker accepted on anyone else's image yet.":
+        "你还没有在别人的图片上被采纳过贴纸。",
+      "Your images that got stickered": "被你贴纸的图片",
+      "Nobody has put a sticker on your work yet. Accepted placements show up here.":
+        "还没有人在你的作品上贴贴纸。被采纳的贴纸会显示在这里。",
+      "Nothing in your book yet. Buy a sticker in the": "你的册子还是空的。在",
+      "and put one on an image, or turn stickers on for your own images from the gear above.":
+        "购买贴纸并贴到图片上，或用上方的齿轮为自己的图片开启贴纸。",
+      "'s Shop": " 的商店",
+      "Add a shop description in Shop settings.": "在商店设置中添加商店描述。",
+      "Manage Your Shop": "管理你的商店",
+      "Your shop is in draft": "你的商店还是草稿",
+      "It's hidden from visitors until you publish it.": "发布前对访客隐藏。",
+      "Publish shop": "发布商店",
+      "Your shop is empty": "你的商店是空的",
+      "List cosmetics for your fans to collect and buy with Buzz. Submit your first item to open your shop.":
+        "上架装饰品，让粉丝用 Buzz 收集和购买。提交第一件商品即可开店。",
+      "Create your first item": "创建你的第一件商品",
 
       // ---- 设置：内容与浏览 ----
       "Mature content": "成人内容",
@@ -1828,6 +2225,32 @@
         return `${year}年${FULL_MONTHS[mon]}${day}日 ${hour}:${min}`;
       },
     ],
+    // 缩写日期 + 大写时间（挑战详情）：Nov 06, 2026 08:00 AM
+    [
+      new RegExp(`^(${MONTH_RE})\\s+(\\d{1,2}),\\s+(\\d{4})\\s+(\\d{1,2}):(\\d{2})\\s*(AM|PM)$`, "i"),
+      (m, mon, day, year, h, min, ap) => {
+        const raw = Number(h) % 12;
+        const hour = ap.toUpperCase() === "PM" ? raw + 12 : raw;
+        const monKey = mon.charAt(0).toUpperCase() + mon.slice(1).toLowerCase();
+        return `${year}年${MONTHS[monKey]}${day}日 ${hour}:${min}`;
+      },
+    ],
+    // 更新日志周报：Weekly Update: October 24 to October 30, 2026
+    [
+      new RegExp(
+        `^Weekly Update:\\s+(${FULL_MONTH_RE})\\s+(\\d{1,2})\\s+to\\s+(${FULL_MONTH_RE})\\s+(\\d{1,2}),\\s+(\\d{4})$`
+      ),
+      (m, m1, d1, m2, d2, y) =>
+        `每周更新：${y}年${FULL_MONTHS[m1]}${d1}日 至 ${FULL_MONTHS[m2]}${d2}日`,
+    ],
+    // 更新日志标题：Civitai Changelog: October 24 to October 30, 2026
+    [
+      new RegExp(
+        `^Civitai Changelog:\\s+(${FULL_MONTH_RE})\\s+(\\d{1,2})\\s+to\\s+(${FULL_MONTH_RE})\\s+(\\d{1,2}),\\s+(\\d{4})$`
+      ),
+      (m, m1, d1, m2, d2, y) =>
+        `Civitai 更新日志：${y}年${FULL_MONTHS[m1]}${d1}日 至 ${FULL_MONTHS[m2]}${d2}日`,
+    ],
     // 剩余时间：1 hour / 2 days
     [
       /^(\d+)\s+(second|minute|hour|day|week|month|year)s?$/,
@@ -2010,6 +2433,15 @@
     [/^([\d,]+)\s+reactions$/, "$1 个反应"],
     // 距离下一等级还差：500 to go.
     [/^([\d,]+)\s+to go\.$/, "还差 $1 分。"],
+    // 故事线章节：Chapter 3
+    [/^Chapter\s+(\d+)$/, "第 $1 章"],
+    // 故事线章节缩写：Ch 3
+    [/^Ch\s+(\d+)$/, "第 $1 章"],
+    // 挑战 AI 评审说明：Only 6-12 entries selected at random every 10 min
+    [
+      /^Only\s+(\d+)\s*-\s*(\d+)\s+entries\s+selected at random every\s+(\d+)\s+min$/,
+      "每 $3 分钟随机选出 $1-$2 件作品",
+    ],
     // 里程碑差额：5 more for 100 Reactions
     [/^([\d,]+)\s+more for\s+(.+)$/, "距 $2 还需 $1"],
     // 竞赛战绩：0 challenge wins · 0 Crucible wins
@@ -2082,6 +2514,7 @@
 
   const PAGE_RULES = [
     ["model-detail", /^\/models\/\d+/],
+    ["models-create", /^\/models\/create(?:\/|$)/],
     ["models", /^\/models(?:\/|$)/],
     ["image-detail", /^\/images\/\d+/],
     ["images", /^\/images(?:\/|$)/],
@@ -2109,6 +2542,7 @@
     ["safety", /^\/safety(?:\/|$)/],
     ["creator-program", /^\/creator-program(?:\/|$)/],
     ["creator-journey", /^\/creators\/journey(?:\/|$)/],
+    ["posts", /^\/posts\/\d+/],
     ["user", /^\/user(?:\/|$)/],
     ["home", /^\/$/],
   ];
