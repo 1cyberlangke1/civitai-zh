@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.10
+// @version      0.2.11
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -22,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.10";
+  const VERSION = "0.2.11";
 
   /* ========================================================================
    *  翻译边界
@@ -380,7 +380,7 @@
     "The queue is empty": "队列为空",
     "Some new filtering options don't apply retroactively.":
       "部分新的筛选选项不会追溯生效。",
-    "Civitai turns 4.": "Civitai 四周年。",
+    "Civitai turns 4.": "Civitai 四岁啦！",
     "Pick up a hat.": "领取一顶帽子。",
     "Four color teams, Nov 1 to Nov 30. Hat your best work and score for your team.":
       "四色队伍，11 月 1 日至 11 月 30 日。为你的最佳作品戴上帽子，为你的队伍得分。",
@@ -402,6 +402,12 @@
     "You must": "你需要",
     "to add a comment": "才能添加评论",
     "Be the first to leave a comment": "来抢沙发吧",
+    "There are no comments for this model yet.": "这个模型还没有评论。",
+    "Be the first to let the people know about this model by leaving your comment.":
+      "成为第一个留下评论、让大家了解这个模型的人吧。",
+    "There are no comments yet.": "还没有评论。",
+    "Be the first to let people know about this by leaving a comment.":
+      "成为第一个留下评论、让大家知道这个的人吧。",
     "Add a comment": "添加评论",
     // 生成数据面板的元数据键（值保持原样）
     duration: "时长",
