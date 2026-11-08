@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.9
+// @version      0.2.10
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -22,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.9";
+  const VERSION = "0.2.10";
 
   /* ========================================================================
    *  翻译边界
@@ -65,6 +65,49 @@
   };
 
   /* ========================================================================
+   *  模型文件精度 / 量化说明
+   *  站点前端写死的文案（fp32/fp16/bf16/GGUF quant 等），按原文精确映射。
+   *  用途：① COMMON 精确词条（单独出现时） ② 与「• 大小」拼接时的正则。
+   * ======================================================================== */
+  const PRECISION_DESCS = {
+    "Full precision, largest file": "完整精度，最大文件",
+    "Half precision, best balance": "半精度，均衡最佳",
+    "BF16, good balance": "BF16，均衡",
+    "Block-scaled 8-bit, near-FP16 quality": "块缩放 8 位，接近 FP16 质量",
+    "Mixed FP8, sensitive layers kept at higher precision":
+      "混合 FP8，敏感层保持更高精度",
+    "Scaled 8-bit, better quality than plain FP8": "缩放 8 位，质量优于普通 FP8",
+    "8-bit, smaller file": "8 位，更小文件",
+    "8-bit integer, smaller file": "8 位整数，更小文件",
+    "4-bit normalized": "4 位归一化",
+    "NVFP4 4-bit, Blackwell-optimized": "NVFP4 4 位，Blackwell 优化",
+    "4-bit integer, smallest": "4 位整数，最小",
+  };
+
+  const QUANT_DESCS = {
+    "8-bit GGUF, highest quality": "8 位 GGUF，最高质量",
+    "6-bit GGUF, high quality": "6 位 GGUF，高质量",
+    "5-bit GGUF, balanced": "5 位 GGUF，均衡",
+    "4-bit dynamic GGUF, better quality than Q4_K_M":
+      "4 位动态 GGUF，质量优于 Q4_K_M",
+    "4-bit GGUF, smaller file": "4 位 GGUF，更小文件",
+    "4-bit small GGUF": "4 位小型 GGUF",
+    "4-bit imatrix GGUF, small": "4 位 imatrix GGUF，小",
+    "3-bit dynamic GGUF, better quality than Q3_K_L":
+      "3 位动态 GGUF，质量优于 Q3_K_L",
+    "3-bit GGUF, compact": "3 位 GGUF，紧凑",
+    "3-bit imatrix GGUF, medium": "3 位 imatrix GGUF，中等",
+    "3-bit imatrix GGUF, small": "3 位 imatrix GGUF，小",
+    "2-bit dynamic GGUF, better quality than Q2_K":
+      "2 位动态 GGUF，质量优于 Q2_K",
+    "2-bit GGUF, smallest": "2 位 GGUF，最小",
+    "2-bit ternary GGUF, extremely small": "2 位三值 GGUF，极小",
+    "1.7-bit ternary GGUF, smallest": "1.7 位三值 GGUF，最小",
+  };
+
+  const DESC_LABELS = { ...PRECISION_DESCS, ...QUANT_DESCS };
+
+  /* ========================================================================
    *  通用词库（所有页面共用）
    *  键 = 站点原文（精确匹配），值 = 中文
    * ======================================================================== */
@@ -92,6 +135,7 @@
     "Sign in": "登录",
     "Join a team": "加入队伍",
     "Join and get your free hat": "加入并领取免费帽子",
+    "See the standings": "查看排名",
 
     // ---- 页脚 ----
     "© Civitai": "© Civitai",
@@ -117,6 +161,16 @@
     "More options": "更多选项",
     "Scroll to top": "回到顶部",
     "Page loading progress": "页面加载进度",
+
+    // ---- 信息流到底 ----
+    "You are all caught up": "你已经看完了",
+    "Consider changing your period or filters to find more":
+      "试试更换时间段或筛选条件来发现更多",
+    "Back to the top": "回到顶部",
+
+    // ---- 模型文件精度 / 量化说明（单独出现时）----
+    ...DESC_LABELS,
+    "Pruned model": "精简模型",
     "Table of contents": "目录",
     "Table of Contents": "目录",
     Shape: "形状",
@@ -940,11 +994,16 @@
       rec: "推荐",
       License: "许可",
       "Model options": "模型选项",
+      "Recently loaded": "最近加载",
+      "The creator has set this model to Generation-Only.":
+        "创作者已将这个模型设为仅限站内生成。",
       "Add to hub": "添加到中心",
       "Get notifications for this model": "订阅此模型的更新",
       "Add to collection": "添加到收藏集",
       "Download variant options": "下载版本选项",
       "How to use this": "如何使用",
+      "Usage Tips": "使用提示",
+      "Trigger Words": "触发词",
       "Suggested Resources for this model": "此模型的推荐资源",
       // 评测评级
       "Overwhelmingly Positive": "好评如潮",
@@ -2231,6 +2290,21 @@
       "No OAuth applications registered yet": "尚未注册 OAuth 应用",
       "Register your first OAuth application to enable third-party integrations.":
         "注册你的第一个 OAuth 应用以启用第三方集成。",
+
+      // ---- API 密钥弹窗 ----
+      "Create API Key": "创建 API 密钥",
+      "Delete API Key": "删除 API 密钥",
+      "Are you sure you want to delete this API Key?":
+        "确定要删除这个 API 密钥吗？",
+      "No, don't delete it": "不，别删它",
+      "There are no API keys in your account": "你的账户中没有 API 密钥",
+      "Start by creating your first API Key to connect your apps.":
+        "先创建你的第一个 API 密钥来连接你的应用。",
+      "Here is your API Key:": "这是你的 API 密钥：",
+      "Be sure to save this, you won't be able to see it again.":
+        "请务必保存好，之后你将无法再次查看。",
+      "You are responsible for everything done with this key. Anything generated, posted, or published with it (including by automated agents or scripts) counts as your own action under the":
+        "你对使用此密钥所做的一切负责。通过它生成、发布或公开的任何内容（包括由自动化代理或脚本完成的）都视为你在",
     },
 
     // ---- 创作者工作室（creator-studio.civitai.com）----
@@ -2556,6 +2630,12 @@
     return text.replace(re, (m, mon, day, year) => `${year}年${FULL_MONTHS[mon]}${day}日`);
   }
 
+  // 精度 / 量化说明 → 正则片段（按长度降序，避免短串先命中）
+  const DESC_RE_SRC = Object.keys(DESC_LABELS)
+    .sort((a, b) => b.length - a.length)
+    .map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .join("|");
+
   const REGEXPS = [
     // 相对时间：2 years ago / 3 days ago / a month ago
     [/^yesterday$/i, "昨天"],
@@ -2676,6 +2756,11 @@
     ],
     // 评论计数：Showing 8 of 523 comments
     [/^Showing\s+([\d,]+)\s+of\s+([\d,]+)\s+comments$/, "显示 $1 / $2 条评论"],
+    // 隐藏评论：See 11 more hidden comments
+    [
+      /^See\s+([\d,]+)\s+more hidden comments?$/i,
+      "查看另外 $1 条隐藏评论",
+    ],
     // 贴纸：4 stickers / 1 sticker
     [/^(\d+)\s+stickers?$/, "$1 个贴纸"],
     // 商店使用次数：100 uses included
@@ -2698,11 +2783,32 @@
       /^Select download variant\. Currently selected:\s*(.+)$/,
       "选择下载版本。当前选择：$1",
     ],
-    // fp16, Half precision, best balance, 3.97 GB
+    // 单独出现：Full precision, largest file / ... (pruned)
     [
-      /^(fp16|fp32|bf16),\s*Half precision,\s*best balance( \(pruned\))?,\s*([\d.]+\s*[GM]B)$/,
-      "$1，半精度，均衡最佳$2，$3",
+      new RegExp(`^(${DESC_RE_SRC})(\\s*\\(pruned\\))?$`),
+      (m, desc, pruned) => `${DESC_LABELS[desc]}${pruned ? "（精简版）" : ""}`,
     ],
+    // 模型文件精度说明：BF16, good balance • 280.06 MB / ... (pruned) • 1.99 GB
+    [
+      new RegExp(
+        `^(${DESC_RE_SRC})(\\s*\\(pruned\\))?\\s*•\\s*([\\d.]+\\s*[GMK]B)$`
+      ),
+      (m, desc, pruned, size) =>
+        `${DESC_LABELS[desc]}${pruned ? "（精简版）" : ""} • ${size}`,
+    ],
+    // 下载版本 aria：fp16, best match, Half precision, best balance (pruned), 1.99 GB
+    [
+      new RegExp(
+        `^(fp16|fp32|bf16|mxfp8|fp8(?:_mixed|_scaled)?|int8|nf4|nvfp4|int4),\\s*(?:best match,\\s*)?(${DESC_RE_SRC})(\\s*\\(pruned\\))?,\\s*([\\d.]+\\s*[GMK]B)$`
+      ),
+      (m, prec, desc, pruned, size) =>
+        `${prec}，${DESC_LABELS[desc]}${pruned ? "（精简版）" : ""}，${size}`,
+    ],
+    // GGUF 反量化 / 未知量化回退
+    [/^Unquantized GGUF,\s*(.+?)\s+precision$/, "未量化 GGUF，$1 精度"],
+    [/^Unquantized GGUF$/, "未量化 GGUF"],
+    [/^([\w.-]+)\s+quantization$/, "$1 量化"],
+    [/^([\w.-]+)\s+precision$/, "$1 精度"],
     // 拍卖分类：Featured Resources - Anima
     [/^Featured Resources\s*-\s*(.+)$/, "精选资源 - $1"],
     // 3D 下载按钮：Download (11.06 MB)
@@ -2725,17 +2831,7 @@
       /^Team (Pink|Green|Blue|Yellow) score$/,
       (m, team) => `${({ Pink: "粉队", Green: "绿队", Blue: "蓝队", Yellow: "黄队" })[team]}积分`,
     ],
-    // 下载版本描述：Half precision, best balance (pruned) • 1.99 GB
-    [
-      /^Half precision,\s*best balance( \(pruned\))?\s*•\s*([\d.]+\s*[GM]B)$/,
-      (m, pruned, size) => `半精度，均衡最佳${pruned ? "（精简版）" : ""} • ${size}`,
-    ],
-    // 下载版本 aria：fp16, best match, Half precision, best balance (pruned), 1.99 GB
-    [
-      /^(fp16|fp32|bf16),\s*best match,\s*Half precision,\s*best balance( \(pruned\))?,\s*([\d.]+\s*[GM]B)$/,
-      (m, prec, pruned, size) =>
-        `${prec}，最佳匹配，半精度，均衡最佳${pruned ? "（精简版）" : ""}，${size}`,
-    ],
+    // 下载版本描述 / aria 由上方 DESC_LABELS 通用正则统一处理
     // 擂台战绩：0 of 0 won
     [/^(\d+)\s+of\s+(\d+)\s+won$/i, "$1 / $2 获胜"],
     // 欢迎回来：Welcome back, cyberlangke! / Welcome back, cyberlangke.
