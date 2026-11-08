@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.12
+// @version      0.2.13
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -22,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.12";
+  const VERSION = "0.2.13";
 
   /* ========================================================================
    *  翻译边界
@@ -478,6 +478,10 @@
     Hidden: "隐藏",
     Reset: "重置",
     "Apply filters": "应用筛选",
+    "Clear all filters": "清除全部筛选",
+    "On Sale": "促销中",
+    "Checkpoint type": "Checkpoint 类型",
+    "File format": "文件格式",
     // 筛选面板（按字段筛选）
     "Sort models by": "模型排序方式",
     Relevancy: "相关度",
@@ -489,8 +493,8 @@
     "Search Filter by Base Model": "搜索基础模型",
     "Filter by Model Type": "按模型类型筛选",
     "Filter by Checkpoint Type": "按 Checkpoint 类型筛选",
-    Merge: "Merge",
-    Trained: "Trained",
+    Merge: "合并",
+    Trained: "训练",
     "Filter by Last Updated At": "按最近更新时间筛选",
     From: "从",
     "Start date": "开始日期",
