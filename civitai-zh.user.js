@@ -2,7 +2,7 @@
 // @name         Civitai 中文化插件
 // @namespace    https://github.com/1cyberlangke1/civitai-zh
 // @description  中文化 Civitai 界面的菜单及内容
-// @version      0.2.11
+// @version      0.2.12
 // @author       1cyberlangke1
 // @license      MIT
 // @match        https://civitai.com/*
@@ -22,7 +22,7 @@
   "use strict";
 
   // 版本号：控制台日志与 <html data-civitai-zh=""> 都会写这个值，便于确认装的是哪一版
-  const VERSION = "0.2.11";
+  const VERSION = "0.2.12";
 
   /* ========================================================================
    *  翻译边界
@@ -135,6 +135,8 @@
     "Sign in": "登录",
     "Join a team": "加入队伍",
     "Join and get your free hat": "加入并领取免费帽子",
+    Join: "加入",
+    "Not now": "以后再说",
     "See the standings": "查看排名",
 
     // ---- 页脚 ----
@@ -381,6 +383,11 @@
     "Some new filtering options don't apply retroactively.":
       "部分新的筛选选项不会追溯生效。",
     "Civitai turns 4.": "Civitai 四岁啦！",
+    "Hat Turf: Claim Images for Your Team": "帽子地盘：为你的队伍占领图片",
+    "Stick your team's hats on images across Civitai. When your team has the most people on one, it scores for you.":
+      "在 Civitai 各处的图片上贴上你队伍的帽子。当你的队伍在某张图片上人数最多时，就能为你得分。",
+    "Generation and Training Update": "生成与训练更新",
+    "What's on the page": "本页内容",
     "Pick up a hat.": "领取一顶帽子。",
     "Four color teams, Nov 1 to Nov 30. Hat your best work and score for your team.":
       "四色队伍，11 月 1 日至 11 月 30 日。为你的最佳作品戴上帽子，为你的队伍得分。",
@@ -1063,6 +1070,13 @@
       "Any creator can appear on a popular image, and you get to see other takes on work you liked. Iterate on it, restyle it, edit it, or turn it into a video - the creator reviews every submission.":
         "任何创作者都可能出现在热门图片上，你也能看到别人如何演绎你喜欢的作品。你可以迭代、改风格、编辑，或把它做成视频 - 每次提交都会由创作者审核。",
       "Why we built this": "为什么我们要做这个",
+      "Get your remix seen here": "让你的重混作品在这里被看到",
+      "Everyone who views this image sees this gallery. Make it yours and get seen alongside it.":
+        "所有查看这张图片的人都会看到这个画廊。把它变成你的，也让自己的作品出现在这里。",
+      "Iterate on it, restyle it, edit it into something new, or turn it into a video — then submit yours.":
+        "在它的基础上迭代、换风格、改编成新作品，或做成视频——然后提交你的作品。",
+      "The birthday event is on: join Hat Turf": "生日活动开始啦：来玩帽子地盘吧",
+      Process: "生成流程",
     },
 
     // ---- 视频列表 ----
@@ -1076,6 +1090,15 @@
     // ---- 3D 模型详情 ----
     "3d-model-detail": {
       "Model actions": "模型操作",
+      "Loading 3D model…": "正在加载 3D 模型…",
+      "Loading 3D model...": "正在加载 3D 模型…",
+      Base: "基础",
+      Rigged: "绑定",
+      Animated: "动画",
+      Walking: "行走",
+      Running: "奔跑",
+      "Walking armature": "行走骨架",
+      "Running armature": "奔跑骨架",
       Plain: "纯色",
       Studio: "影棚",
       Light: "光照",
@@ -1120,7 +1143,7 @@
       "Name a hub and fill it with the creators, models and tags you choose.":
         "给 Hub 取个名字，填入你选择的创作者、模型和标签。",
       "My hubs": "我的 Hub",
-      "How hubs work": "Hub 如何运作",
+      "How hubs work": "中心如何运作",
       "Pick the creators, models and tags you want to keep an eye on. New images show up in your hub as they are posted - you never have to add them.":
         "挑选你想关注的创作者、模型和标签。新图片发布后会自动出现在你的 Hub 中——你无需手动添加。",
       "You have not made a hub yet. Pick a starting point above, or make an empty one.":
@@ -1170,6 +1193,7 @@
       Other: "其他",
       "No Image": "无图片",
       "ch.": "章",
+      chapter: "章节",
       Browse: "浏览",
       chapters: "章",
       "Start Reading": "开始阅读",
@@ -1389,6 +1413,22 @@
       To: "至",
       "End date": "结束日期",
       "Hide Failed": "隐藏失败",
+      Image: "图片",
+      Change: "更换",
+      Loaded: "已加载",
+      Swap: "切换",
+      "Additional Resources": "附加资源",
+      Add: "添加",
+      "No resources selected": "未选择资源",
+      ControlNets: "ControlNet",
+      Controlnet: "ControlNet",
+      "Steer generation using a reference image. Add up to four control signals.":
+        "用参考图引导生成。最多可添加四个控制信号。",
+      "Add ControlNet": "添加 ControlNet",
+      "Not enough": "不足",
+      "Switch to": "切换到",
+      Green: "绿色",
+      Blue: "蓝色",
     },
 
     // ---- 挑战 ----
@@ -1444,6 +1484,8 @@
       total: "总计",
       "Generate Entries": "生成作品",
       "Submit Entries": "提交作品",
+      "What You're Growing": "你要种出什么",
+      "Scoring Elements": "评分要素",
     },
 
     // ---- Storylines ----
@@ -1480,6 +1522,13 @@
         "用你自己的帖子添加下一章。创作者会在加入前审核。",
       "Dismiss the Storylines welcome": "关闭 Storylines 欢迎提示",
       "Watch the Storylines video": "观看 Storylines 视频",
+      "Continue the story": "继续这个故事",
+      "Inspired by": "灵感来自",
+      image: "图片",
+      "Anyone can continue": "任何人都可以续写",
+      "reviews each one": "会逐一审核",
+      "Endorsed collaborators skip review": "认可的合作者可跳过审核",
+      "Free to continue": "免费续写",
     },
 
     // ---- 拍卖 ----
@@ -1648,6 +1697,44 @@
       "Only signed-in people's views and reactions count.":
         "只有已登录用户的浏览和反应才计分。",
       "A hat can move again": "帽子可以再次移动",
+      // ---- 活动现场页（生日 2026）----
+      "Point pops": "积分弹出",
+      "Active only: from your own reactions. All: whenever your points go up.":
+        "仅主动：只统计你自己的反应。全部：只要积分上涨就算。",
+      "Active only": "仅主动",
+      "Claim every picture": "占领每一张图片",
+      "for your team.": "为你的队伍。",
+      "Put your team's hat on any picture to claim it. The more of your team on one picture, the bigger your share.":
+        "把你们队伍的帽子贴到任意图片上即可占领。同一张图上你们队的人越多，分到的份额越大。",
+      "Join Hat Turf": "加入帽子地盘",
+      "Watch ·": "观看 ·",
+      Buy: "购买",
+      "The hats that have earned the most points so far.": "截至目前为止得分最高的帽子。",
+      "Top turf players": "帽子地盘顶级玩家",
+      "The players Hat Turf has earned the most points for.":
+        "帽子地盘为其赚取积分最多的玩家。",
+      "You land on one of four teams at random and get a free Party Cap in your color. Your team is yours for the whole event.":
+        "你会被随机分配到四支队伍之一，并获得一顶你队伍颜色的免费派对帽。整场活动期间队伍不可更改。",
+      "Each hat sits on one of your own posts at a time, alongside any frame. Move it any time, with a 10-minute wait between moves.":
+        "每顶帽子同一时间只能戴在你的一篇帖子上，可与边框并存。随时可以移动，两次移动之间需等待 10 分钟。",
+      "Accounts made in the": "在活动开始前",
+      "days before the event don't count.": "天内创建的账号不计分。",
+      minutes: "分钟",
+      "after it was placed.": "放置后开始计分。",
+      "Buzz spent doesn't score. Only attention does.":
+        "花费的 Buzz 不计分，只有关注度才算。",
+      "The prize": "奖品",
+      "Birthday 2026 Champion badge": "2026 生日冠军徽章",
+      "An animated badge in the winning color, for every member of the winning team whose hats earned points.":
+        "获胜队伍中每位帽子为队伍赚到积分的成员，都将获得一枚获胜队伍颜色的动态徽章。",
+      Questions: "常见问题",
+      "You keep them. They stay on your content and you can still move them, they just stop scoring and aren't sold any more.":
+        "帽子归你所有。它们仍留在你的内容上，也可以继续移动，只是不再计分，也不会再出售。",
+      "Yes.": "是的。",
+      "No. A hat keeps earning while it's on your content, whether or not you visit. Place it once and it scores for your team while you're away.":
+        "不用。只要帽子戴在你的内容上就会持续得分，与你是否访问无关。放一次，你不在时它也会为队伍计分。",
+      "No. Teams are assigned at random when you join and stay fixed.":
+        "不能。加入时队伍随机分配，之后固定不变。",
     },
 
     // ---- 安全中心（正文不翻，仅标题）----
@@ -1866,6 +1953,21 @@
       ", followed by a line ending in": "，其后是一行以",
       "Most trainings are not affected. This has been reported to our developers.":
         "大多数训练不受影响。此问题已上报给我们的开发团队。",
+      "In Progress": "处理中",
+      "Civitai-hosted generation and training mostly back":
+        "Civitai 托管的生成与训练已基本恢复",
+      "Krea 2 training": "Krea 2 训练",
+      "is still unavailable. It should be back soon; the": "仍不可用。应该很快就能恢复；",
+      "status page": "状态页",
+      "has the latest.": "上有最新消息。",
+      "Free accounts": "免费账户",
+      "can't yet load models that aren't already cached. That should reopen in a few days.":
+        "目前还无法加载未缓存的模型。预计几天内恢复。",
+      Members: "会员",
+      "downloading large models that aren't cached may wait a few hours.":
+        "下载未缓存的大模型可能需要等待几个小时。",
+      "We'll close this once free accounts can load models again.":
+        "等免费账户能再次加载模型后，我们会关闭此问题。",
     },
 
     // ---- 创作者计划（含折叠栏正文）----
@@ -1885,6 +1987,8 @@
       ". Your next step is": "。你的下一步是",
       ", which unlocks:": "，可解锁：",
       "judge crucibles": "评审擂台",
+      "judge crucibles and hat Turf: your stickers count for your team (accounts made since Nov 1)":
+        "评审擂台与帽子地盘：你的贴纸会计入你的队伍（仅限 11 月 1 日后创建的账号）",
       "Bankable Buzz": "可存入 Buzz",
       "Banked in earlier months, less what you extracted": "往月存入，扣除已提取的部分",
       "Banked this month": "本月存入",
@@ -2969,6 +3073,50 @@
       /^([\d,]+)\s+models? (?:have|has) been hidden due to your settings\.$/,
       "因你的设置，已隐藏 $1 个模型。",
     ],
+    // 3D 资源文件：Base · GLB · 10.7 MB · primary
+    [
+      /^(Base|Rigged|Animated|Walking|Running|Walking armature|Running armature) · ([A-Z]+) · ([\d.]+ [KMG]B)( · primary)?$/,
+      (m, kind, fmt, size, primary) => {
+        const zh = {
+          Base: "基础",
+          Rigged: "绑定",
+          Animated: "动画",
+          Walking: "行走",
+          Running: "奔跑",
+          "Walking armature": "行走骨架",
+          "Running armature": "奔跑骨架",
+        }[kind];
+        return `${zh} · ${fmt} · ${size}${primary ? " · 主要" : ""}`;
+      },
+    ],
+    // 括号内文件大小：(10.74 MB)
+    [/^\(([\d.]+ [KMG]B)\)$/, "（$1）"],
+    // 工作流节点数：25 Nodes
+    [/^(\d+)\s+Nodes$/, "$1 个节点"],
+    // 章节数：1 chapter / 3 chapters
+    [/^(\d+)\s+chapters?$/i, "$1 章"],
+    // 元数据键值对：scheduler:simple / engine:euler / denoise:0.5
+    [
+      /^(engine|denoise|scheduler|sampler|steps|seed|cfgScale|cfg):\s*(.+)$/i,
+      (m, key, val) => {
+        const zh = {
+          engine: "引擎",
+          denoise: "降噪",
+          scheduler: "调度器",
+          sampler: "采样器",
+          steps: "步数",
+          seed: "种子",
+          cfgscale: "CFG 强度",
+          cfg: "CFG",
+        }[key.toLowerCase()];
+        return `${zh}：${val}`;
+      },
+    ],
+    // 大写货币：18,800 BUZZ
+    [/^([\d,]+)\s+BUZZ$/, "$1 Buzz"],
+    // 结束倒计时：a day left / an hour left
+    [/^a day left$/i, "还剩 1 天"],
+    [/^an hour left$/i, "还剩 1 小时"],
   ];
 
   /* ========================================================================
